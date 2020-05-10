@@ -1,0 +1,71 @@
+/* components/school-item/index.wxss */
+@import '/style/global.wxss';
+
+.school-container {
+  background-color: fff;
+  box-sizing: border-box;
+  width: 750rpx;
+  height: 240rpx;
+  padding: 20rpx;
+  justify-content: space-between;
+  border-bottom: 0.5rpx solid #eee;
+}
+.school-container .left {
+  width: 240rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+} 
+.school-container .right {
+  flex: 1 1 auto;
+  margin-left: 15rpx;
+  justify-content: space-between;
+  height: 160rpx;
+  align-items: flex-start;
+} 
+
+.school-container .right .info {
+  justify-content: flex-start;
+  
+}
+
+.school-container .right .title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+  max-width: 470rpx;
+}
+
+.school-container .right .info {
+  font-size: 22rpx;
+  color: #666;
+  max-width: 470rpx;
+
+}
+
+.school-container .right .info .num {
+  font-size: 22rpx;
+  color: #666;
+  margin-right: 10rpx;
+  
+}
+
+.school-container .right .type {
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 1;
+  padding: 6rpx 20rpx;
+  background-color: #39C339;
+  border-radius: 10rpx;
+}
+
+.school-container .right .address {
+  font-size: 22rpx;
+  color: #666;
+  max-width: 470rpx;
+
+}
+
+.green {
+  color:#39C339;
+  font-size: 24rpx;
+}
