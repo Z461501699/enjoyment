@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="header">
+    <span class="search-text"></span>
+     <input class="search-input" bindinput="changeInput" placeholder="请输入..." />
+    <span class="search-btn" bind:tap="search">
+        搜索
+    </span>
+  </view>
+  <view class="toggle">
+  <view class="sz">
+      时间
+    </view>
+    <view class="pf">
+      人数
+    </view>
+    <view class="kc">
+      价格
+    </view>
+  </view>
+</view>

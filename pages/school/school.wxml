@@ -1,2 +1,6 @@
-<!--pages/school/school.wxml-->
-<text>pages/school/school.wxml</text>
+<!-- pages/school/school.wxml -->
+<view  hover-class="none" hover-stop-propagation="false">
+    <headers position='当前位置哒哒哒哒哒adadad哒' search='英语' bind:search='search'>
+
+    </headers>
+</view>

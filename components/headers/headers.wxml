@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="header">
+    <span class="search-text">{{position}}</span>
+     <input class="search-input" bindinput="changeInput" placeholder="请输入..." />
+    <span class="search-btn" bind:tap="search">
+        搜索
+    </span>
+  </view>
+  <view class="toggle">
+    <view class="pf">
+      评分
+    </view>
+    <view class="kc">
+      课程
+    </view>
+    <view class="sz">
+      师资
+    </view>
+  </view>
+</view>

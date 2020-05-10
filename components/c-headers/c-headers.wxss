@@ -1,0 +1,42 @@
+.container{
+ padding: 4rpx 12rpx;
+
+}
+.header{
+  margin-top: 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-text{
+  min-width: 60rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 6rpx;
+}
+.search-input{
+    border-radius: 24rpx;
+    background-color: #EBEBEC;
+    flex: 1;
+    padding: 6rpx 12rpx;
+    margin-right: 12rpx;
+    margin-left: 12rpx;
+}
+.search-btn{
+  text-align: right;
+  padding-right: 12rpx;
+ 
+}
+.toggle{
+  display: flex;
+  border-top: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
+  padding: 24rpx 0;
+  margin-top: 12rpx;
+  
+}
+.pf,.sz,.kc{
+  flex: 1;
+  text-align: center;
+}
