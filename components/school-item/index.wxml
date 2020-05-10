@@ -1,0 +1,19 @@
+<view class="school-container flex-row">
+  <!-- 左边图标 -->
+  <image class="left" src="{{url}}" mode="aspectFill" />
+  <!-- 右侧信息 -->
+  <view class='right flex-column'>
+    <!-- 学校名称 -->
+    <view class="title hidden-beyond">{{title}}</view>
+    <!-- 学校详情 -->
+    <view class="info flex-row hidden-beyond">
+      <view class="num">课程：<text class="green">{{sourseNum}}</text>个</view>
+      <view class="num">师资：<text class="green">{{teacherNum}}</text>个</view>
+      <view class="num">评分：<text class="green">{{score}}</text>分</view>
+    </view>
+    <!-- 学校类型 -->
+    <test class="type flex-column">{{schoolType}}</test>
+    <!-- 学校地址 -->
+    <view class='address hidden-beyond'>{{address}}</view>
+  </view>
+</view>

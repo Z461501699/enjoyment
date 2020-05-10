@@ -1,0 +1,18 @@
+/* components/list-title/index.wxss */
+@import '/style/global.wxss';
+.title {
+  padding: 20rpx;
+  background-color: #fff;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee;
+}
+.title .left {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.title .right {
+  font-size: 32rpx;
+  color: #FB923C;
+}
