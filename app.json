@@ -1,12 +1,35 @@
 {
-  "pages":[
-    "pages/index/index"
+  "pages": [
+    "pages/index/index",
+    "pages/personal/personal",
+    "pages/school/school",
+    "pages/course/course"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "享课",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/school/school",
+        "text": "学校"
+      },
+      {
+        "pagePath": "pages/course/course",
+        "text": "课程"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心"
+      }
+    ]
+  }
 }
