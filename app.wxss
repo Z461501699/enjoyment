@@ -1,15 +1,8 @@
 /**app.wxss**/
 @import '/style/global.wxss';
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
-.red{
-  color: red;
+page{
+  --bg-color: #f3f3f3;
+  --theme-color: #12AE85;
+  /* background-color:  var(--bg-color); */
 }
 

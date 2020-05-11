@@ -1,3 +1,29 @@
 <view class='container'>
-<van-button type="primary">按钮</van-button>
+	<view class="banner-box">
+		<swiper indicator-dots indicator-color="rgb(255,255,255)" autoplay>
+			<block wx:for="{{['red','blue','pink','yello']}}" wx:key="*this">
+				<swiper-item>
+					<view class="swiper-item" style="background:{{item}}"></view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class="btn-list">
+		<view class="btn-item" wx:for="{{['red','blue','pink','yello']}}" wx:key="*this">
+			<image class="icon"></image>
+			<view class="text">课程</view>
+		</view>
+	</view>
+	<list-title title="学校推荐" bind:click="onToSchoolList">
+		<block wx:for="{{5}}" wx:key="*this">
+			<school-item></school-item>
+		</block>
+	</list-title>
+	<list-title title="课程推荐" bind:click="onToCourseList">
+		<block wx:for="{{5}}" wx:key="*this">
+			<course-item></course-item>
+		</block>
+	</list-title>
 </view>
+<!-- 授权弹窗 -->
+<login-popup show="{{isShowLoginModule}}" bind:close="onChangeLoginModel"></login-popup>
