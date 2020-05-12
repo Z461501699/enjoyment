@@ -1,0 +1,24 @@
+.container-select{
+ 
+}
+.title{
+ display: flex;
+ align-items: center;
+}
+.select{
+  display: flex;
+  align-items: center;
+}
+.position{
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+}
+.input{
+  flex:1;
+}
+.search{
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+}

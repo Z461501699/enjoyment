@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "c-headers" : "../../components/c-headers/c-headers"
+    "c-headers" : "../../components/c-headers/c-headers",
+    "header-select": "../../components/header-select/header-select"
   }
 }

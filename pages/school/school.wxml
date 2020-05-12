@@ -1,6 +1,6 @@
 <!-- pages/school/school.wxml -->
-<view  hover-class="none" hover-stop-propagation="false">
-    <headers position='当前位置哒哒哒哒哒adadad哒' search='英语' bind:search='search'>
-
-    </headers>
+<view hover-class="none" hover-stop-propagation="false">
+    <header-select :input1='哈哈' :opt1='哈哈哈'>
+        <text slot="position">111</text>
+    </header-select>
 </view>
