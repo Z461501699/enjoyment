@@ -4,7 +4,12 @@
   align-items    : center;
   justify-content: space-around;
 }
-
+.flex-between {
+  display        : flex;
+  flex-direction : row;
+  align-items    : center;
+  justify-content: space-between;
+}
 .flex-column {
   display        : flex;
   flex-direction : column;

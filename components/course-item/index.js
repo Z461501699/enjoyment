@@ -1,14 +1,10 @@
-// components/list-title/index.js
+// components/course-item/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    // 标题信息
-    title: {
-      value: '列表',
-      type: String
-    }
+
   },
 
   /**
@@ -22,8 +18,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    more() {
-      this.triggerEvent('click')
-    }
+
   }
 })

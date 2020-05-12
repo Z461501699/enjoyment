@@ -1,0 +1,7 @@
+<van-popup show="{{ show }}" bind:close="onClose" closeable round>
+	<view class="loginPopup-box">
+		<view class="title">提示</view>
+		<view class="subtitle">副标题</view>
+		<button class="btn" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">前往授权</button>
+	</view>
+</van-popup>
