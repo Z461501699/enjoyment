@@ -4,7 +4,8 @@
     "pages/personal/personal",
     "pages/school/school",
     "pages/course/course",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/courseDetail/courseDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

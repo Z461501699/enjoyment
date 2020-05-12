@@ -1,10 +1,13 @@
-// components/course-item/index.js
+// components/course-title/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    title: {
+      value: '标题',
+      type: String
+    }
   },
 
   /**
@@ -18,8 +21,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onToDetail(e) {
-      this.triggerEvent('toDetail', { id: e.currentTarget.dataset.id })
-    }
+
   }
 })

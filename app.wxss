@@ -1,9 +1,9 @@
 /**app.wxss**/
 @import '/style/global.wxss';
 @import "/utils/iconfont.wxss";
-page{
+
+page {
   background: #f7f7f7;
-      --bg-color: #f3f3f3;
+  --bg-color: #f3f3f3;
   --theme-color: #12AE85;
 }
-

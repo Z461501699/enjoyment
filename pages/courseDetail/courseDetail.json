@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "course-item": "../../components/course-item/index",
+    "school-item":"../../components/school-item/index",
+    "course-title": "../../components/course-title/index",
+    "teacher-card":"../../components/teacher-card/index"
+  },
+  "navigationBarBackgroundColor": "#12AE85",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "课程详情"
+}

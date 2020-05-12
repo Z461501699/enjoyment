@@ -1,0 +1,34 @@
+@import '/style/global.wxss';
+
+.teacherCard-box {
+  width: 434rpx;
+  height: 148rpx;
+  background-color: #fff;
+  box-shadow: 0 4rpx 12rpx 0 #ccc;
+  /* display: inline-block; */
+
+}
+
+.teacherCard-box .header-img {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #ccc;
+}
+
+.teacherCard-box .msg-box {
+  width: 294rpx;
+  height: 100rpx;
+}
+
+.teacherCard-box .msg-box .name {
+  width: 100%;
+  font-size: 36rpx;
+  color: #000000;
+  text-indent: 50rpx;
+}
+
+.teacherCard-box .msg-box .mark {
+  width: 100%;
+  font-size: 24rpx;
+  color: #999999;
+}

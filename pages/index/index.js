@@ -38,6 +38,15 @@ Page({
     })
   },
   /**
+   * 跳转课程详情
+   */
+  onToCourseDetail(e) {
+    console.log(e.detail.id)
+    wx.navigateTo({
+      url: '/pages/courseDetail/courseDetail',
+    })
+  },
+  /**
    * 课程列表
    */
   onToCourseList() {

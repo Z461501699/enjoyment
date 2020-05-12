@@ -1,0 +1,7 @@
+<view class="teacherCard-box flex-row">
+	<image class="header-img"></image>
+	<view class="msg-box flex-column">
+    <view class="name">冷老师</view>
+    <view class="mark">毕业于中央美术学院</view>
+  </view>
+</view>

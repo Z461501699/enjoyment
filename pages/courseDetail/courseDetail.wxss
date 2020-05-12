@@ -1,0 +1,86 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  padding-bottom: 10vh;
+}
+
+.introduction-msg {
+  width: 100%;
+  line-height: 50rpx;
+  margin: 20rpx 0;
+  padding: 0 20rpx;
+  color: #767a7a;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.introduction-msg.msgHeight {
+  height: 200rpx;
+}
+
+.introduction-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.introduction-icon.rotate90 {
+  transform: rotate(180deg);
+}
+
+.teacher-list {
+  width: 100%;
+  height: 200rpx;
+  white-space: nowrap;
+  padding: 20rpx 0 20rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.scroll-box {
+  width: 434rpx;
+  height: 148rpx;
+  display: inline-block;
+  margin-right: 30rpx;
+}
+
+.btm-box {
+  width: 100vw;
+  height: 10vh;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.btn-share {
+  width: 60rpx;
+  height: 88rpx;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  border: none;
+}
+
+.btn-share::after {
+  border: none;
+}
+
+.btn-share .icon {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #ccc;
+}
+
+.btn-share .text {
+  line-height: normal;
+  color: #999898;
+  font-size: 24rpx;
+}
+
+.btn-submit {
+  width: 562rpx;
+  height: 88rpx;
+  background-color: var(--theme-color);
+  color: #fff;
+  margin: 0;
+}

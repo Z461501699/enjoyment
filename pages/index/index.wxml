@@ -21,7 +21,7 @@
 	</list-title>
 	<list-title title="课程推荐" bind:click="onToCourseList">
 		<block wx:for="{{5}}" wx:key="*this">
-			<course-item></course-item>
+			<course-item bind:toDetail="onToCourseDetail"></course-item>
 		</block>
 	</list-title>
 </view>

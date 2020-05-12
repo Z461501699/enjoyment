@@ -1,0 +1,19 @@
+@import '/style/global.wxss';
+.courseTitle-box {
+  width: 100vw;
+  /* min-height: 300rpx; */
+  padding: 0 20rpx 40rpx 20rpx;
+
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.courseTitle-box .title {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  color: #000000;
+  border-bottom: 1rpx solid #bbbbbb;
+}
