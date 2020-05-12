@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/personal/personal",
     "pages/school/school",
-    "pages/course/course"
+    "pages/course/course",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,20 +17,33 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_action.png"
       },
       {
         "pagePath": "pages/school/school",
-        "text": "学校"
+        "text": "学校",
+        "iconPath": "images/school.png",
+        "selectedIconPath": "images/school_action.png"
       },
       {
         "pagePath": "pages/course/course",
-        "text": "课程"
+        "text": "课程",
+        "iconPath": "images/course.png",
+        "selectedIconPath": "images/course_action.png"
       },
       {
         "pagePath": "pages/personal/personal",
-        "text": "个人中心"
+        "text": "个人中心",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_action.png"
       }
     ]
+  },
+  "usingComponents": {
+    "van-icon": "dist/icon/index",
+    "van-row": "dist/row/index",
+    "van-col": "dist/col/index"
   }
 }
