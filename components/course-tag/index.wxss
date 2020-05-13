@@ -1,0 +1,7 @@
+/* components/course-tag/index.wxss */
+.tag {
+  padding: 0rpx 20rpx;
+  border: 1rpx solid #C2C2C2;
+  display: inline-block;
+  font-size: 24rpx;
+}
