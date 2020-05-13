@@ -2,7 +2,7 @@
 @import '/style/global.wxss';
 
 .school-container {
-  background-color: fff;
+  background-color: #fff;
   box-sizing: border-box;
   width: 750rpx;
   height: 240rpx;
