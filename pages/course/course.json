@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "c-headers" : "../../components/c-headers/c-headers",
-    "header-select": "../../components/header-select/header-select"
-  }
+    "header-select": "../../components/header-select/header-select",
+    "course-item": "../../components/course-item/index"
+  },
+  "enablePullDownRefresh": true
+
 }
