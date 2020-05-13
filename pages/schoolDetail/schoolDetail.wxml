@@ -1,0 +1,62 @@
+<!-- 学校图片 -->
+<image class='school-item' src="http://searchfoto.ru/img/xyygpKbDS1y8pTjXUy83VS8rMS9fLSy3RL8mwz0yx9fcM0EtJ0S2PyCnOy8sOSTMOqQq38I23NHf0SHTNV0vMLbAutzUyNgCzMmwNzSGsomJbQzCjIDnHNgUMwNx8W1OIMNBoQz1DAA.jpg" />
+
+<!-- 学校标题 -->
+<view class="hidden-beyond title">
+	东方童话美术教育培训东方童话美术教育培训东方童话美术教育培训东方童话美术教育培训东方童话美术教育培训
+	<view class="sub-title">
+		地址：青岛试试被褥四流南路188号
+	</view>
+</view>
+
+<!-- 公司介绍 -->
+<school-title title="公司介绍">
+	<view class="introduction-msg {{isShowAll?'msgHeight':''}}">
+		<view>
+			<tag>美术</tag>
+		</view>
+		东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底， 东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底，东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底， 东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底，东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底， 东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底， 东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底， 东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底，
+	</view>
+	<image bindtap="onShowMoreMsg" class="introduction-icon {{isShowAll?'':'rotate90'}}" src="../../images/icon/icon_down.png"></image>
+</school-title>
+
+<!-- 公司官网 -->
+<school-title title="公司官网">
+	<view class="url">
+		https://www.yiweichuangxiang.com
+	</view>
+</school-title>
+
+<!-- 公司地址 -->
+<school-title title="公司地址">
+	<view class="flex-column map-box">
+		<map class="map" />
+	</view>
+</school-title>
+
+<!-- 师资力量 -->
+<school-title title="任课老师">
+	<scroll-view scroll-x="true" class="teacher-list">
+		<view class="scroll-box" wx:for="{{5}}" wx:key="*this">
+			<teacher-card></teacher-card>
+		</view>
+	</scroll-view>
+</school-title>
+
+<!-- 联系我们 -->
+<view class="btm-box flex-row">
+	<button class="btn-share flex-column" open-type="share">
+		<image class="icon"></image>
+		<view class="text">分享</view>
+	</button>
+	<button class="btn-submit">联系我们</button>
+</view>
+<!-- 课程列表 -->
+	<list-title title="课程推荐" bind:click="onToCourseList">
+		<block wx:for="{{5}}" wx:key="*this">
+			<course-item bind:toDetail="onToCourseDetail"></course-item>
+		</block>
+	</list-title>
+<!-- 底部填充 -->
+
+<view style="width: 100%;height: 100rpx;"></view>
