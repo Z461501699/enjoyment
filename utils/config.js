@@ -1,4 +1,4 @@
 const config={
-  url:'http://121.36.4.133:8080',
+  url:'http://localhost:5001',
 }
 export default config

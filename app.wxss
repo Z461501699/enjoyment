@@ -1,6 +1,5 @@
 /**app.wxss**/
 @import '/style/global.wxss';
-@import "/utils/iconfont.wxss";
 
 page {
   background: #f7f7f7;

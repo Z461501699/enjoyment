@@ -1,11 +1,12 @@
 /**
  * 封装http 请求方法
  */
-const app = getApp();
 import config from'./config.js'
+import api from '../api/index'
+
 const apiUrl = config.url; //服务器api地址
 const request = (params) => {
-  // console.log( apiUrl + params.url.path)
+
   //返回promise 对象
   return new Promise((resolve, reject) => {
     if (params.loadingMessage) {
@@ -14,20 +15,19 @@ const request = (params) => {
         mask: true
       })
     }
+    //获取请求url对象
+    let urlObj = api[params.apikey];
+
     wx.request({
-      url: apiUrl + params.url.path,
+      url: apiUrl + urlObj.path,
       data: params.data,
       header: params.header || {
-        // "Content-Type": "application/x-www-form-urlencoded",
         "Authorization": wx.getStorageSync('token')
       },
-      method: params.url.type || 'GET',//默认为GET
+      method: urlObj.type || 'GET',//默认为GET
       dataType: params.dataType,//返回的数据格式,默认为JSON，特殊格式可以在调用的时候传入参数
       responseType: params.responseType,//响应的数据类型
       success: function (res) {
-        if (params.loadingMessage) {
-          wx.hideLoading();
-        }
         //接口访问正常返回数据
         if (res.statusCode == 200) {
           //1. 操作成功返回数据,原则上只针对服务器端返回成功的状态（如本例中为000000）
@@ -64,10 +64,12 @@ const request = (params) => {
         }
       },
       fail: function(e) {
+        reject(e)
+      },
+      complete(res) {
         if (params.loadingMessage) {
           wx.hideLoading();
         }
-        reject(e)
       }
     })
   })

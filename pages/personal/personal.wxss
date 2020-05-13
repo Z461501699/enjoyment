@@ -182,7 +182,7 @@
 }
 
 .asset-right_item .item-name {
-  margin-top: 2rpx;
+  margin-bottom: 10rpx;
 }
 
 .asset-right_item .item-name text {
@@ -195,13 +195,13 @@
   padding: 0 60rpx;
 }
 
-.asset-left_item .item-value text {
+.item-value text {
   font-size: 32rpx;
   color: red;
 }
 
 .asset-left_item .item-name {
-  margin-top: 2rpx;
+  margin-bottom: 10rpx;
 }
 
 .asset-left_item .item-name text {
