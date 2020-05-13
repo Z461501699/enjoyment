@@ -4,3 +4,6 @@
         <text slot="position">111</text>
     </header-select>
 </view>
+	<block wx:for="{{schoolList}}" wx:key="*this">
+			<school-item></school-item>
+		</block>
