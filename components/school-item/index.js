@@ -53,5 +53,15 @@ Component({
    */
   methods: {
 
+    handleToDetail(e){
+      const {currentTarget} = e
+      const { id } = currentTarget
+      this.triggerEvent('toDetail',id)
+    }
+
+
+
+
+    
   }
 })

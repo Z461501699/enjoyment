@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "school-title": "../../components/school-title/index",
+    "tag": "../../components/course-tag/index",
+    "teacher-card":"../../components/teacher-card/index",
+    "course-item": "../../components/course-item/index"
+
+
+  }
+}

@@ -37,6 +37,15 @@ Page({
     }, 1500)
   },
   /**
+   * 跳转到详情页
+   */
+  toDetail(e) {
+    console.log('列表触发', e);
+    wx.navigateTo({
+      url: '/pages/schoolDetail/schoolDetail',
+    })
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {

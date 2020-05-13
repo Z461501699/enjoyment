@@ -1,0 +1,4 @@
+	<view class="schoolTitle-box flex-column">
+		<view class="title">{{title}}</view>
+		<slot />
+	</view>
