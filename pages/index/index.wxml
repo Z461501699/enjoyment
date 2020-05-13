@@ -9,9 +9,9 @@
 		</swiper>
 	</view>
 	<view class="btn-list">
-		<view class="btn-item" wx:for="{{['red','blue','pink','yello']}}" wx:key="*this">
-			<image class="icon"></image>
-			<view class="text">课程</view>
+		<view class="btn-item" wx:for="{{btnList}}" wx:key="*this">
+			<image class="icon" src="{{item.icon}}"></image>
+			<view class="text">{{item.name}}</view>
 		</view>
 	</view>
 	<list-title title="学校推荐" bind:click="onToSchoolList">

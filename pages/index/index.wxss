@@ -38,7 +38,7 @@ swiper{
 .btn-item .icon {
   width: 90rpx;
   height: 90rpx;
-  background: #ccc;
+  /* background: #ccc; */
 
 }
 
