@@ -6,23 +6,28 @@ import { closeLoading, openLoading } from '../../utils/pagination'
 Page({
   data: {
     isShowLoginModule: false,
-    btnList:[{
-      name:'课程',
-      icon:'../../images/icon/icon_course.png',
-      path:''
-    },{
-      name:'订单',
-      icon:'../../images/icon/icon_order.png',
-      path:''
-    },{
-      name:'消息',
-      icon:'../../images/icon/icon_message.png',
-      path:''
-    },{
-      name:'反馈',
-      icon:'../../images/icon/icon_feedback.png',
-      path:''
+    btnList: [{
+      name: '课程',
+      icon: '../../images/icon/icon_course.png',
+      path: ''
+    }, {
+      name: '订单',
+      icon: '../../images/icon/icon_order.png',
+      path: ''
+    }, {
+      name: '消息',
+      icon: '../../images/icon/icon_message.png',
+      path: ''
+    }, {
+      name: '反馈',
+      icon: '../../images/icon/icon_feedback.png',
+      path: ''
     }]
+  },
+  onNavigate(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.path,
+    })
   },
   onLoad: function () {
     /**
