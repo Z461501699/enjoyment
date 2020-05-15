@@ -17,7 +17,7 @@ Page({
     }, {
       name: '消息',
       icon: '../../images/icon/icon_message.png',
-      path: ''
+      path: '/pages/message/message'
     }, {
       name: '反馈',
       icon: '../../images/icon/icon_feedback.png',
