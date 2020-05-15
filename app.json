@@ -6,7 +6,8 @@
     "pages/course/course",
     "pages/login/login",
     "pages/courseDetail/courseDetail",
-    "pages/schoolDetail/schoolDetail"
+    "pages/schoolDetail/schoolDetail",
+    "pages/message/message"
   ],
   "window": {
     "backgroundTextStyle": "light",
