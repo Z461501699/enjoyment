@@ -1,0 +1,20 @@
+<view class="flex-row main">
+	<!-- 图标 -->
+	<view class="flex-column icon-box" style="background-color: {{MESSAGE_OPTIONS[type].color}}">
+		<image class="image" src="{{MESSAGE_OPTIONS[type].url}}" />
+	</view>
+	<!-- 详情 -->
+	<view class="flex-column hidden-beyond info">
+		<view class="type">
+			{{MESSAGE_OPTIONS[type].title}}
+		</view>
+		<view class="hidden-beyond text">
+			您的信息我们已近收到，我们尽快核实。您的信息我们已近收到，我们尽快核实。
+		</view>
+	</view>
+	<!-- 日期 -->
+	<view class="date">
+		2020/04/14
+	</view>
+</view>
+

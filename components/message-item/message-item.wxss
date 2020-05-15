@@ -1,0 +1,41 @@
+/* components/message/message-item.wxss */
+@import "/style/global.wxss";
+
+.main {
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  justify-content: space-between;
+  width: 750rpx;
+  border: 0.5rpx solid #eee
+}
+
+.icon-box {
+  background-color: #1A7CFC;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+.icon-box .image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.info {
+  align-items: flex-start;
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.info .text {
+  font-size: 24rpx;
+  color: #333;
+  width: 100%;
+}
+
+.date {
+  color: #666;
+  font-size: 24rpx;
+  width: 130rpx;
+}
