@@ -1,38 +1,16 @@
-<view class="container-select">
+<view class="box">
   <van-row>
-    <van-col span="4" class="position">
-    <slot></slot>
-      <slot name='position'></slot>
+    <van-col class="center" span='6'>-</van-col>
+    <van-col span='14' >
+      <van-field class="search" search left-icon='search' value="搜索"  border="{{ false }}" />
     </van-col>
-    <van-col span="16">
-      <van-field class="input-filed" left-icon="search" v-model="input1" placeholder="搜索" />
-    </van-col>
-    <van-col span="4">
-      <view class="search" hover-class="none" hover-stop-propagation="false">搜索</view>
-    </van-col>
+    <van-col class="center" span='4'>搜索</van-col>
   </van-row>
-  <van-row>
+  <view>
     <van-dropdown-menu>
-    <van-dropdown-item v-model="value1" :options="option1" />
-    <van-dropdown-item v-model="value2" :options="option2" />
-    <van-dropdown-item v-model="value3" :options="option3" />
-  </van-dropdown-menu>
-  </van-row>
-
-  <!-- <view class="title" hover-class="none" hover-stop-propagation="false">
-    <view class="position" hover-class="none" hover-stop-propagation="false">
-      <slot name='position'></slot>
-    </view>
-    <view class="input" hover-class="none" hover-stop-propagation="false">
-      <van-field  class="input-filed" left-icon="search" v-model="input1" placeholder="搜索" />
-    </view>
-    <view class="search" hover-class="none" hover-stop-propagation="false">搜索</view>
+      <block wx:for="{{selectOptions}}" wx:key="*this" >
+        <van-dropdown-item data-index="{{selectTitles[index]}}"  bind:change="getItem" title="{{selectTitles[index].key}}" value="{{ selectTitles[index] }}" options="{{ selectOptions[index] }}" wx:key="*this" />
+      </block>
+    </van-dropdown-menu>
   </view>
-  <view class="" hover-class="none" hover-stop-propagation="false">
-     <van-dropdown-menu>
-    <van-dropdown-item v-model="value1" :options="option1" />
-    <van-dropdown-item v-model="value2" :options="option2" />
-    <van-dropdown-item v-model="value3" :options="option3" />
-  </van-dropdown-menu>
-  </view> -->
 </view>
