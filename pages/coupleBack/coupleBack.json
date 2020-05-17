@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "couple-back": "/components/couple-back/index/index",
+    "couple-back-picker": "/components/couple-back/picker/index",
+    "couple-back-textarea": "/components/couple-back/textarea/index"
+  },
+  "navigationBarTitleText": "反馈"
+}

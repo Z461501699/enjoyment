@@ -1,0 +1,13 @@
+<couple-back>
+	<couple-back-picker />
+</couple-back>
+<couple-back>
+	<couple-back-textarea />
+</couple-back>
+<view class="file-box">
+	<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />
+</view>
+
+
+<van-button bind:click="handleSubmit" color="var(--theme-color)" class="submit" type="primary" block>提交反馈</van-button>
+
