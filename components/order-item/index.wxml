@@ -1,0 +1,20 @@
+<view class="flex-row container">
+	<image class="image" src="{{imageUrl}}" />
+	<view class="flex-column info">
+		<view class="title">
+			英语星概念第一册
+		</view>
+		<view class="course-total">
+			共10节 以学5节
+
+		</view>
+		<!-- 占位用的view -->
+		<view />
+		<view class="flex-row buy">
+			<view class="buy-num">10人购买</view>
+			<view class="buy-btn" bind:tap="bandleStudy">
+				去学习
+			</view>
+		</view>
+	</view>
+</view>
