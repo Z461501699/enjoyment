@@ -9,7 +9,7 @@ Page({
     btnList: [{
       name: '课程',
       icon: '../../images/icon/icon_course.png',
-      path: ''
+      path: '/pages/courseManage/courseManager'
     }, {
       name: '订单',
       icon: '../../images/icon/icon_order.png',
