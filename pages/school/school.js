@@ -16,14 +16,12 @@ Page({
     selectOptions:HEADER_SELECT_OPTIONS
   },
   // 下拉回调
-  change(e){
-    console.log('change',e)
+  change({detail}){
+    console.log('change',detail)
   },
   // 搜索功能
-  search: function ({
-    detail
-  }) {
-    console.log('e', detail)
+  handleSearch({detail}) {
+    console.log('搜索', detail)
   },
 
   // 获取学校数据

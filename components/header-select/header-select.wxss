@@ -1,21 +1,19 @@
-.box	{
+.box {
   background: #fff;
-  
+
 }
-.center{
+
+.box-search {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+
+}
+
+.center {
   line-height: 44px;
   text-align: center;
-  background:#fff !important;
+  background: #fff !important;
 }
-.input-class{
-  background-color: red;
-}
-.search{
-  background: pink;
-}
-.van-field{
-    background: yellow;
-}
-.van-cell{
-  background: black !important;
+.drop{
+  border-bottom: 1px solid #eee;
 }

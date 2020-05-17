@@ -18,11 +18,9 @@ Page({
    change(e){
     console.log('change',e)
   },
-  // 搜索功能
-  search: function ({
-    detail
-  }) {
-    console.log('e', detail)
+   // 搜索功能
+   handleSearch({detail}) {
+    console.log('搜索', detail)
   },
   // 获取课程数据
   getCourseList() {
