@@ -9,7 +9,8 @@
     "pages/schoolDetail/schoolDetail",
     "pages/message/message",
     "pages/order/order",
-    "pages/courseManage/courseManager"
+    "pages/courseManage/courseManager",
+    "pages/coupleBack/coupleBack"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -54,6 +55,8 @@
     "van-dropdown-menu": "dist/dropdown-menu/index",
     "van-dropdown-item": "dist/dropdown-item/index",
     "van-cell": "dist/cell/index",
-    "van-cell-group": "dist/cell-group/index"
+    "van-cell-group": "dist/cell-group/index",
+    "van-uploader": "dist/uploader/index",
+    "van-button": "dist/button/index"
   }
 }
