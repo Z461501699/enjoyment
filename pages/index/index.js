@@ -13,7 +13,7 @@ Page({
     }, {
       name: '订单',
       icon: '../../images/icon/icon_order.png',
-      path: ''
+      path: '/pages/order/order'
     }, {
       name: '消息',
       icon: '../../images/icon/icon_message.png',
