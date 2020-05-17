@@ -1,0 +1,9 @@
+<van-dropdown-menu active-color="var(--theme-color)">
+	<van-dropdown-item bind:change="handleChangeStudent" value="{{ value1 }}" options="{{ option1 }}" />
+</van-dropdown-menu>
+
+<block wx:for="{{10}}" wx:key="*this">
+  <course-manage-item />
+</block>
+
+<view class="load-all">没有更多信息啦~~~</view>

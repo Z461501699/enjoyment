@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "course-manage-item": "/components/course-manage-item/index"
+  }
+}
