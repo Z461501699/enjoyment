@@ -1,10 +1,10 @@
 <view class="flex-row container">
 	<image class="image" src="{{imageUrl}}" />
-	<view class="flex-column info">
-		<view class="title">
-			英语星概念第一册
+	<view class="flex-column hidden-beyond info">
+		<view class="hidden-beyond title">
+			英语星概念第一册英语星概念第一册英语星概念第一册
 		</view>
-		<view class="course-total">
+		<view class="hidden-beyond course-total">
 			共10节 以学5节
 
 		</view>
