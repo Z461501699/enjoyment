@@ -1,4 +1,6 @@
 // pages/course/course.js
+import {HEADER_SELECT_TITLES,HEADER_SELECT_OPTIONS} from '../../config/commonData'
+
 Page({
 
   /**
@@ -8,7 +10,13 @@ Page({
     courseList: [],
     pageSize: 10,
     pageNo: 1,
-    isLoadAll: false
+    isLoadAll: false,
+    selectTitles:HEADER_SELECT_TITLES,
+    selectOptions:HEADER_SELECT_OPTIONS
+  },
+   // 下拉回调
+   change(e){
+    console.log('change',e)
   },
   // 搜索功能
   search: function ({

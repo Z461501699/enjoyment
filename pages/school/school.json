@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-    "header-select":"../../components/header-select/header-select",
-    "school-item": "../../components/school-item/index"
+    "header-select":"/components/header-select/header-select",
+    "school-item": "/components/school-item/index"
   },
   "enablePullDownRefresh": true
 }

@@ -1,24 +1,21 @@
-.container-select{
- 
+.box	{
+  background: #fff;
+  
 }
-.title{
- display: flex;
- align-items: center;
-}
-.select{
-  display: flex;
-  align-items: center;
-}
-.position{
-  height: 44px;
+.center{
   line-height: 44px;
   text-align: center;
+  background:#fff !important;
 }
-.input{
-  flex:1;
+.input-class{
+  background-color: red;
 }
 .search{
-  height: 44px;
-  line-height: 44px;
-  text-align: center;
+  background: pink;
+}
+.van-field{
+    background: yellow;
+}
+.van-cell{
+  background: black !important;
 }
