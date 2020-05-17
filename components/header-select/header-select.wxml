@@ -1,15 +1,25 @@
 <view class="box">
-  <van-row>
-    <van-col class="center" span='6'>-</van-col>
-    <van-col span='14' >
-      <van-field class="search" search left-icon='search' value="搜索"  border="{{ false }}" />
-    </van-col>
-    <van-col class="center" span='4'>搜索</van-col>
+  <van-row custom-class="box-search">
+    <block wx:if="{{hasPosition}}">
+      <van-col class="center" span='6'>-</van-col>
+      <van-col span='14'>
+        <van-field custom-style	="background:#eee;border-radius:30px" search left-icon='search'
+         placeholder='搜索' value="{{search}}" bind:change="onChange" border="{{ false }}" />
+      </van-col>
+    </block>
+    <block wx:else="{{!hasPosition}}">
+      <van-col span='14' offset='6'>
+        <van-field custom-style	="background:#eee;border-radius:30px" search left-icon='search'
+         placeholder='搜索' value="{{search}}" bind:change="onChange" border="{{ false }}" />
+      </van-col>
+    </block>
+    <van-col class="center" span='4' bind:tap='handleSearch'>查询</van-col>
   </van-row>
-  <view>
-    <van-dropdown-menu>
-      <block wx:for="{{selectOptions}}" wx:key="*this" >
-        <van-dropdown-item data-index="{{selectTitles[index]}}"  bind:change="getItem" title="{{selectTitles[index].key}}" value="{{ selectTitles[index] }}" options="{{ selectOptions[index] }}" wx:key="*this" />
+  <view class="drop">
+    <van-dropdown-menu active-color="var(--theme-color)">
+      <block wx:for="{{selectOptions}}" wx:key="index">
+        <van-dropdown-item data-index="{{selectTitles[index]}}" bind:change="getItem"
+         value="{{ selectTitles[index].value }}" options="{{ selectOptions[index] }}"  />
       </block>
     </van-dropdown-menu>
   </view>

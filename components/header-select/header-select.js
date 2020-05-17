@@ -10,11 +10,8 @@ Component({
   data: {
     key: '',
     value: '',
-    array: [{
-      message: 'foo',
-    }, {
-      message: 'bar'
-    }],
+    search: ''
+
     // selectTitles:[{key:'距离',value:'dance'},{key:'销量',value:'num'},{key:'排序',value:'sort'}],
     // selectOptions: [
     //   [
@@ -35,6 +32,10 @@ Component({
     // ]
   },
   properties: {
+    hasPosition:{
+      type:Boolean,
+      value:false,
+    },
     selectTitles: {
       type: Array,
       value: []
@@ -47,11 +48,18 @@ Component({
 
 
   methods: {
-
+    onChange(event) {
+      this.setData({
+        search: event.detail
+      })
+    },
+    handleSearch() {
+      this.triggerEvent('handleSearch',this.data.search)
+    },
     getItem(event) {
       // 自定义事件返回 {key,value}
       this.triggerEvent("change", {
-        key: event.currentTarget.dataset['index'].value,
+        key: event.currentTarget.dataset['index'].key,
         value: event.detail
       });
     },

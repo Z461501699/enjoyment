@@ -1,5 +1,5 @@
 <!--pages/course/course.wxml-->
-<header-select selectTitles="{{selectTitles}}" selectOptions="{{selectOptions}}" bind:change="change" />
+<header-select selectTitles="{{selectTitles}}" selectOptions="{{selectOptions}}" bind:change="change" bind:handleSearch="handleSearch" />
 <block wx:for="{{courseList}}" wx:key="*this">
 	<course-item bind:toDetail="onToCourseDetail"></course-item>
 </block>
