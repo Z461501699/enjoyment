@@ -21,7 +21,7 @@ Page({
     }, {
       name: '反馈',
       icon: '../../images/icon/icon_feedback.png',
-      path: ''
+      path: '/pages/coupleBack/coupleBack'
     }]
   },
   onNavigate(e) {

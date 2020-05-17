@@ -1,0 +1,7 @@
+<view class="container">
+	<view class="title">
+		信息类型
+		<span style="color: red;">*</span>
+	</view>
+  <slot />
+</view>

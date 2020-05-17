@@ -1,0 +1,1 @@
+<textarea class="textarea" placeholder="请输入反馈内容" bind:input="getTextValue"></textarea>
