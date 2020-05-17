@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="studentItem" wx:for="{{2}}">
+  
+  </view>
+</view>

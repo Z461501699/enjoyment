@@ -2,5 +2,5 @@
   "usingComponents": {
     "order-item":"/components/order-item/index"
   },
-  "navigationBarTitleText": "我的课程"
+  "navigationBarTitleText": "订单管理"
 }

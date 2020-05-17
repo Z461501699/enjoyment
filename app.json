@@ -10,7 +10,9 @@
     "pages/message/message",
     "pages/order/order",
     "pages/courseManage/courseManager",
-    "pages/coupleBack/coupleBack"
+    "pages/coupleBack/coupleBack",
+    "pages/studentManage/studentManage",
+    "pages/financialFlow/financialFlow"
   ],
   "window": {
     "backgroundTextStyle": "light",
