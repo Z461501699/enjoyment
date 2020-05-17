@@ -1,0 +1,8 @@
+<!--pages/order/order.wxml-->
+<block wx:for="{{10}}" wx:key="*this">
+	<order-item bind:study="toStudy" />
+</block>
+
+<view class="load-all">
+	没有更多课程了
+</view>
