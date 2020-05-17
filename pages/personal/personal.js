@@ -129,5 +129,13 @@ Page({
     }
     return true;
   },
+  /**
+   * 跳转到课程管理页面
+   */
+  toOrder(){
+    wx.navigateTo({
+      url: '/pages/order/order',
+    })
+  }
 
 })
