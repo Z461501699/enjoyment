@@ -1,5 +1,5 @@
 const app = getApp()
-// import { checkLoginStatus } from '../../utils/authorization'
+import { checkLoginStatus } from '../../utils/authorization'
 import { closeLoading, openLoading } from '../../utils/pagination'
 Page({
 
@@ -55,5 +55,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  orderDetail(){
+    wx.navigateTo({
+      url: '/pages/order-detail/order-detail',
+    })
   }
 })
