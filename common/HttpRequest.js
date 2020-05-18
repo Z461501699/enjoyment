@@ -8,7 +8,7 @@
 import { Host, Apis } from "./config";
 
 export default class HTTPRequest {
-    constructor () {
+    constructor() {
         this._token = null;
         this._userId = null;
     }
@@ -16,14 +16,14 @@ export default class HTTPRequest {
      * 发起请求
      * @param {*} options 
      */
-    start (options) {
+    start(options) {
         return new Promise((resolve, reject) => {
             let apiKey = options.apiKey; // api 键名
             let api = Apis[apiKey]; // api 对象
             let params = options.params; // 请求参数
             let loadingMessage = options.loadingMessage; // loading 信息, null 则不显示loading
-            let hideError = options.hideError; // 是否隐藏错误提示，默认会提示
-            let token = this.getUser().token;
+            let hideError = options.hideError || false; // 是否隐藏错误提示，默认会提示
+            let token = this.getUser().token || null;
             let result = {
                 success: false,
                 message: '',
@@ -47,26 +47,30 @@ export default class HTTPRequest {
                 timeout: 1000 * 10,
                 dataType: 'json',
                 responseType: 'text',
-                success (response) {
+                success(response) {
                     if (loadingMessage) {
                         wx.hideLoading();
                     }
-                    result.message = response.data.message;
-                    result.data = response.data;
-                    if (response.statusCode == 200) {
+                    console.log(response.data)
+                    result.message = response.data.Message;
+
+                    if (response.data.Tag == 1) {
                         result.success = true;
+                        result.data = response.data.data;
                     } else {
                         result.success = false;
+                        result.data = response.data;
                         if (!hideError) {
                             wx.showToast({
                                 icon: "none",
-                                title: result.success
+                                title: result.message
                             })
                         }
                     }
+                    console.log(result)
                     resolve(result);
                 },
-                fail (error) {
+                fail(error) {
                     if (loadingMessage) {
                         wx.hideLoading();
                     }
@@ -76,15 +80,15 @@ export default class HTTPRequest {
             })
         });
     }
-    setUser (user) {
+    setUser(user) {
         this._userId = user.id;
         this._token = user.token;
     }
-    getUser () {
+    getUser() {
         return {
             token: this._token,
             userId: this._userId
         }
     }
-    
+
 }

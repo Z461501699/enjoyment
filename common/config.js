@@ -8,14 +8,14 @@
 // 生产状态
 export const ProductStatus = false;
 // 测试环境
-const HostTest = '';
+const HostTest = 'http://121.36.4.133:8080';
 // 生产环境
 const HostProduct = '';
 // 域名
 export const Host = ProductStatus ? HostProduct : HostTest;
 // 接口地址
 export const Apis = {
-    login: {type: 'POST', path: '/login'}
+    login: {type: 'POST', path: '/api/Member/Login'}
 };
 
 // keys

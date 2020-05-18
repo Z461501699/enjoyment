@@ -9,30 +9,42 @@ import { KEY_USERID, KEY_TOKEN, KEY_USER, KEY_WXCODE } from "./config"
 
 export default class GlobalData {
 
-    constructor () {}
+    constructor() { }
 
-    setUserId (id) {
+    setUserId(id) {
         wx.setStorageSync(KEY_USERID, id)
     }
-    getUserId () {
+    getUserId() {
         return wx.getStorageSync(KEY_USERID)
     }
-    setToken (token) {
+    removeUserId() {
+        return wx.removeStorageSync(KEY_USERID)
+    }
+    setToken(token) {
         wx.setStorageSync(KEY_TOKEN, token)
     }
-    getToken () {
+    getToken() {
         return wx.getStorageSync(KEY_TOKEN)
     }
-    setUserInfo (info) {
+    removeToken() {
+        return wx.removeStorageSync(KEY_TOKEN)
+    }
+    setUserInfo(info) {
         wx.setStorageSync(KEY_USER, info)
     }
-    getUserInfo () {
+    getUserInfo() {
         return wx.getStorageSync(KEY_USER)
     }
-    setWxCode (code) {
+    removeUserInfo() {
+        return wx.removeStorageSync(KEY_USER)
+    }
+    setWxCode(code) {
         wx.setStorageSync(KEY_WXCODE, code)
     }
-    getWxCode () {
+    getWxCode() {
         return wx.getStorageSync(KEY_WXCODE)
+    }
+    removeWxCode() {
+        return wx.removeStorageSync(KEY_WXCODE)
     }
 }
