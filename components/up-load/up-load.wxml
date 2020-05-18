@@ -1,0 +1,3 @@
+<view class="container">
+  <span bind:tap="uploadImg">上传图片</span>
+</view>

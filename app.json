@@ -54,6 +54,7 @@
     "van-dropdown-menu": "dist/dropdown-menu/index",
     "van-dropdown-item": "dist/dropdown-item/index",
     "van-cell": "dist/cell/index",
-    "van-cell-group": "dist/cell-group/index"
+    "van-cell-group": "dist/cell-group/index",
+    "van-uploader": "dist/uploader/index"
   }
 }
