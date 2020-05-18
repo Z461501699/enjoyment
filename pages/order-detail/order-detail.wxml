@@ -1,0 +1,6 @@
+<view class="container">
+  <image class="tab-img" src="{{backImg}}"></image>
+  <view class="bottom">
+    <button class="btn-submit">提交订单</button>
+  </view>
+</view>

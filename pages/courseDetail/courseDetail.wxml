@@ -20,5 +20,5 @@
 		<image class="icon"></image>
 		<view class="text">分享</view>
 	</button>
-	<button class="btn-submit">我要报名</button>
+	<button class="btn-submit" bind:tap='orderDetail'>我要报名</button>
 </view>

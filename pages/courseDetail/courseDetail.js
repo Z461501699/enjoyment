@@ -1,13 +1,18 @@
 const app = getApp()
-import { checkLoginStatus } from '../../utils/authorization'
-import { closeLoading, openLoading } from '../../utils/pagination'
+import {
+  checkLoginStatus
+} from '../../utils/authorization'
+import {
+  closeLoading,
+  openLoading
+} from '../../utils/pagination'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isShowAll: true,//显示隐藏
+    isShowAll: true, //显示隐藏
   },
 
   /**
@@ -31,7 +36,9 @@ Page({
 
   },
   onShowMoreMsg() {
-    let { isShowAll } = this.data
+    let {
+      isShowAll
+    } = this.data
     this.setData({
       isShowAll: !isShowAll
     })
@@ -55,5 +62,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+   // 前往订单详情
+   orderDetail(event) {
+    console.log('event', event)
+    wx.navigateTo({
+      url: '/pages/order-detail/order-detail',
+    })
   }
 })
