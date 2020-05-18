@@ -22,23 +22,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    let _this = this;
-    _this.setData({
-      isLogin: App.checkIsLogin()
-    });
+
     // 获取当前用户信息
-    _this.getUserDetail();
+    this.getUserDetail();
   },
 
   /**
    * 获取当前用户信息
    */
   getUserDetail() {
-    let _this = this;
-    //APP.request();
-    // App._get('user.index/detail', {}, function (result) {
-    //   _this.setData(result.data);
-    // });
+
   },
 
   /**
@@ -50,7 +43,6 @@ Page({
       return false;
     }
     // 记录formid
-    App.saveFormId(e.detail.formId);
     let urls = {
       all: '/pages/order/index?type=all',
       payment: '/pages/order/index?type=payment',
@@ -72,7 +64,6 @@ Page({
       return false;
     }
     // 记录formId
-    App.saveFormId(e.detail.formId);
     wx.navigateTo({
       url: '/' + e.currentTarget.dataset.url
     })
@@ -87,7 +78,6 @@ Page({
       return false;
     }
     // 记录formId
-    App.saveFormId(e.detail.formId);
     wx.navigateTo({
       url: './wallet/index'
     })
@@ -102,7 +92,6 @@ Page({
       return false;
     }
     // 记录formId
-    App.saveFormId(e.detail.formId);
     wx.navigateTo({
       url: '../points/log/index'
     });
@@ -115,7 +104,6 @@ Page({
     // wx.navigateTo({
     //   url: '../login/login',
     // });
-    App.doLogin();
   },
 
   /**

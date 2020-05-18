@@ -1,5 +1,5 @@
 // components/loginPopup/loginPopup.js
-import { wxLogin, login } from '../../utils/authorization'
+// import { wxLogin, login } from '../../utils/authorization'
 Component({
   /**
    * 组件的属性列表
@@ -41,13 +41,13 @@ Component({
         params['nikeName'] = userInfo['nickName']
         params['headImg'] = userInfo['avatarUrl']
         params['sex'] = userInfo['gender']
-        wxLogin().then(code => {
-          params['code'] = code
-          console.log(params)
-          login(params).then(res => {
-            this.onClose()
-          })
-        })
+        // wxLogin().then(code => {
+        //   params['code'] = code
+        //   console.log(params)
+        //   login(params).then(res => {
+        //     this.onClose()
+        //   })
+        // })
       }
     }
   }
