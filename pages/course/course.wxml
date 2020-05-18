@@ -1,9 +1,5 @@
 <!--pages/course/course.wxml-->
-<view class="" hover-class="none" hover-stop-propagation="false">
-	<header-select>
-		<span slot='position'> 占位</span>
-	</header-select>
-</view>
+<header-select selectTitles="{{selectTitles}}" selectOptions="{{selectOptions}}" bind:change="change" bind:handleSearch="handleSearch" />
 <block wx:for="{{courseList}}" wx:key="*this">
 	<course-item bind:toDetail="onToCourseDetail"></course-item>
 </block>

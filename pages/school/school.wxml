@@ -1,9 +1,5 @@
 <!-- pages/school/school.wxml -->
-<view hover-class="none" hover-stop-propagation="false">
-	<header-select :input1='哈哈' :opt1='哈哈哈'>
-		<text slot="position">111</text>
-	</header-select>
-</view>
+<header-select hasPosition='{{true}}' selectTitles="{{selectTitles}}" selectOptions="{{selectOptions}}" bind:change="change" bind:handleSearch="handleSearch" />
 <block wx:for="{{schoolList}}" wx:key="*this">
-	<school-item  bind:toDetail="toDetail"></school-item>
+		<school-item bind:toDetail="toDetail"></school-item>
 </block>

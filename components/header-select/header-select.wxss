@@ -1,24 +1,19 @@
-.container-select{
- 
+.box {
+  background: #fff;
+
 }
-.title{
- display: flex;
- align-items: center;
+
+.box-search {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+
 }
-.select{
-  display: flex;
-  align-items: center;
-}
-.position{
-  height: 44px;
+
+.center {
   line-height: 44px;
   text-align: center;
+  background: #fff !important;
 }
-.input{
-  flex:1;
-}
-.search{
-  height: 44px;
-  line-height: 44px;
-  text-align: center;
+.drop{
+  border-bottom: 1px solid #eee;
 }

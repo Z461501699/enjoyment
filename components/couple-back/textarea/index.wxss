@@ -1,0 +1,10 @@
+/* components/couple-back/textarea/index.wxss */
+.textarea {
+  background-color: #F4F4F4;
+  border: 1rpx solid #E6E6E6;
+  border-radius: 10rpx;
+  height: 260rpx;
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}

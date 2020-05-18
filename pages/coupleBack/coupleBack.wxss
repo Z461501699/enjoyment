@@ -1,0 +1,12 @@
+/* pages/coupleBack/coupleBack.wxss */
+.file-box {
+  background-color: #fff;
+  padding: 20rpx;
+}
+
+.submit {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

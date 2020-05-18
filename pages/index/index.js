@@ -9,19 +9,19 @@ Page({
     btnList: [{
       name: '课程',
       icon: '../../images/icon/icon_course.png',
-      path: ''
+      path: '/pages/courseManage/courseManager'
     }, {
       name: '订单',
       icon: '../../images/icon/icon_order.png',
-      path: ''
+      path: '/pages/order/order'
     }, {
       name: '消息',
       icon: '../../images/icon/icon_message.png',
-      path: ''
+      path: '/pages/message/message'
     }, {
       name: '反馈',
       icon: '../../images/icon/icon_feedback.png',
-      path: ''
+      path: '/pages/coupleBack/coupleBack'
     }]
   },
   onNavigate(e) {
