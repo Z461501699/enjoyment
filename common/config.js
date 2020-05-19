@@ -15,7 +15,8 @@ const HostProduct = '';
 export const Host = ProductStatus ? HostProduct : HostTest;
 // 接口地址
 export const Apis = {
-    login: {type: 'POST', path: '/api/Member/Login'}
+    login: { type: 'POST', path: '/api/Member/Login' },//登录
+    getSubjectList: { type: 'GET', path: '/api/Subject/GetSubjectList' },//分页获取课程列表
 };
 
 // keys

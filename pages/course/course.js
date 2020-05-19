@@ -1,6 +1,6 @@
 // pages/course/course.js
-import {HEADER_SELECT_TITLES,HEADER_SELECT_OPTIONS} from '../../config/commonData'
-
+import { HEADER_SELECT_TITLES, HEADER_SELECT_OPTIONS } from '../../config/commonData'
+const App = getApp();
 Page({
 
   /**
@@ -11,35 +11,46 @@ Page({
     pageSize: 10,
     pageNo: 1,
     isLoadAll: false,
-    selectTitles:HEADER_SELECT_TITLES,
-    selectOptions:HEADER_SELECT_OPTIONS
+    selectTitles: HEADER_SELECT_TITLES,
+    selectOptions: HEADER_SELECT_OPTIONS,
+    courseListParams: {
+      Name: '',
+      Status: '',
+      BelongSchoolId: '',
+      BelongTeacherId: '',
+      Ids: '',
+      PageSize: 10,
+      PageIndex: 0,
+    }
   },
-   // 下拉回调
-   change(e){
-    console.log('change',e)
+  // 下拉回调
+  change(e) {
+    console.log('change', e)
   },
-   // 搜索功能
-   handleSearch({detail}) {
+  // 搜索功能
+  handleSearch({ detail }) {
     console.log('搜索', detail)
   },
   // 获取课程数据
   getCourseList() {
-    const that = this
-    wx.showLoading({
-      title: '加载中。。。',
-      mask: true
+    let {
+      courseList,
+      courseListParams
+    } = this.data
+    App.request.start({
+      apiKey: 'getSubjectList',
+      params: courseListParams,
+      loadingMessage:'加载中',
+    }).then(res => {
+      console.log(res)
     })
-    const {
-      courseList
-    } = that.data
-    courseList.push('', '', '', '', '', '', '', '', '', '')
-    setTimeout(function () {
-      that.setData({
-        courseList
-      })
-      wx.hideLoading()
-      wx.stopPullDownRefresh()
-    }, 1500)
+    // setTimeout(function () {
+    //   that.setData({
+    //     courseList
+    //   })
+    //   wx.hideLoading()
+    //   wx.stopPullDownRefresh()
+    // }, 1500)
   },
   /**
    * 跳转课程详情
