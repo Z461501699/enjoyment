@@ -10,12 +10,12 @@ Page({
     userInfo: {}, // 用户信息
     orderCount: {}, // 订单数量
   },
-  copyCode(e){
+  copyCode(e) {
     wx.login({
-      success : (res) => {
+      success: (res) => {
         console.log(res.code)
         wx.setClipboardData({
-          data:res.code
+          data: res.code
         })
       },
     })
@@ -34,11 +34,18 @@ Page({
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
+      wx.getSetting({
         success: res => {
-          this.hideAuthCard(res.userInfo);
+          if (res.authSetting['scope.userInfo']) {
+            wx.getUserInfo({
+              success: res => {
+                this.hideAuthCard(res.userInfo);
+              }
+            })
+          }
         }
       })
+
     }
   },
 

@@ -51,12 +51,12 @@ export default class HTTPRequest {
                     if (loadingMessage) {
                         wx.hideLoading();
                     }
-                    console.log(response.data)
+                    console.log(response['data'])
                     result.message = response.data.Message;
 
                     if (response.data.Tag == 1) {
                         result.success = true;
-                        result.data = response.data.data;
+                        result.data = response['data']['Result'];
                     } else {
                         result.success = false;
                         result.data = response.data;

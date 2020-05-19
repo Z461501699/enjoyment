@@ -54,19 +54,18 @@ App({
     this.globalData.removeUserInfo();
   },
   // 统一缓存用户信息
-  setUserInfo({ wxInfo = false, userInfo = false, userId = false, toekn = false }) {
+  setUserInfo({ wxInfo = false, userInfo = false, userId = false, token = false }) {
     if (!!wxInfo) this.wxInfo = wxInfo;
     if (!!userInfo) this.globalData.setUserInfo(userInfo);
     if (!!userId) this.globalData.setUserId(userId);
-    if (!!toekn) this.globalData.setToken(toekn);
-    if (!!toekn && !!userId) this.request.setUser({
+    if (!!token) this.globalData.setToken(token);
+    if (!!token && !!userId) this.request.setUser({
       id: 'userId',
-      token: 'toekn'
+      token: 'token'
     })
   },
   // 用户登录
   userLogin(info) {
-    console.log(info)
     if (!info) return
     this.setUserInfo({ wxInfo: info })
     return new Promise((resolve, reject) => {
@@ -85,7 +84,8 @@ App({
             },
           }).then(res => {
             if (res.success) {
-              // this.setUserInfo({})
+              console.log(111,res)
+              this.setUserInfo({userInfo:res['data']['UserInfo'],token:res['data']['Token'],userId:res['data']['UserInfo']['Id']})
               resolve({ userInfo: info })
             }
 
