@@ -1,5 +1,14 @@
 <view class="container">
   <image class="tab-img" src="{{backImg}}"></image>
+  <couple-back>
+    <couple-back-picker />
+  </couple-back>
+   <couple-back>
+    <couple-back-phone />
+  </couple-back>
+    <couple-back>
+      <couple-back-textarea address="请输入详细地址" />
+    </couple-back>
   <view class="bottom">
     <button class="btn-submit">提交订单</button>
   </view>

@@ -1,1 +1,7 @@
 /* pages/school/school.wxss */
+.header-select{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}

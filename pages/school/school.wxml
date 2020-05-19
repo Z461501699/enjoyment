@@ -1,5 +1,6 @@
 <!-- pages/school/school.wxml -->
-<header-select hasPosition='{{true}}' selectTitles="{{selectTitles}}" selectOptions="{{selectOptions}}" bind:change="change" bind:handleSearch="handleSearch" />
+<header-select class="header-select" hasPosition='{{true}}' selectTitles="{{selectTitles}}" selectOptions="{{selectOptions}}" bind:change="change" bind:handleSearch="handleSearch" />
+<view style='width:100%; height:127px' />
 <block wx:for="{{schoolList}}" wx:key="*this">
 		<school-item bind:toDetail="toDetail"></school-item>
 </block>

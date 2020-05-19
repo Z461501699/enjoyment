@@ -1,0 +1,3 @@
+<view class="flex-row container">
+   <input class="flex-row box" maxlength="11" placeholder="请输入手机号" />
+</view>

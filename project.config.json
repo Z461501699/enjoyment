@@ -62,6 +62,27 @@
 					"id": -1,
 					"name": "pages/school/school",
 					"pathName": "pages/school/school",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/course/course",
+					"pathName": "pages/course/course",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/school/school",
+					"pathName": "pages/school/school",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order-detail/order-detail",
+					"pathName": "pages/order-detail/order-detail",
 					"scene": null
 				}
 			]
