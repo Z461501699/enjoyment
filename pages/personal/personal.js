@@ -10,7 +10,16 @@ Page({
     userInfo: {}, // 用户信息
     orderCount: {}, // 订单数量
   },
-
+  copyCode(e){
+    wx.login({
+      success : (res) => {
+        console.log(res.code)
+        wx.setClipboardData({
+          data:res.code
+        })
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

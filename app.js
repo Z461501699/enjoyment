@@ -79,7 +79,7 @@ App({
             params: {
               code: res['code'],
               nikeName: info['nickName'],
-              // age: '',
+              // age: '20',
               headImg: info['avatarUrl'],
               sex: info['gender'],
             },

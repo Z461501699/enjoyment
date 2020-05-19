@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-// import { checkLoginStatus } from '../../utils/authorization'
 import { closeLoading, openLoading } from '../../utils/pagination'
 Page({
   data: {
