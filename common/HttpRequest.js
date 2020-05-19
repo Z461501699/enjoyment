@@ -51,7 +51,6 @@ export default class HTTPRequest {
                     if (loadingMessage) {
                         wx.hideLoading();
                     }
-                    console.log(response['data'])
                     result.message = response.data.Message;
 
                     if (response.data.Tag == 1) {
@@ -67,7 +66,6 @@ export default class HTTPRequest {
                             })
                         }
                     }
-                    console.log(result)
                     resolve(result);
                 },
                 fail(error) {
@@ -81,6 +79,7 @@ export default class HTTPRequest {
         });
     }
     setUser(user) {
+        console.log(111111111111111111,user)
         this._userId = user.id;
         this._token = user.token;
     }
