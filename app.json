@@ -7,12 +7,10 @@
     "pages/login/login",
     "pages/courseDetail/courseDetail",
     "pages/schoolDetail/schoolDetail",
+    "pages/order-detail/order-detail",
     "pages/message/message",
     "pages/order/order",
-    "pages/courseManage/courseManager",
-    "pages/coupleBack/coupleBack",
-    "pages/studentManage/studentManage",
-    "pages/financialFlow/financialFlow"
+    "pages/courseManage/courseManager"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -58,7 +56,6 @@
     "van-dropdown-item": "dist/dropdown-item/index",
     "van-cell": "dist/cell/index",
     "van-cell-group": "dist/cell-group/index",
-    "van-uploader": "dist/uploader/index",
-    "van-button": "dist/button/index"
+    "van-uploader": "dist/uploader/index"
   }
 }

@@ -55,5 +55,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  orderDetail(){
+    wx.navigateTo({
+      url: '/pages/order-detail/order-detail',
+    })
   }
 })

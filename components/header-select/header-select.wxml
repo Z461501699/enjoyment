@@ -1,7 +1,7 @@
 <view class="box">
   <van-row custom-class="box-search">
     <block wx:if="{{hasPosition}}">
-      <van-col class="center" span='6'>-</van-col>
+      <van-col class="center" span='6'>占位导航</van-col>
       <van-col span='14'>
         <van-field custom-style	="background:#eee;border-radius:30px" search left-icon='search'
          placeholder='搜索' value="{{search}}" bind:change="onChange" border="{{ false }}" />

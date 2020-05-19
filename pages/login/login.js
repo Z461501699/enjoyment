@@ -23,11 +23,13 @@ Page({
    * 授权登录
    */
   getUserInfo(e) {
-    let _this = this;
-    App.getUserInfo(e, () => {
-      // 跳转回原页面
-      _this.onNavigateBack(1);
-    });
+    console.log(e)
+    if (e.detail.errMsg == "getUserInfo:ok") {
+      App.userLogin(e.detail.userInfo).then(res => {
+        this.onNavigateBack(1);
+      })
+    }
+
   },
 
   /**
