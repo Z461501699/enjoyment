@@ -1,6 +1,9 @@
 // pages/school/school.js
-import {HEADER_SELECT_TITLES,HEADER_SELECT_OPTIONS} from '../../config/commonData'
-
+import {
+  HEADER_SELECT_TITLES,
+  HEADER_SELECT_OPTIONS
+} from '../../config/commonData'
+const App = getApp()
 
 Page({
 
@@ -12,36 +15,53 @@ Page({
     pageSize: 10,
     pageNo: 1,
     isLoadAll: false,
-    selectTitles:HEADER_SELECT_TITLES,
-    selectOptions:HEADER_SELECT_OPTIONS
+    schoolListParams: {
+      Ids: '',
+      SchoolName: '',
+      Address: '',
+      Phone: '',
+      PageSize: 10,
+      PageIndex: 1,
+      Sort: '',
+      SortType: '',
+      TotalCount: 0,
+      TotalPage: 0
+    },
+    selectTitles: HEADER_SELECT_TITLES,
+    selectOptions: HEADER_SELECT_OPTIONS
   },
   // 下拉回调
-  change({detail}){
-    console.log('change',detail)
+  change({
+    detail
+  }) {
+    console.log('change', detail)
   },
   // 搜索功能
-  handleSearch({detail}) {
+  handleSearch({
+    detail
+  }) {
     console.log('搜索', detail)
   },
 
   // 获取学校数据
   getSchoolList() {
     const that = this
-    wx.showLoading({
-      title: '加载中。。。',
-      mask: true
-    })
+
     const {
-      schoolList
+      schoolListParams
     } = that.data
-    schoolList.push('', '', '', '', '', '', '', '', '', '')
-    setTimeout(function () {
+
+    App.request.start({
+      apiKey: 'getSchoolList',
+      params: schoolListParams,
+      loadingMessage: '加载中',
+    }).then(res => {
+      console.log(res);
       that.setData({
-        schoolList
+        'schoolListParams.PageIndex': schoolListParams.PageIndex + 1
       })
-      wx.hideLoading()
       wx.stopPullDownRefresh()
-    }, 1500)
+    })
   },
   /**
    * 跳转到详情页
@@ -93,7 +113,8 @@ Page({
   onPullDownRefresh: function () {
     const that = this
     that.setData({
-      schoolList: []
+      schoolList: [],
+      'schoolListParams.PageIndex': 1
     })
     that.getSchoolList()
   },
@@ -102,6 +123,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    const that = this
+    const {
+      isLoadAll
+    } = that.data
+    if (isLoadAll) {
+      return
+    }
     this.getSchoolList()
   },
 
