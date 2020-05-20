@@ -1,6 +1,4 @@
 const app = getApp()
-// import { checkLoginStatus } from '../../utils/authorization'
-import { closeLoading, openLoading } from '../../utils/pagination'
 Page({
 
   /**
@@ -8,15 +6,21 @@ Page({
    */
   data: {
     isShowAll: true,//显示隐藏
+    subjectInfoParams: {
+      subjectId: '',
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getSubjectInfo(options)
   },
-
+  getSubjectInfo({ subjectId = null }) {
+    let { subjectInfoParams } = this.data
+    subjectInfoParams['subjectId'] = subjectId
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -45,9 +49,7 @@ Page({
     }, 1000);
   },
   onReachBottom: function () {
-    openLoading().then(() => {
-      closeLoading()
-    })
+
   },
 
   /**
@@ -56,7 +58,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  orderDetail(){
+  orderDetail() {
     wx.navigateTo({
       url: '/pages/order-detail/order-detail',
     })

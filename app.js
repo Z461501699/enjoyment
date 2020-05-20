@@ -3,8 +3,10 @@ import HTTPRequest from './common/HttpRequest';
 import Common from './common/Common';
 import GlobalData from './common/GlobalData';
 import GEvent from './common/GEvent';
+import { Host } from "./common/config";
 
 App({
+  Host: null,
   userInfoReadyCallback: null,
   globalData: null,
   request: null,
@@ -16,7 +18,7 @@ App({
     this.request = new HTTPRequest();
     this.event = new GEvent();
     this.common = new Common();
-
+    this.Host = Host
     this.common.userDidLogin = () => {
       return this.globalData.getUserId() && this.globalData.getToken();
     }
@@ -35,7 +37,7 @@ App({
           wx.getUserInfo({
             success: res => {
               // if (!this.common.userDidLogin()) {
-                this.userLogin(res.userInfo);
+              this.userLogin(res.userInfo);
               // }
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
@@ -49,6 +51,7 @@ App({
     })
   },
   onHide() {
+    console.log('hide')
     this.globalData.removeToken();
     this.globalData.removeUserId();
     this.globalData.removeUserInfo();
@@ -84,7 +87,6 @@ App({
             },
           }).then(res => {
             if (res.success) {
-              console.log(111, res)
               this.setUserInfo({ userInfo: res['data']['UserInfo'], token: res['data']['Token'], userId: res['data']['UserInfo']['Id'] })
               resolve({ userInfo: info })
             }

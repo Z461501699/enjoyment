@@ -1,6 +1,7 @@
 // pages/course/course.js
 import { HEADER_SELECT_TITLES, HEADER_SELECT_OPTIONS } from '../../config/commonData'
 const App = getApp();
+import { formatTime, formatStatus } from "./format";
 Page({
 
   /**
@@ -14,11 +15,11 @@ Page({
     selectTitles: HEADER_SELECT_TITLES,
     selectOptions: HEADER_SELECT_OPTIONS,
     courseListParams: {
-      Name: '',
-      Status: '',
-      BelongSchoolId: '',
-      BelongTeacherId: '',
-      Ids: '',
+      // Name: '',
+      // Status: '',
+      // BelongSchoolId: '',
+      // BelongTeacherId: '',
+      // Ids: '',
       PageSize: 10,
       PageIndex: 1,
     }
@@ -47,7 +48,7 @@ Page({
       courseListParams
     } = this.data
     if (num == 1) {
-      courseListParams['PageIndex'] == 1
+      courseListParams['PageIndex'] = 1
       courseList = []
     }
     App.request.start({
@@ -56,22 +57,36 @@ Page({
       loadingMessage: '加载中',
     }).then(res => {
       console.log(res)
+      if (res.success && res.data.length) {
+        let newArr = res.data
+        newArr = newArr.map(item => {
+          item['Logo'] = `${App['Host']}${item['Logo']}`
+          item['StartTime'] = formatTime(item['StartTime'])
+          item['Status'] = formatStatus(item['Status'])
+          return item
+        })
+        courseList = [...courseList, ...newArr]
+        this.setData({
+          courseList,
+          courseListParams: {
+            ...courseListParams,
+            PageIndex: courseListParams['PageIndex'] + 1
+          }
+        })
+      } else if (res.success) {
+        wx.showToast({
+          title: '已经加载全部',
+          icon: 'none'
+        })
+      }
     })
-    // setTimeout(function () {
-    //   that.setData({
-    //     courseList
-    //   })
-    //   wx.hideLoading()
-    //   wx.stopPullDownRefresh()
-    // }, 1500)
   },
   /**
    * 跳转课程详情
    */
   onToCourseDetail(e) {
-    console.log(e.detail.id)
     wx.navigateTo({
-      url: '/pages/courseDetail/courseDetail',
+      url: `/pages/courseDetail/courseDetail?subjectId=${e.detail.id}`,
     })
   },
   /**
@@ -114,11 +129,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    const that = this
-    that.setData({
-      courseList: []
-    })
-    that.getCourseList()
+    this.getCourseList(1)
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 750)
   },
 
   /**

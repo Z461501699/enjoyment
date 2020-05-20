@@ -79,7 +79,6 @@ export default class HTTPRequest {
         });
     }
     setUser(user) {
-        console.log(111111111111111111, user)
         this._userId = user.id;
         this._token = user.token;
     }

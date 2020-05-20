@@ -22,7 +22,6 @@
 .course-banner {
   width: 700rpx;
   height: 320rpx;
-  background: #f0f0f0;
 }
 
 .course-msg-box {
@@ -33,16 +32,16 @@
 }
 
 .course-left {
-  width: 560rpx;
+  width: 530rpx;
   box-sizing: border-box;
   padding-left: 20rpx;
 }
 
 .course-right {
-  width: 140rpx;
+  width: 170rpx;
   height: 240rpx;
   box-sizing: border-box;
-  padding: 30rpx 0;
+  padding: 30rpx;
 }
 
 .course-title {
@@ -78,4 +77,12 @@
   text-align: center;
   line-height: 46rpx;
   color: #fff;
+}
+
+.course-status.fail {
+  background-color: #cccccc;
+}
+
+.course-status.success {
+  background-color: #39C339;
 }

@@ -18,6 +18,7 @@ export const Apis = {
     login: { type: 'POST', path: '/api/Member/Login' },//登录
     getSubjectList: { type: 'GET', path: '/api/Subject/GetSubjectList' },//分页获取课程列表
     getSchoolList: { type: 'GET', path: '/api/School/GetSchoolList' },//分页获取学校列表
+    getSubjectInfo: { type: 'GET', path: '/api/Subject/GetSubjectInfo' },//获取课程详情
 };
 
 // keys

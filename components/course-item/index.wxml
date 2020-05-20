@@ -1,16 +1,16 @@
-<view class="course-item" data-id="1" bindtap="onToDetail">
+<view class="course-item" data-id="{{subjectId}}" bindtap="onToDetail">
 	<view class="course-box">
-		<image mode="aspectFill"  class="course-banner" src="http://searchfoto.ru/img/xyygpKbDS1y8pTjXUy83VS8rMS9fLSy3RL8mwz0yx9fcM0EtJ0S2PyCnOy8sOSTMOqQq38I23NHf0SHTNV0vMLbAutzUyNgCzMmwNzSGsomJbQzCjIDnHNgUMwNx8W1OIMNBoQz1DAA.jpg"></image>
+		<image mode="aspectFill" class="course-banner" src="{{logoImg}}"></image>
 		<view class="course-msg-box flex-between">
 			<view class="course-left flex-column">
-				<view class="course-title hidden-beyond">2020年第1期美术基础知识培训课程</view>
-				<view class="course-msg">课时数量：<text style="color:#39C339">60</text> 节 <text style="color:red;">6000</text> 元</view>
-				<view class="course-msg">开始时间：<text style="color:#39C339">2020年4月30日</text></view>
+				<view class="course-title hidden-beyond">{{name}}</view>
+				<view class="course-msg">课时数量：<text style="color:#39C339">{{classCount}}</text> 节 <text style="color:red;">{{amount}}</text> 元</view>
+				<view class="course-msg">开始时间：<text style="color:#39C339">{{startTime}}</text></view>
 				<view class="course-msg">报名人数：<text style="color:red;">0</text> 人 </view>
 			</view>
 			<view class="course-right flex-column">
 				<view class="course-tip"></view>
-				<view class="course-status">报名中</view>
+				<view class="course-status {{status==('结束'||'取消')?'fail':(status=='开始'?'success':'')}}">{{status}}</view>
 			</view>
 		</view>
 	</view>

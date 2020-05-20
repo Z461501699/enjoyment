@@ -2,5 +2,7 @@
 <header-select class="header-select" selectTitles="{{selectTitles}}" selectOptions="{{selectOptions}}" bind:change="change" bind:handleSearch="handleSearch" />
 <view style='width:100%; height:127px' />
 <block wx:for="{{courseList}}" wx:key="*this">
-		<course-item bind:toDetail="onToCourseDetail"></course-item>
+	<van-skeleton row="4" loading="{{ !courseList.length }}">
+		<course-item bind:toDetail="onToCourseDetail" subjectId="{{item['Id']}}" logo="{{item['Logo']}}" name="{{item['Name']}}" classCount="{{item['ClassCount']}}" amount="{{item['Amount']}}" startTime="{{item['StartTime']}}" status="{{item['Status']}}"></course-item>
+	</van-skeleton>
 </block>
