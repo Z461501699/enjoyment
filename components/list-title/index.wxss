@@ -13,6 +13,6 @@
 }
 
 .title .right {
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #FB923C;
 }

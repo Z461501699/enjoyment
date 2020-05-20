@@ -42,7 +42,7 @@ export default class HTTPRequest {
                 method: api.type,
                 data: params,
                 header: {
-                    token: token
+                    Authorization: token
                 },
                 timeout: 1000 * 10,
                 dataType: 'json',
@@ -79,7 +79,7 @@ export default class HTTPRequest {
         });
     }
     setUser(user) {
-        console.log(111111111111111111,user)
+        console.log(111111111111111111, user)
         this._userId = user.id;
         this._token = user.token;
     }

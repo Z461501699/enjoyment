@@ -20,7 +20,7 @@ Page({
       BelongTeacherId: '',
       Ids: '',
       PageSize: 10,
-      PageIndex: 0,
+      PageIndex: 1,
     }
   },
   // 下拉回调
@@ -30,17 +30,30 @@ Page({
   // 搜索功能
   handleSearch({ detail }) {
     console.log('搜索', detail)
+    let { courseListParams } = this.data
+    this.setData({
+      courseListParams: {
+        ...courseListParams,
+        Name: detail
+      }
+    }, () => {
+      this.getCourseList(1)
+    })
   },
   // 获取课程数据
-  getCourseList() {
+  getCourseList(num) {
     let {
       courseList,
       courseListParams
     } = this.data
+    if (num == 1) {
+      courseListParams['PageIndex'] == 1
+      courseList = []
+    }
     App.request.start({
       apiKey: 'getSubjectList',
       params: courseListParams,
-      loadingMessage:'加载中',
+      loadingMessage: '加载中',
     }).then(res => {
       console.log(res)
     })
