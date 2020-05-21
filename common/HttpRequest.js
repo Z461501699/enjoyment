@@ -23,7 +23,7 @@ export default class HTTPRequest {
             let params = options.params; // 请求参数
             let loadingMessage = options.loadingMessage; // loading 信息, null 则不显示loading
             let hideError = options.hideError || false; // 是否隐藏错误提示，默认会提示
-            let token = this.getUser().token || null;
+            let token = this.getUser().token || '';
             let result = {
                 success: false,
                 message: '',
@@ -36,7 +36,6 @@ export default class HTTPRequest {
                     mask: true
                 })
             }
-
             wx.request({
                 url: `${Host}${api.path}`,
                 method: api.type,

@@ -3,6 +3,6 @@
 <view style='width:100%; height:127px' />
 <block wx:for="{{courseList}}" wx:key="*this">
 	<van-skeleton row="4" loading="{{ !courseList.length }}">
-		<course-item bind:toDetail="onToCourseDetail" subjectId="{{item['Id']}}" logo="{{item['Logo']}}" name="{{item['Name']}}" classCount="{{item['ClassCount']}}" amount="{{item['Amount']}}" startTime="{{item['StartTime']}}" status="{{item['Status']}}"></course-item>
+		<course-item bind:toDetail="onToCourseDetail" subjectId="{{item['Id']}}" logo="{{item['Logo']}}" name="{{item['Name']}}" classCount="{{item['ClassCount']}}" price="{{item['Price']}}" preferentialPrice="{{item['preferentialPrice']}}" startTime="{{item['StartTime']}}" status="{{item['Status']}}" price="{{item['Price']}}" preferentialPrice="{{item['PreferentialPrice']}}" stuNum="{{item['StudentList'].length}}"></course-item>
 	</van-skeleton>
 </block>

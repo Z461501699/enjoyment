@@ -12,7 +12,6 @@
 .teacherCard-box .header-img {
   width: 100rpx;
   height: 100rpx;
-  background-color: #ccc;
 }
 
 .teacherCard-box .msg-box {

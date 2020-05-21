@@ -1,13 +1,14 @@
 <view class="container">
-	<course-item></course-item>
+	<course-item subjectId="{{courseDetailData['Id']}}" logo="{{courseDetailData['Logo']}}" name="{{courseDetailData['Name']}}" classCount="{{courseDetailData['ClassCount']}}" price="{{courseDetailData['Price']}}" preferentialPrice="{{courseDetailData['preferentialPrice']}}" startTime="{{courseDetailData['StartTime']}}" status="{{courseDetailData['Status']}}" price="{{courseDetailData['Price']}}" preferentialPrice="{{courseDetailData['PreferentialPrice']}}" stuNum="{{courseDetailData['StudentList'].length}}"></course-item>
+
 	<course-title title="课程介绍">
-		<view class="introduction-msg {{isShowAll?'msgHeight':''}}">东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底， 东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底， 东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底， 东方童画美术教育培训创立于2020年4月，致力于培训儿童美术功底， </view>
-		<image bindtap="onShowMoreMsg" class="introduction-icon {{isShowAll?'':'rotate90'}}" src="../../images/icon/icon_down.png"></image>
+		<view class="introduction-msg {{isShowAll?'msgHeight':''}}">{{courseDetailData['Description']}}</view>
+		<image bindtap="onShowMoreMsg" wx:if="{{courseDetailData['Description'].length>46}}" class="introduction-icon {{isShowAll?'':'rotate90'}}" src="../../images/icon/icon_down.png"></image>
 	</course-title>
 	<course-title title="任课老师">
 		<scroll-view scroll-x="true" class="teacher-list">
-			<view class="scroll-box" wx:for="{{5}}" wx:key="*this">
-				<teacher-card></teacher-card>
+			<view class="scroll-box" wx:for="{{teacherList}}" wx:key="*this">
+				<teacher-card avatar="{{item['Avatar']}}" graduatedSchool="{{item['GraduatedSchool']}}" name="{{item['Name']}}"></teacher-card>
 			</view>
 		</scroll-view>
 	</course-title>

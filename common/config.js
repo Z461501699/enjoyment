@@ -20,6 +20,7 @@ export const Apis = {
     getSchoolList: { type: 'GET', path: '/api/School/GetSchoolList' },//分页获取学校列表
     getSubjectInfo: { type: 'GET', path: '/api/Subject/GetSubjectInfo' },//获取课程详情
     getSchoolInfo: { type: 'GET', path:'/api/School/GetSchoolInfo'}, // 获取学校详情
+    getTeachersBySubjectId:{type:'GET',path:'/api/Teacher/GetTeachersBySubjectId'},//获取课程老师列表
 };
 
 // keys

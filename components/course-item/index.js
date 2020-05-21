@@ -8,10 +8,12 @@ Component({
     logoImg: String,
     name: String,
     classCount: Number,
-    amount: Number,
+    price: Number,
+    preferentialPrice: Number,
     startTime: String,
     status: String,
-    subjectId: String
+    subjectId: String,
+    stuNum: Number
   },
 
   /**

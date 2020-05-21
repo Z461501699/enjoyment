@@ -1,4 +1,6 @@
-const app = getApp()
+const App = getApp()
+import { formatTime, formatStatus } from "../course/format";
+
 Page({
 
   /**
@@ -8,7 +10,12 @@ Page({
     isShowAll: true,//显示隐藏
     subjectInfoParams: {
       subjectId: '',
-    }
+    },
+    teachersParams: {
+      subjectId: '',
+    },
+    courseDetailData: {},
+    teacherList: []
   },
 
   /**
@@ -16,10 +23,47 @@ Page({
    */
   onLoad: function (options) {
     this.getSubjectInfo(options)
+    this.getTeachersBySubjectId(options)
   },
   getSubjectInfo({ subjectId = null }) {
-    let { subjectInfoParams } = this.data
+    let { subjectInfoParams, courseDetailData } = this.data
     subjectInfoParams['subjectId'] = subjectId
+    App.request.start({
+      apiKey: 'getSubjectInfo',
+      params: subjectInfoParams,
+      loadingMessage: '加载中',
+    }).then(res => {
+      console.log(res)
+      if (res.success) {
+        courseDetailData = res.data
+        courseDetailData['StartTime'] = formatTime(courseDetailData['StartTime'])
+        courseDetailData['Logo'] = `${App['Host']}${courseDetailData['Logo']}`
+        courseDetailData['Status'] = formatStatus(courseDetailData['Status'])
+        this.setData({
+          courseDetailData
+        })
+      }
+    })
+  },
+  getTeachersBySubjectId({ subjectId = null }) {
+    let { teachersParams, teacherList } = this.data
+    teachersParams['subjectId'] = subjectId
+    App.request.start({
+      apiKey: "getTeachersBySubjectId",
+      params: teachersParams
+    }).then(res => {
+      console.log(res)
+      if (res.success) {
+        teacherList = res.data
+        teacherList=teacherList.map(item=>{
+          item['Avatar']=`${App['Host']}${item['Avatar']}`
+          return item
+        })
+        this.setData({
+          teacherList
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
