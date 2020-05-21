@@ -21,11 +21,7 @@ Page({
       Address: '',
       Phone: '',
       PageSize: 10,
-      PageIndex: 1,
-      Sort: '',
-      SortType: '',
-      TotalCount: 0,
-      TotalPage: 0
+      PageIndex: 1
     },
     selectTitles: HEADER_SELECT_TITLES,
     selectOptions: HEADER_SELECT_OPTIONS
@@ -41,13 +37,18 @@ Page({
     detail
   }) {
     console.log('搜索', detail)
+    this.initData()
+    this.setData({
+      'schoolListParams.SchoolName': detail
+    })
+    this.getSchoolList()
   },
 
   // 获取学校数据
   getSchoolList() {
     const that = this
-
     const {
+      schoolList,
       schoolListParams
     } = that.data
 
@@ -56,10 +57,20 @@ Page({
       params: schoolListParams,
       loadingMessage: '加载中',
     }).then(res => {
-      console.log(res);
-      that.setData({
-        'schoolListParams.PageIndex': schoolListParams.PageIndex + 1
-      })
+      console.log('successs', res);
+      // success 为false时不继续操作
+      if (res.success && res.data.length) {
+        let newArr = res.data.map(item => {
+          item['Logo'] = `${App['Host']}${item['Logo']}`
+          return item
+        })
+        that.setData({
+          'schoolListParams.PageIndex': schoolListParams.PageIndex + 1,
+          isLoadAll: res.data.length < schoolListParams.PageSize,
+          schoolList: schoolList.concat(newArr)
+        })
+      }
+
       wx.stopPullDownRefresh()
     })
   },
@@ -67,9 +78,18 @@ Page({
    * 跳转到详情页
    */
   toDetail(e) {
-    console.log('列表触发', e);
+    console.log('跳转到详情页', e);
+    const {
+      currentTarget
+    } = e
+    const {
+      dataset
+    } = currentTarget
+    const {
+      id
+    } = dataset
     wx.navigateTo({
-      url: '/pages/schoolDetail/schoolDetail',
+      url: `/pages/schoolDetail/schoolDetail?schoolId=${id}`,
     })
   },
   /**
@@ -80,42 +100,11 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
     const that = this
-    that.setData({
-      schoolList: [],
-      'schoolListParams.PageIndex': 1
-    })
+    that.initData()
     that.getSchoolList()
   },
 
@@ -133,11 +122,13 @@ Page({
     this.getSchoolList()
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
+  // 数据初始化
+  initData() {
+    this.setData({
+      schoolList: [],
+      'schoolListParams.PageIndex': 1,
+      'schoolListParams.SchoolName': '',
+    })
+  }
 
 })
