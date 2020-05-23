@@ -10,6 +10,10 @@ Component({
     type: {
       type: Number,
       value: 0
+    },
+    options:{
+      type:Object,
+      value:{}
     }
   },
 

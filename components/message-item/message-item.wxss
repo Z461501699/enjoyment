@@ -29,6 +29,7 @@
 }
 
 .info .text {
+  padding: 4px 0;
   font-size: 24rpx;
   color: #333;
   width: 100%;

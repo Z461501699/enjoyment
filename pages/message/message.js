@@ -6,18 +6,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    options: {}
+    options: {},
+    messageParams:{
+      PageSize:10,
+      PageIndex:1,
+    },
+    messageList:[]
   },
   /*
   获取消息列表 
    */
   getMessageList() {
     const that = this
+    const {data:{messageParams}}=that
     App.request.start({
       apiKey: 'getMessageList',
       loadingMessage: '加载中',
-    }).then(data => {
-      console.log('data', data)
+      params:messageParams
+    }).then(({data}) => {
+      that.setData({'messageList':data})
+      console.log('messageList',that.data.messageList )
     })
   },
   /**
