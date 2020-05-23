@@ -5,7 +5,10 @@
 // date: 2020-05-13 23:29
 // ...
 
-import { Host, Apis } from "./config";
+import {
+    Host,
+    Apis
+} from "./config";
 
 export default class HTTPRequest {
     constructor() {
@@ -65,7 +68,14 @@ export default class HTTPRequest {
                                 title: result.message
                             })
                         }
+                        // 判断是否授权登入
+                        if (result.message.includes('未授权登录')) {
+                            wx.navigateTo({
+                                url: '../login/login',
+                            });
+                        }
                     }
+
                     resolve(result);
                 },
                 fail(error) {

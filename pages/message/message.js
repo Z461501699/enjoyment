@@ -1,18 +1,30 @@
 // pages/message/message.js
+const App = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    options: {}
   },
-
+  /*
+  获取消息列表 
+   */
+  getMessageList() {
+    const that = this
+    App.request.start({
+      apiKey: 'getMessageList',
+      loadingMessage: '加载中',
+    }).then(data => {
+      console.log('data', data)
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getMessageList()
   },
 
   /**
