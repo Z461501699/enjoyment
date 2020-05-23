@@ -1,6 +1,6 @@
 <!--pages/order/order.wxml-->
-<block wx:for="{{10}}" wx:key="*this">
-	<order-item bind:study="toStudy" />
+<block wx:for="{{orderList}}" wx:key="*this">
+	<order-item options="{{item}}" bind:study="toStudy" />
 </block>
 
 <view class="load-all">

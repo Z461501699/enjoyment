@@ -1,7 +1,7 @@
 <view class="teacherCard-box flex-row">
-	<image class="header-img" src="{{avatar}}"></image>
+	<image class="header-img" src="{{options.Avatar}}"></image>
 	<view class="msg-box flex-column">
-		<view class="name">{{name}}</view>
-		<view class="mark">毕业于{{graduatedSchool}}</view>
+		<view class="name OVE">{{options.Name}}</view>
+		<view class="mark OVE">毕业于{{options.GraduatedSchool}}</view>
 	</view>
 </view>

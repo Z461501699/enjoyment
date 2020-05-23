@@ -37,8 +37,8 @@
 <!-- 师资力量 -->
 <school-title title="任课老师">
 	<scroll-view scroll-x="true" class="teacher-list">
-		<view class="scroll-box" wx:for="{{5}}" wx:key="*this">
-			<teacher-card></teacher-card>
+		<view class="scroll-box" wx:for="{{schoolInfo.TeacherList}}" wx:key="*this">
+			<teacher-card options="{{item}}"></teacher-card>
 		</view>
 	</scroll-view>
 </school-title>
@@ -53,8 +53,8 @@
 </view>
 <!-- 课程列表 -->
 <list-title title="课程推荐" bind:click="onToCourseList">
-	<block wx:for="{{5}}" wx:key="*this">
-		<course-item bind:toDetail="onToCourseDetail"></course-item>
+	<block wx:for="{{schoolInfo.SubjectList}}" wx:key="*this">
+		<course-item options="{{item}}" bind:toDetail="onToCourseDetail"></course-item>
 	</block>
 </list-title>
 <!-- 底部填充 -->

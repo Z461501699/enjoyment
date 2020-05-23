@@ -90,6 +90,20 @@
 					"id": -1,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/school/school",
+					"pathName": "pages/school/school",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/schoolDetail/schoolDetail",
+					"pathName": "pages/schoolDetail/schoolDetail",
 					"scene": null
 				}
 			]

@@ -7,6 +7,10 @@ Component({
     avatar: String,
     graduatedSchool:String,
     name:String,
+    options:{
+      type:Object,
+      value:{}
+    }
   },
 
   /**

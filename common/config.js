@@ -23,6 +23,8 @@ export const Apis = {
     getOrderList: { type: 'GET', path: '/api/Order/GetOrderList' },//获取订单列表
     getSchoolInfo: { type: 'GET', path:'/api/School/GetSchoolInfo'}, // 获取学校详情
     getTeachersBySubjectId:{type:'GET',path:'/api/Teacher/GetTeachersBySubjectId'},//获取课程老师列表
+    GetTeacherList:{type:'GET',path:'/api/Teacher/GetTeacherList'},//获取教师列表
+
 };
 
 // keys

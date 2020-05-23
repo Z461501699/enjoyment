@@ -13,7 +13,11 @@ Component({
     startTime: String,
     status: String,
     subjectId: String,
-    stuNum: Number
+    stuNum: Number,
+    options:{
+      type:Object,
+      value:{}
+    }
   },
 
   /**

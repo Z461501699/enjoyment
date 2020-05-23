@@ -1,17 +1,17 @@
 <view class="flex-row container">
-	<image class="image" src="{{imageUrl}}" />
+	<image class="image" src="{{options.SubjectImg}}" />
 	<view class="flex-column hidden-beyond info">
 		<view class="hidden-beyond title">
-			英语星概念第一册英语星概念第一册英语星概念第一册
+			{{options.SubjectName}}
 		</view>
 		<view class="hidden-beyond course-total">
-			共10节 以学5节
+		{{options.SubjectDes}}
 
 		</view>
 		<!-- 占位用的view -->
 		<view />
 		<view class="flex-row buy">
-			<view class="buy-num">10人购买</view>
+			<view class="buy-num">{{options.Amount}}人购买</view>
 			<view class="buy-btn" bind:tap="bandleStudy">
 				去学习
 			</view>

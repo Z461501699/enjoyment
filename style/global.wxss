@@ -39,3 +39,9 @@
   line-height: 100rpx;
   text-align: center;
 }
+/* 超出隐藏 */
+.OVE{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

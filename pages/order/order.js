@@ -6,7 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderParams:{}
+    orderParams:{
+      memberId: '',
+      orderList:[]
+    }
   },
   toStudy(){
     console.log('去学习');
@@ -15,19 +18,24 @@ Page({
   // 获取订单列表
   getOrderList(){
    const that  =this
+   that.data.orderParams.memberId = App.request.getUser().userId
    const {data:{orderParams}} = that
     App.request.start({
       apiKey:'getOrderList',
       params:orderParams
-    }).then(data =>{
+    }).then(({data}) =>{
+      data.forEach(item =>{
+        item.SubjectImg = App.Host +  item.SubjectImg
+      })
+      that.setData({'orderList':data})
       console.log('data',data)
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log('options',options)
+  onLoad: function () {
+    console.log('this',this)
     this.getOrderList()
   },
 
