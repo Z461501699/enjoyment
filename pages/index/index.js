@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
-import { closeLoading, openLoading } from '../../utils/pagination'
+const App = getApp()
 Page({
   data: {
     isShowLoginModule: false,
@@ -29,17 +28,18 @@ Page({
     })
   },
   onLoad: function () {
-    /**
-     * 授权登陆验证
-     */
-    // checkLoginStatus().then(() => {
-    //   //登陆完成
-    // }).catch(() => {
-    //   //登陆失败
-    //   this.setData({
-    //     isShowLoginModule: true
-    //   })
-    // })
+    App.userInfoReadyCallback = res => {
+      console.log(res)
+      this.getRecommendedSubjectList();
+    }
+  },
+  getRecommendedSubjectList() {
+    App.request.start({
+      apiKey: 'getRecommendedSubjectList',
+      params: {}
+    }).then(res => {
+
+    })
   },
   /**
    * 
@@ -84,9 +84,7 @@ Page({
     }, 1000);
   },
   onReachBottom: function () {
-    openLoading().then(() => {
-      closeLoading()
-    })
+
   },
 
 })
