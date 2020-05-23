@@ -15,18 +15,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 export const formatStatus = d => {
+  d = Number(d)
   let str
-  switch (d) {
-    case 0:
-      str = '取消';
-    case 1:
-      str = '报名中';
-    case 2:
-      str = '开始';
-    case 3:
-      str = '结束';
-  }
-  console.log(str)
-
+  if (d === 0) str = '取消';
+  if (d === 1) str = '报名中';
+  if (d === 2) str = '开始';
+  if (d === 3) str = '结束';
   return str
 }

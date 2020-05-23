@@ -65,7 +65,22 @@
 .course-tip {
   width: 140rpx;
   height: 80rpx;
-  background: #bbbbbb;
+  background: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.course-tip .tip-price {
+  font-size: 24rpx;
+  color: #E33636;
+}
+
+.course-tip .tip-title {
+  font-size: 24rpx;
+  color: #767a7a;
+  margin-top: 6rpx;
 }
 
 .course-status {

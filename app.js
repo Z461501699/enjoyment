@@ -3,7 +3,7 @@ import HTTPRequest from './common/HttpRequest';
 import Common from './common/Common';
 import GlobalData from './common/GlobalData';
 import GEvent from './common/GEvent';
-import { Host } from "./common/config";
+import {Host} from './common/config'
 
 App({
   Host: null,

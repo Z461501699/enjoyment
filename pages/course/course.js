@@ -15,11 +15,9 @@ Page({
     selectTitles: HEADER_SELECT_TITLES,
     selectOptions: HEADER_SELECT_OPTIONS,
     courseListParams: {
-      // Name: '',
-      // Status: '',
-      // BelongSchoolId: '',
-      // BelongTeacherId: '',
-      // Ids: '',
+      Name: '',
+      Status: 1,
+      BelongSchoolId: '',
       PageSize: 10,
       PageIndex: 1,
     }

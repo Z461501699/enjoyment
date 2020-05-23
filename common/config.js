@@ -21,6 +21,8 @@ export const Apis = {
     getSubjectInfo: { type: 'GET', path: '/api/Subject/GetSubjectInfo' },//获取课程详情
     getMessageList: { type: 'GET', path: '/api/Message/GetMessageList' },//获取消息列表
     getOrderList: { type: 'GET', path: '/api/Order/GetOrderList' },//获取订单列表
+    getSchoolInfo: { type: 'GET', path:'/api/School/GetSchoolInfo'}, // 获取学校详情
+    getTeachersBySubjectId:{type:'GET',path:'/api/Teacher/GetTeachersBySubjectId'},//获取课程老师列表
 };
 
 // keys
