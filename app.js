@@ -3,11 +3,11 @@ import HTTPRequest from './common/HttpRequest';
 import Common from './common/Common';
 import GlobalData from './common/GlobalData';
 import GEvent from './common/GEvent';
-import {Host} from './common/config'
+import { Host } from './common/config'
 
 App({
   Host: null,
-  userInfoReadyCallback: null,
+  // userInfoReadyCallback: null,
   globalData: null,
   request: null,
   common: null,
@@ -36,14 +36,14 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              // if (!this.common.userDidLogin()) {
-              this.userLogin(res.userInfo);
-              // }
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
+              this.userLogin(res.userInfo).then(res => {
+                // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                // 所以此处加入 callback 以防止这种情况
+                if (this.userInfoReadyCallback) {
+                  this.userInfoReadyCallback(res)
+                }
+              });
+
             }
           })
         }
@@ -66,6 +66,7 @@ App({
       id: userId,
       token: token
     })
+    return true
   },
   // 用户登录
   userLogin(info) {
@@ -87,8 +88,9 @@ App({
             },
           }).then(res => {
             if (res.success) {
-              this.setUserInfo({ userInfo: res['data']['UserInfo'], token: res['data']['Token'], userId: res['data']['UserInfo']['Id'] })
-              resolve({ userInfo: info })
+              if (this.setUserInfo({ userInfo: res['data']['UserInfo'], token: res['data']['Token'], userId: res['data']['UserInfo']['Id'] })) {
+                resolve({ userInfo: info })
+              }
             }
 
           })

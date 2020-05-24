@@ -5,15 +5,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    logoImg: String,
-    name: String,
-    classCount: Number,
-    price: Number,
-    preferentialPrice: Number,
-    startTime: String,
-    status: String,
-    subjectId: String,
-    stuNum: Number,
     options:{
       type:Object,
       value:{}
@@ -31,6 +22,7 @@ Component({
    */
   methods: {
     onToDetail(e) {
+      console.log(e)
       this.triggerEvent('toDetail', { id: e.currentTarget.dataset.id })
     }
   }

@@ -1,5 +1,5 @@
 <view class="container">
-	<course-item subjectId="{{courseDetailData['Id']}}" logo="{{courseDetailData['Logo']}}" name="{{courseDetailData['Name']}}" classCount="{{courseDetailData['ClassCount']}}" price="{{courseDetailData['Price']}}" preferentialPrice="{{courseDetailData['preferentialPrice']}}" startTime="{{courseDetailData['StartTime']}}" status="{{courseDetailData['Status']}}" price="{{courseDetailData['Price']}}" preferentialPrice="{{courseDetailData['PreferentialPrice']}}" stuNum="{{courseDetailData['StudentList'].length}}"></course-item>
+	<course-item options="{{courseDetailData}}"></course-item>
 
 	<course-title title="课程介绍">
 		<view class="introduction-msg {{isShowAll?'msgHeight':''}}">{{courseDetailData['Description']}}</view>
@@ -8,7 +8,7 @@
 	<course-title title="任课老师">
 		<scroll-view scroll-x="true" class="teacher-list">
 			<view class="scroll-box" wx:for="{{teacherList}}" wx:key="*this">
-				<teacher-card avatar="{{item['Avatar']}}" graduatedSchool="{{item['GraduatedSchool']}}" name="{{item['Name']}}"></teacher-card>
+				<teacher-card options="{{item}}"></teacher-card>
 			</view>
 		</scroll-view>
 	</course-title>

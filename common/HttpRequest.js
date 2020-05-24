@@ -70,7 +70,7 @@ export default class HTTPRequest {
                         // 判断是否授权登入
                         if (result.message.includes('未授权登录')) {
                             wx.navigateTo({
-                                url: '../login/login',
+                                url: '../personal/personal',
                             });
                         }
                     }
