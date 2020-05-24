@@ -10,7 +10,7 @@ Page({
     messageParams: {
       PageSize: 10,
       PageIndex: 1,
-
+      MemberId:''
     },
     isLoadAll: false,
     messageList: []
