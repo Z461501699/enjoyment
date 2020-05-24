@@ -2,5 +2,7 @@
   "usingComponents": {
     "order-item":"/components/order-item/index"
   },
-  "navigationBarTitleText": "订单管理"
+  "navigationBarTitleText": "订单管理",
+  "enablePullDownRefresh": true
+
 }

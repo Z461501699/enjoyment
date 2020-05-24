@@ -6,37 +6,56 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderParams:{
+    orderParams: {
+      pageIndex: 1,
+      PageSize: 10,
       memberId: '',
-      orderList:[],
-      active:'all'
+      orderList: [],
+      active: 'all'
     },
-    active:'all'
+    isLoadAll: false
   },
-  toStudy(){
+  toStudy() {
     console.log('去学习');
-    
+
   },
   // 获取订单列表
-  getOrderList(){
-   const that  =this
-   that.data.orderParams.memberId = App.request.getUser().userId
-   const {data:{orderParams}} = that
+  getOrderList() {
+    const that = this
+    const {
+      data: {
+        orderParams
+      }
+    } = that
     App.request.start({
-      apiKey:'getOrderList',
-      params:orderParams
-    }).then(({data}) =>{
-      data.forEach(item =>{
-        item.SubjectImg = App.Host +  item.SubjectImg
+      apiKey: 'getOrderList',
+      params: orderParams
+    }).then(({
+      data
+    }) => {
+      data.forEach(item => {
+        item.SubjectImg = App.Host + item.SubjectImg
       })
-      that.setData({'orderList':data})
-      console.log('data',data)
+      that.setData({
+        'orderParams.orderList': orderParams.orderList.concat(data),
+        'orderParams.PageIndex': orderParams.PageIndex++,
+        isLoadAll: orderParams.PageSize > data.length
+      })
     })
   },
-  // 
+  // 初始数据
+  initData(){
+    this.setData({
+      'orderParams.PageSize': 1,
+      'orderParams.orderList':[]
+    })
+  },
+  // 切换tabs
   onChange(event) {
-    this.setData({'orderParams.active': event.detail.name})
-    console.log('orderParams',this.data.orderParams)
+    this.initData()
+    this.setData({
+      'orderParams.active': event.detail.name,
+    })
     this.getOrderList()
 
   },
@@ -44,7 +63,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({'orderParams.active': options.type})
+    this.setData({
+      'orderParams.active': options.type,
+      'orderParams.memberId': App.request.getUser().userId,
+    })
     this.getOrderList()
   },
 
@@ -80,14 +102,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.initData()
+    this.getOrderList()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if(this.data.isLoadAll) return
+    this.getOrderList()
   },
 
   /**

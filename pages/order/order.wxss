@@ -1,1 +1,10 @@
 /* pages/order/order.wxss */
+.order-fixd{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.van-tabs__line {
+  background: var(--theme-color) !important;
+}
