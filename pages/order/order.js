@@ -8,8 +8,10 @@ Page({
   data: {
     orderParams:{
       memberId: '',
-      orderList:[]
-    }
+      orderList:[],
+      active:'all'
+    },
+    active:'all'
   },
   toStudy(){
     console.log('去学习');
@@ -31,10 +33,18 @@ Page({
       console.log('data',data)
     })
   },
+  // 
+  onChange(event) {
+    this.setData({'orderParams.active': event.detail.name})
+    console.log('orderParams',this.data.orderParams)
+    this.getOrderList()
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
+    this.setData({'orderParams.active': options.type})
     this.getOrderList()
   },
 

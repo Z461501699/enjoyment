@@ -57,6 +57,8 @@
     "van-cell": "dist/cell/index",
     "van-cell-group": "dist/cell-group/index",
     "van-uploader": "dist/uploader/index",
-    "van-skeleton": "dist/skeleton/index"
+    "van-skeleton": "dist/skeleton/index",
+    "van-tabs": "dist/tabs/index",
+    "van-tab": "dist/tab/index"
   }
 }

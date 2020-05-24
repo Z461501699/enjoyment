@@ -69,20 +69,22 @@ Page({
    * 订单导航跳转
    */
   onTargetOrder(e) {
-    let _this = this;
-    if (!_this.onCheckLogin()) {
-      return false;
-    }
+    console.log('订单',e.currentTarget.dataset.type)
+     let _this = this;
+    // if (!_this.onCheckLogin()) {
+    //   return false;
+    // }
     // 记录formid
     let urls = {
-      all: '/pages/order/index?type=all',
-      payment: '/pages/order/index?type=payment',
-      received: '/pages/order/index?type=received',
-      refund: '/pages/order/refund/index',
+      all: '/pages/order/order?type=all',
+      payment: '/pages/order/order?type=payment',
+      received: '/pages/order/order?type=received',
+      refund: '/pages/order-refund/order-refund',
     };
-    // 转跳指定的页面
+    //转跳指定的页面
     wx.navigateTo({
-      url: urls[e.currentTarget.dataset.type]
+      url: urls[e.currentTarget.dataset.type],
+    
     })
   },
 

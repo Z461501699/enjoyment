@@ -10,6 +10,7 @@ Page({
     messageParams:{
       PageSize:10,
       PageIndex:1,
+     
     },
     messageList:[]
   },
@@ -32,7 +33,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(21321312)
+    this.setData({'messageParams.MemberId': App.request.getUser().userId})
+    console.log('options',this.data.messageParams)
     this.getMessageList()
   },
 

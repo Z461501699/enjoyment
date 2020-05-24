@@ -1,8 +1,28 @@
-<!--pages/order/order.wxml-->
-<block wx:for="{{orderList}}" wx:key="*this">
-	<order-item options="{{item}}" bind:study="toStudy" />
-</block>
-
-<view class="load-all">
-	没有更多课程了
-</view>
+<!-- pages/order/order.wxml -->
+<van-tabs active="{{ orderParams.active }}" bind:change="onChange">
+		<van-tab title="全部订单" name='all'>
+				<block wx:if="{{ orderParams.active=== 'all'}}">
+						<block wx:for="{{orderList}}" wx:key="*this">
+								<order-item options="{{item}}" bind:study="toStudy" />
+						</block>
+				</block>
+		</van-tab>
+		<van-tab title="已付款" name='received'>
+				<block wx:if="{{orderParams.active ==='received'}}">
+						<block wx:for="{{orderList}}" wx:key="*this">
+								<order-item options="{{item}}" bind:study="toStudy" />
+						</block>
+				</block>
+		</van-tab>
+		<van-tab title="待付款" name='payment' >
+				<block wx:if="{{orderParams.active ==='payment'}}">
+						<block wx:for="{{orderList}}" wx:key="*this">
+								<order-item options="{{item}}" bind:study="toStudy" />
+						</block>
+				</block>
+		</van-tab>
+</van-tabs>
+<!-- <block wx:for="{{orderList}}" wx:key="*this">
+						<order-item options="{{item}}" bind:study="toStudy" />
+				</block> -->
+<view class="load-all">没有更多课程了</view>
