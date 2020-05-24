@@ -79,7 +79,7 @@ Page({
       all: '/pages/order/order?type=all',
       payment: '/pages/order/order?type=payment',
       received: '/pages/order/order?type=received',
-      refund: '/pages/order-refund/order-refund',
+      refund: '/pages/salesReturn/salesReturn',
     };
     //转跳指定的页面
     wx.navigateTo({

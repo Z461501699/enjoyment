@@ -1,0 +1,1 @@
+<sales-return-item bind:click="handleGoDetail" />
