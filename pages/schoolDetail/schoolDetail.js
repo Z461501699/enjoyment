@@ -85,4 +85,16 @@ Page({
   onPullDownRefresh: function () {
 
   },
+  // 复制学校手机号
+  handleContactUs() {
+    const {
+      schoolInfo
+    } = this.data
+    const {
+      Phone
+    } = schoolInfo
+    wx.setClipboardData({
+      data: Phone
+    })
+  }
 })

@@ -49,7 +49,7 @@
 		<image class="icon"></image>
 		<view class="text">分享</view>
 	</button>
-	<button class="btn-submit">联系我们</button>
+	<button class="btn-submit" bind:tap="handleContactUs">联系我们</button>
 </view>
 <!-- 课程列表 -->
 <list-title title="课程推荐" bind:click="onToCourseList">
