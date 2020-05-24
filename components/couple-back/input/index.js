@@ -1,17 +1,14 @@
-// components/couple-black-input/index.js
+// components/couple-back/input/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    title: {
-      value: '信息类型',
+    placeholder: {
+      value: "请输入内容",
       type: String
     },
-    essential: {
-      value: false,
-      type: Boolean
-    }
+    value: String
   },
 
   /**
@@ -25,6 +22,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onIpt(e) {
+      this.triggerEvent('input', e.detail)
+    }
   }
 })

@@ -1,0 +1,26 @@
+<view class='container'>
+	<form bindsubmit="formSubmit">
+		<couple-back essential title="姓名">
+			<couple-back-input value="{{formData['name']}}" bindinput="onIptName" placeholder="请输入姓名"></couple-back-input>
+		</couple-back>
+		<couple-back essential title="头像">
+			<couple-back-uploadFile value="{{formData['avata']}}" bindupload="onUploadAvata"></couple-back-uploadFile>
+		</couple-back>
+		<couple-back essential title="性别">
+			<couple-back-input value="{{formData['sex']}}" bindinput="onIptName" placeholder="请输入性别"></couple-back-input>
+		</couple-back>
+		<couple-back title="学校">
+			<couple-back-input value="{{formData['schoolName']}}" bindinput="onIptName" placeholder="请输入学校"></couple-back-input>
+		</couple-back>
+		<couple-back title="年级">
+			<couple-back-input value="{{formData['schoolGrade']}}" bindinput="onIptName" placeholder="请输入年级"></couple-back-input>
+		</couple-back>
+		<couple-back title="班级">
+			<couple-back-input value="{{formData['schoolClass']}}" bindinput="onIptName" placeholder="请输入班级"></couple-back-input>
+		</couple-back>
+		<couple-back title="学号">
+			<couple-back-input value="{{formData['schoolNumber']}}" bindinput="onIptName" placeholder="请输入学号"></couple-back-input>
+		</couple-back>
+		<button class="submit" formType="submit">提交</button>
+	</form>
+</view>

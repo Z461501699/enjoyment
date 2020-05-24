@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    studentList: [{
+      HeadImg: '',
+      Name: "学生1"
+    }]
   },
 
   /**
@@ -14,12 +17,15 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onAddnew(e) { },
+  onEditStudent(e) {
+    console.log('编辑', e.detail)
+    wx.navigateTo({
+      url: `/pages/studentInfoEdit/studentInfoEdit?studentId=${e.detail.id}&type=edit`,
+    })
+  },
+  onViewClass(e) {
+    console.log('课时表', e.detail)
   },
 
   /**
@@ -28,21 +34,6 @@ Page({
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
@@ -50,17 +41,4 @@ Page({
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -1,0 +1,22 @@
+/* components/couple-back/picker/index.wxss */
+@import '/style/global.wxss';
+
+.container {
+  background-color: #F4F4F4;
+  border: 1rpx solid #E6E6E6;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  justify-content: space-between;
+  width: 710rpx;
+  box-sizing: border-box;
+}
+
+.container .box {
+  width: 670rpx;
+  justify-content: space-between;
+}
+
+.container .box .image {
+  width: 32rpx;
+  height: 20rpx
+}

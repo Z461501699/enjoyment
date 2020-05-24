@@ -1,7 +1,7 @@
 <view class="container">
 	<view class="title">
-		信息类型
-		<span style="color: red;">*</span>
+		{{title}}
+		<span style="color: red;" wx:if="{{essential}}">*</span>
 	</view>
-  <slot />
+	<slot />
 </view>

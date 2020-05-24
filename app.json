@@ -12,7 +12,8 @@
     "pages/order/order",
     "pages/courseManage/courseManager",
     "pages/salesReturn/salesReturn",
-    "pages/salesReturnDetail/salesReturnDetail"
+    "pages/salesReturnDetail/salesReturnDetail",
+    "pages/studentInfoEdit/studentInfoEdit"
   ],
   "window": {
     "backgroundTextStyle": "light",

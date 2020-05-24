@@ -1,5 +1,6 @@
 <view class="container">
-  <view class="studentItem" wx:for="{{2}}">
-  
-  </view>
+	<block wx:for="{{studentList}}" wx:key="*this">
+		<student-item options="{{item}}" bind:view="onViewClass" bind:edit="onEditStudent"></student-item>
+	</block>
+	<view class="addNew" bindtap="onAddnew">添加学生</view>
 </view>

@@ -8,6 +8,10 @@ Component({
     title: {
       value: '列表',
       type: String
+    },
+    showMore:{
+      type:Boolean,
+      value:false
     }
   },
 

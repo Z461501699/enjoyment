@@ -1,0 +1,68 @@
+.student-container {
+  width: 100vw;
+  height: 180rpx;
+  background-color: #fff;
+  box-shadow: 0px 10px 79px 0px #f7f7f7;
+  /* border-radius: 20px; */
+  padding: 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-info {
+  width: 620rpx;
+  height: 120rpx;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.student-info .name {
+  width: 100%;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #343432;
+}
+
+.student-info .btn-box {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 24rpx;
+  color: #12AE85;
+  font-weight: bold;
+}
+
+.student-info .btn-box .btn {
+  margin-right: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.student-info .btn-box .btn .icon{
+  width: 30rpx;
+  height: 30rpx;
+}
+.student-header {
+  width: 110rpx;
+  height: 110rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-header image {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #ccc;
+  border-radius: 50%;
+}

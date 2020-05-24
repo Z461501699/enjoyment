@@ -1,17 +1,10 @@
-// components/couple-black-input/index.js
+// components/student-item/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    title: {
-      value: '信息类型',
-      type: String
-    },
-    essential: {
-      value: false,
-      type: Boolean
-    }
+    options: Object
   },
 
   /**
@@ -25,6 +18,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onView(e) {
+      this.triggerEvent('view', { id: 1 })
+    },
+    onEdit(e) {
+      this.triggerEvent('edit', { id: 1 })
+    },
   }
 })

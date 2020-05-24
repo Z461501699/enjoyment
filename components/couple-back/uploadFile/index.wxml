@@ -1,0 +1,3 @@
+<view class="flex-row container">
+	<van-uploader file-list="{{ fileList }}" max-count="1" bind:after-read="afterRead" bind:delete='onDelete'></van-uploader>
+</view>

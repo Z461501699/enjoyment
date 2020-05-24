@@ -1,6 +1,6 @@
 <view class="title flex-row">
  <view class="left">{{title}}</view>
- <view class="right" bind:tap="more">更多 ></view>
+ <view class="right" bind:tap="more" wx:if="{{showMore}}">更多 ></view>
 </view>
 <view class="list">
   <slot />

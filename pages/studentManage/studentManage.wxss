@@ -1,8 +1,22 @@
-.container{
+.container {
   width: 100vw;
   min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items:center;
+  flex-direction: column;
 }
-.studentItem{
-  width:100vw;
-  height: 100%;
+.addNew{
+  width: 700rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 36rpx;
+  background-color: #12AE85;
+  border-radius: 50rpx;
+  position: fixed;
+  bottom: 32rpx;
+  left: 25rpx;
+  font-weight: bold;
 }

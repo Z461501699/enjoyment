@@ -1,0 +1,17 @@
+<view class="student-container">
+	<view class="student-header">
+		<image mode="aspectFill" src="{{options['HeadImg']}}"></image>
+	</view>
+	<view class="student-info">
+		<view class="name">{{options["Name"]}}</view>
+		<view class="btn-box">
+			<view class="btn" bindtap="onView">
+				<image class="icon" src="../../images/icon/icon-look.png"></image> 查看课时表
+			</view>
+			<view class="btn" bindtap="onEdit">
+				<image class="icon" src="../../images/icon/icon-edit.png"></image> 编辑
+			</view>
+		</view>
+	</view>
+
+</view>

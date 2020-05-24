@@ -104,6 +104,13 @@
 					"id": -1,
 					"name": "pages/schoolDetail/schoolDetail",
 					"pathName": "pages/schoolDetail/schoolDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/studentManage/studentManage",
+					"pathName": "pages/studentManage/studentManage",
 					"scene": null
 				}
 			]
