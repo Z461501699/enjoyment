@@ -12,7 +12,7 @@ Page({
     }, {
       name: '订单',
       icon: '../../images/icon/icon_order.png',
-      path: '/pages/order/order?type=all'
+      path: '/pages/order/order'
     }, {
       name: '消息',
       icon: '../../images/icon/icon_message.png',
@@ -23,7 +23,8 @@ Page({
       path: '/pages/coupleBack/coupleBack'
     }],
     subjectList: [],
-    schoolList: []
+    schoolList: [],
+    adList: []
   },
   onNavigate(e) {
     wx.navigateTo({
@@ -34,8 +35,26 @@ Page({
     App.userInfoReadyCallback = res => {
       console.log(res)
       this.getRecommendedSubjectList();
-      this.getRecommendedSchoolList()
+      this.getRecommendedSchoolList();
+      this.getAdList()
     }
+  },
+  getAdList() {
+    App.request.start({
+      apiKey: 'getAdList',
+      params: {}
+    }).then(res => {
+      if (res.success) {
+        let adList = res.data
+        adList = adList.map(item => {
+          item['ImgPath'] = `${App['Host']}${item['ImgPath']}`
+          return item
+        })
+        this.setData({
+          adList
+        })
+      }
+    })
   },
   getRecommendedSchoolList() {
     App.request.start({
@@ -120,6 +139,8 @@ Page({
    */
   onPullDownRefresh: function () {
     this.getRecommendedSubjectList();
+    this.getRecommendedSchoolList();
+    this.getAdList();
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000);

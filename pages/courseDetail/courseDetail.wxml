@@ -13,7 +13,7 @@
 		</scroll-view>
 	</course-title>
 	<course-title title="所属机构">
-		<school-item></school-item>
+		<school-item  options="{{schoolInfo}}" title="{{schoolInfo.SchoolName}}" url="{{schoolInfo.Logo}}" address="{{schoolInfo.Address}}" data-id="{{schoolInfo.Id}}" bind:toDetail="toSchoolDetail"></school-item>
 	</course-title>
 </view>
 <view class="btm-box flex-row">

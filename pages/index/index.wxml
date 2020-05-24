@@ -1,9 +1,11 @@
 <view class='container'>
 	<view class="banner-box">
 		<swiper indicator-dots indicator-color="rgb(255,255,255)" autoplay>
-			<block wx:for="{{['red','blue','pink','yello']}}" wx:key="*this">
+			<block wx:for="{{adList}}" wx:key="*this">
 				<swiper-item>
-					<view class="swiper-item" style="background:{{item}}"></view>
+					<view class="swiper-item">
+					<image mode="aspectFill" src="{{item['ImgPath']}}"></image>
+					</view>
 				</swiper-item>
 			</block>
 		</swiper>

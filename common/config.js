@@ -26,6 +26,7 @@ export const Apis = {
     GetTeacherList:{type:'GET',path:'/api/Teacher/GetTeacherList'},//获取教师列表
     getRecommendedSubjectList:{type:'GET',path:'/api/Subject/GetRecommendedSubjectList'},//获取推荐课程列表
     getRecommendedSchoolList:{type:'GET',path:'/api/School/GetRecommendedSchoolList'},//获取推荐学校列表
+    getAdList:{type:"GET",path:'/api/Ad/GetAdList'},//首页轮播图
 };
 
 // keys

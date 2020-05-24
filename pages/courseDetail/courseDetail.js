@@ -15,7 +15,8 @@ Page({
       subjectId: '',
     },
     courseDetailData: {},
-    teacherList: []
+    teacherList: [],
+    schoolInfo: {}
   },
 
   /**
@@ -24,6 +25,22 @@ Page({
   onLoad: function (options) {
     this.getSubjectInfo(options)
     this.getTeachersBySubjectId(options)
+  },
+  getSchoolInfo({ schoolId }) {
+    App.request.start({
+      apiKey: 'getSchoolInfo',
+      params: { schoolId },
+      loadingMessage: '加载中',
+    }).then(res => {
+      console.log(res)
+      if (res.success) {
+        let schoolInfo = res.data
+        schoolInfo['Logo'] = `${App['Host']}${schoolInfo['Logo']}`
+        this.setData({
+          schoolInfo
+        })
+      }
+    })
   },
   getSubjectInfo({ subjectId = null }) {
     let { subjectInfoParams, courseDetailData } = this.data
@@ -41,6 +58,8 @@ Page({
         courseDetailData['Status'] = formatStatus(courseDetailData['Status'])
         this.setData({
           courseDetailData
+        }, () => {
+          this.getSchoolInfo({schoolId:courseDetailData['BelongSchoolId']})
         })
       }
     })
@@ -55,14 +74,20 @@ Page({
       console.log(res)
       if (res.success) {
         teacherList = res.data
-        teacherList=teacherList.map(item=>{
-          item['Avatar']=`${App['Host']}${item['Avatar']}`
+        teacherList = teacherList.map(item => {
+          item['Avatar'] = `${App['Host']}${item['Avatar']}`
           return item
         })
         this.setData({
           teacherList
         })
       }
+    })
+  },
+  toSchoolDetail(e) {
+    let id=e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/schoolDetail/schoolDetail?schoolId=${id}`,
     })
   },
   /**
