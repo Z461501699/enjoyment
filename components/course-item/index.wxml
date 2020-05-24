@@ -1,6 +1,6 @@
 <view class="course-item" data-id="{{options.Id}}" bindtap="onToDetail">
 	<view class="course-box">
-		<image mode="aspectFill" class="course-banner" src="{{options.LogoImg}}"></image>
+		<image mode="aspectFill" class="course-banner" src="{{options.Logo}}"></image>
 		<view class="course-msg-box flex-between">
 			<view class="course-left flex-column">
 				<view class="course-title hidden-beyond">{{options.Name}}</view>
