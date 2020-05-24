@@ -15,15 +15,13 @@
 		</view>
 	</view>
 	<list-title title="学校推荐" bind:click="onToSchoolList">
-		<block wx:for="{{5}}" wx:key="*this">
-			<school-item></school-item>
+		<block wx:for="{{schoolList}}" wx:key="*this">
+			<school-item  options="{{item}}" title="{{item.SchoolName}}" url="{{item.Logo}}" address="{{item.Address}}" data-id="{{item.Id}}" bind:toDetail="toSchoolDetail"></school-item>
 		</block>
 	</list-title>
 	<list-title title="课程推荐" bind:click="onToCourseList">
-		<block wx:for="{{5}}" wx:key="*this">
-			<course-item bind:toDetail="onToCourseDetail"></course-item>
+		<block wx:for="{{subjectList}}" wx:key="*this">
+			<course-item options="{{item}}" bind:toDetail="onToCourseDetail"></course-item>
 		</block>
 	</list-title>
 </view>
-<!-- 授权弹窗 -->
-<login-popup show="{{isShowLoginModule}}" bind:close="onChangeLoginModel"></login-popup>

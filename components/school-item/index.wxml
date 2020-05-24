@@ -1,4 +1,4 @@
-<view class="school-container flex-row" data-id="1" bindtap="handleToDetail">
+<view class="school-container flex-row" data-id="{{options.Id}}" bindtap="handleToDetail">
   <!-- 左边图标 -->
   <image class="left" src="{{url}}" mode="aspectFill" />
   <!-- 右侧信息 -->

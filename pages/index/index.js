@@ -1,9 +1,10 @@
 //index.js
 //获取应用实例
 const App = getApp()
+import { formatTime, formatStatus } from "../course/format";
+
 Page({
   data: {
-    isShowLoginModule: false,
     btnList: [{
       name: '课程',
       icon: '../../images/icon/icon_course.png',
@@ -20,7 +21,9 @@ Page({
       name: '反馈',
       icon: '../../images/icon/icon_feedback.png',
       path: '/pages/coupleBack/coupleBack'
-    }]
+    }],
+    subjectList: [],
+    schoolList: []
   },
   onNavigate(e) {
     wx.navigateTo({
@@ -31,23 +34,60 @@ Page({
     App.userInfoReadyCallback = res => {
       console.log(res)
       this.getRecommendedSubjectList();
+      this.getRecommendedSchoolList()
     }
+  },
+  getRecommendedSchoolList() {
+    App.request.start({
+      apiKey: 'getRecommendedSchoolList',
+      params: {}
+    }).then(res => {
+      if (res.success) {
+        let schoolList = res.data
+        schoolList = schoolList.map(item => {
+          item['Logo'] = `${App['Host']}${item['Logo']}`
+          return item
+        })
+        this.setData({
+          schoolList
+        })
+      }
+    })
   },
   getRecommendedSubjectList() {
     App.request.start({
       apiKey: 'getRecommendedSubjectList',
       params: {}
     }).then(res => {
-
+      if (res.success) {
+        let subjectList = res.data
+        subjectList = subjectList.map(item => {
+          item['Logo'] = `${App['Host']}${item['Logo']}`
+          item['Status'] = formatStatus(item['Status'])
+          item['StartTime'] = formatTime(item['StartTime'])
+          return item
+        })
+        this.setData({
+          subjectList
+        })
+      }
     })
   },
   /**
-   * 
-   * 关闭授权弹窗 
-   */
-  onChangeLoginModel() {
-    this.setData({
-      isShowLoginModule: false
+ * 跳转到详情页
+ */
+  toSchoolDetail(e) {
+    const {
+      currentTarget
+    } = e
+    const {
+      dataset
+    } = currentTarget
+    const {
+      id
+    } = dataset
+    wx.navigateTo({
+      url: `/pages/schoolDetail/schoolDetail?schoolId=${id}`,
     })
   },
   /**
@@ -64,7 +104,7 @@ Page({
   onToCourseDetail(e) {
     console.log(e.detail.id)
     wx.navigateTo({
-      url: '/pages/courseDetail/courseDetail',
+      url: `/pages/courseDetail/courseDetail?subjectId=${e.detail.id}`,
     })
   },
   /**
@@ -79,6 +119,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.getRecommendedSubjectList();
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000);

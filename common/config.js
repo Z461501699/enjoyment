@@ -25,6 +25,7 @@ export const Apis = {
     getTeachersBySubjectId:{type:'GET',path:'/api/Teacher/GetTeachersBySubjectId'},//获取课程老师列表
     GetTeacherList:{type:'GET',path:'/api/Teacher/GetTeacherList'},//获取教师列表
     getRecommendedSubjectList:{type:'GET',path:'/api/Subject/GetRecommendedSubjectList'},//获取推荐课程列表
+    getRecommendedSchoolList:{type:'GET',path:'/api/School/GetRecommendedSchoolList'},//获取推荐学校列表
 };
 
 // keys

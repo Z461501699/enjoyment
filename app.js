@@ -66,6 +66,7 @@ App({
       id: userId,
       token: token
     })
+    return true
   },
   // 用户登录
   userLogin(info) {
@@ -87,8 +88,9 @@ App({
             },
           }).then(res => {
             if (res.success) {
-              this.setUserInfo({ userInfo: res['data']['UserInfo'], token: res['data']['Token'], userId: res['data']['UserInfo']['Id'] })
-              resolve({ userInfo: info })
+              if (this.setUserInfo({ userInfo: res['data']['UserInfo'], token: res['data']['Token'], userId: res['data']['UserInfo']['Id'] })) {
+                resolve({ userInfo: info })
+              }
             }
 
           })
