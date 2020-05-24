@@ -2,6 +2,6 @@
 	<image class="header-img" src="{{options.Avatar}}"></image>
 	<view class="msg-box flex-column">
 		<view class="name OVE">{{options.Name}}</view>
-		<view class="mark OVE">毕业于{{options.GraduatedSchool}}</view>
+		<view class="mark OVE">毕业于 {{options.GraduatedSchool}}</view>
 	</view>
 </view>

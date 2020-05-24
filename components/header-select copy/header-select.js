@@ -53,12 +53,6 @@ Component({
         search: event.detail
       })
     },
-    onClear(event) {
-      this.setData({
-        search: event.detail
-      })
-      this.handleSearch()
-    },
     handleSearch() {
       this.triggerEvent('handleSearch',this.data.search)
     },
