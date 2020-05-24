@@ -588,3 +588,7 @@ button:after {
   content: none;
   border: none;
 }
+
+.title-class {
+  font-size: 28rpx;
+}

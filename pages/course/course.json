@@ -3,6 +3,8 @@
     "header-select":"../../components/header-select/header-select",
     "course-item": "../../components/course-item/index"
   },
+  "navigationBarBackgroundColor": "#12AE85",
+  "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true
 
 }
