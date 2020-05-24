@@ -10,7 +10,9 @@
     "pages/order-detail/order-detail",
     "pages/message/message",
     "pages/order/order",
-    "pages/courseManage/courseManager"
+    "pages/courseManage/courseManager",
+    "pages/salesReturn/salesReturn",
+    "pages/salesReturnDetail/salesReturnDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -57,6 +59,7 @@
     "van-cell": "dist/cell/index",
     "van-cell-group": "dist/cell-group/index",
     "van-uploader": "dist/uploader/index",
-    "van-skeleton": "dist/skeleton/index"
+    "van-skeleton": "dist/skeleton/index",
+    "van-steps": "dist/steps/index"
   }
 }

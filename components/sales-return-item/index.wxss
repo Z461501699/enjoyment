@@ -1,0 +1,65 @@
+/* components/sales-return-item/index.wxss */
+@import '/style/global.wxss';
+
+.container {
+  background-color: #fff;
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  justify-content: space-between;
+}
+
+.course-image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+}
+
+.container .info {
+  flex: 1;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 180rpx;
+  margin-left: 20rpx;
+}
+
+.container .info .title {
+  width: 100%;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.container .info .mome {
+  font-size: 22rpx;
+  color: #666;
+  width: 100%;
+
+}
+
+.container .info .num {
+  font-size: 24rpx;
+  color: #333;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.container .info .bottom {
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.container .info .bottom .btn {
+  font-size: 28rpx;
+  color: var(--theme-color);
+  border: 1rpx solid var(--theme-color);
+  font-weight: bold;
+  padding: 6rpx 20rpx;
+  border-radius: 40rpx;
+}
+
+.price {
+  font-size: 28rpx;
+  color: #FC5260;
+}
