@@ -21,12 +21,14 @@ export const Apis = {
     getSubjectInfo: { type: 'GET', path: '/api/Subject/GetSubjectInfo' },//获取课程详情
     getMessageList: { type: 'GET', path: '/api/Message/GetMessageList' },//获取消息列表
     getOrderList: { type: 'GET', path: '/api/Order/GetOrderList' },//获取订单列表
-    getSchoolInfo: { type: 'GET', path:'/api/School/GetSchoolInfo'}, // 获取学校详情
-    getTeachersBySubjectId:{type:'GET',path:'/api/Teacher/GetTeachersBySubjectId'},//获取课程老师列表
-    GetTeacherList:{type:'GET',path:'/api/Teacher/GetTeacherList'},//获取教师列表
-    getRecommendedSubjectList:{type:'GET',path:'/api/Subject/GetRecommendedSubjectList'},//获取推荐课程列表
-    getRecommendedSchoolList:{type:'GET',path:'/api/School/GetRecommendedSchoolList'},//获取推荐学校列表
-    getAdList:{type:"GET",path:'/api/Ad/GetAdList'},//首页轮播图
+    getSchoolInfo: { type: 'GET', path: '/api/School/GetSchoolInfo' }, // 获取学校详情
+    getTeachersBySubjectId: { type: 'GET', path: '/api/Teacher/GetTeachersBySubjectId' },//获取课程老师列表
+    GetTeacherList: { type: 'GET', path: '/api/Teacher/GetTeacherList' },//获取教师列表
+    getRecommendedSubjectList: { type: 'GET', path: '/api/Subject/GetRecommendedSubjectList' },//获取推荐课程列表
+    getRecommendedSchoolList: { type: 'GET', path: '/api/School/GetRecommendedSchoolList' },//获取推荐学校列表
+    getAdList: { type: "GET", path: '/api/Ad/GetAdList' },//首页轮播图
+    getSudentListByParent: { type: 'GET', path: '/api/Student/GetSudentListByParent' },//根据会员ID获取绑定学生信息列表接口
+    addStudentInfo: { type: 'POST', path: '/api/Student/AddStudentInfo' },//根据会员ID创建定学生信息接口
 };
 
 // keys

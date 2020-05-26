@@ -1,4 +1,5 @@
 // pages/studentInfoEdit/studentInfoEdit.js
+const App = getApp()
 Page({
 
   /**
@@ -6,14 +7,27 @@ Page({
    */
   data: {
     formData: {
-      name: '12312',
-      sex: '',
-      schoolName: '',
-      schoolGrade: '',
-      schoolClass: '',
-      schoolNumber: '',
-      avata: '',
-    }
+      Name: '',
+      Sex: '',
+      SchoolName: '',
+      SchoolGrade: '',
+      SchoolClass: '',
+      SchoolNumber: '',
+      Avatar: '',
+      ParentId: ''
+    },
+    sexList: [{
+      label: '男',
+      value: 1
+    }, {
+      label: '女',
+      value: 2
+    }],
+    sexKey: {
+      label: 'label',
+      value: 'value'
+    },
+    type: null
   },
 
   /**
@@ -21,27 +35,101 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    let type = options['type']
+    if (options['type'] === 'edit') {
+      this.edit()
+
+    } else {
+      this.add()
+    }
+    this.setData({
+      type
+    })
+  },
+  onIpt(e) {
+    console.log(e)
+    let { formData } = this.data,
+      value = e.detail.value,
+      label = e.currentTarget.dataset.formlabel
+    console.log(label)
+    this.setData({
+      formData: {
+        ...formData,
+        [label]: value
+      }
+    })
+  },
+
+  add() {
+    let { formData } = this.data,
+    ParentId = App.globalData.getUserId()
+    this.setData({
+      formData: {
+        ...formData,
+        ParentId
+      }
+    })
+  },
+  edit() {
+    let page = getCurrentPages().slice(-2)[0];
+    let selectItem = page.data.selectItem, { formData } = this.data;
+    formData['ParentId'] = App.globalData.getUserId()
+    formData['Name'] = selectItem['Name'];
+    formData['Sex'] = selectItem['Sex'];
+    formData['SchoolName'] = selectItem['SchoolName'];
+    formData['SchoolGrade'] = selectItem['SchoolGrade'];
+    formData['SchoolNumber'] = selectItem['SchoolNumber'];
+    formData['SchoolClass'] = selectItem['SchoolClass'];
+    // formData['Avatar'] = selectItem['Avatar'];
+    this.setData({
+      formData
+    })
   },
   formSubmit(e) {
-    let { formData } = this.data
+    let { formData, type } = this.data, apiKey = ''
     console.log(formData)
+    if (type === 'edit') apiKey = '';
+    if (type === 'add') apiKey = 'addStudentInfo';
+    App.request.start({
+      apiKey,
+      params: formData
+    }).then(res => {
+      console.log(res)
+      if (res.success) {
+        wx.showToast({
+          title: res.message,
+          success: () => {
+            let page = getCurrentPages().slice(-2)[0];
+            setTimeout(() => {
+              if (page.getList) page.getList()
+              wx.navigateBack({
+                delta: 1,
+              })
+            }, 1500)
+          }
+        })
+      }
+    })
+
   },
-  onIptName(e) {
+  onChangeSex(e) {
+    console.log(e)
     let { formData } = this.data
     this.setData({
       formData: {
         ...formData,
-        name: e.detail.value
+        Sex: e.detail.value
       }
     })
   },
+
   onUploadAvata(e) {
     console.log(e)
     let { formData } = this.data
     this.setData({
       formData: {
         ...formData,
-        avata: e.detail.value
+        Avata: e.detail.value
       }
     })
   },

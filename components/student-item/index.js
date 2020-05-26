@@ -19,10 +19,10 @@ Component({
    */
   methods: {
     onView(e) {
-      this.triggerEvent('view', { id: 1 })
+      this.triggerEvent('view', this.data.options)
     },
     onEdit(e) {
-      this.triggerEvent('edit', { id: 1 })
+      this.triggerEvent('edit', this.data.options)
     },
   }
 })
