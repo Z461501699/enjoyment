@@ -1,8 +1,8 @@
 {
   "usingComponents": {
     "couple-back": "/components/couple-back/index/index",
-    "couple-back-picker": "/components/couple-back/picker/index",
-    "couple-back-textarea": "/components/couple-back/textarea/index",
+    "couple-back-picker": "/components/couple-back/picker2/index",
+    "couple-back-input": "/components/couple-back/input2/index",
     "couple-back-phone": "/components/couple-back/phone/phone"
   },
   "navigationBarBackgroundColor": "#12AE85",

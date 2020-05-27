@@ -62,7 +62,7 @@ Page({
 
   add() {
     let { formData } = this.data,
-    ParentId = App.globalData.getUserId()
+      ParentId = App.globalData.getUserId()
     this.setData({
       formData: {
         ...formData,
@@ -86,6 +86,19 @@ Page({
     })
   },
   formSubmit(e) {
+    wx.showModal({
+      title: '提示',
+      content: '是否添加学生?',
+      success: (res) => {
+        if (res.confirm) {
+          this.submit(e)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  submit(e) {
     let { formData, type } = this.data, apiKey = ''
     console.log(formData)
     if (type === 'edit') apiKey = '';
@@ -129,7 +142,7 @@ Page({
     this.setData({
       formData: {
         ...formData,
-        Avata: e.detail.value
+        Avatar: e.detail.value
       }
     })
   },

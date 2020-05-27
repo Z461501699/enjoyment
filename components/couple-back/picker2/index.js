@@ -31,12 +31,12 @@ Component({
   methods: {
     // 选择投诉类型
     handleChangeCoupleBack(e) {
-      let { data } = this.data,
+      let { data,keys } = this.data,
         selectIndex = e.detail.value
       this.setData({
         selectIndex
       }, () => {
-        this.triggerEvent('change', { value: data[selectIndex]['value'] })
+        this.triggerEvent('change', { value: data[selectIndex][keys['value']] })
       })
     }
   }

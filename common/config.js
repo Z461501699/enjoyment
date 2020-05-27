@@ -31,6 +31,9 @@ export const Apis = {
     addStudentInfo: { type: 'POST', path: '/api/Student/AddStudentInfo' },//根据会员ID创建定学生信息接口
     feedBack: { type: 'POST', path: '/api/Feedback/CommitFeedback' },//提交反馈
     reFund: { type: 'GET', path: '/api/Refund/GetRefundList' },//分页退款列表
+    uploadFile: { path: '/File/UploadFile' },//上传
+    getSignUpStatus: { type: 'GET', path: '/api/Order/GetSignUpStatus' },//获取报名状态接口 根据学生课程id，判断报名状态
+    createOrder: { type: "POST", path: '/api/Order/CreateOrder' },//生成订单接口
 };
 
 // keys

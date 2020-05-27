@@ -2,3 +2,9 @@
   width: 100vw;
   height: 100vh;
 }
+.submit{
+  width: 700rpx;
+  height: 80rpx;
+  margin: 20rpx 25rpx;
+  background-color: #12AE85;
+}

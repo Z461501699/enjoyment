@@ -21,7 +21,7 @@
   background-color: #12AE85;
   border-radius: 50rpx;
   position: fixed;
-  bottom: 32rpx;
+  bottom: 23rpx;
   left: 25rpx;
   font-weight: bold;
 }
