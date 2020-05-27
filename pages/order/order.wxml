@@ -1,8 +1,8 @@
 <!-- pages/order/order.wxml -->
-<van-tabs class='order-fixd' active="{{ orderParams.active }}" bind:change="onChange">
-		<van-tab title="全部订单" name='all' />
-		<van-tab title="待付款" name='payment' />
-		<van-tab title="已付款" name='received' />
+<van-tabs class='order-fixd' active="{{ active }}" bind:change="onChange">
+		<van-tab title="全部订单" name="all" />
+		<van-tab title="待付款" name='1' />
+		<van-tab title="已付款" name='2' />
 </van-tabs>
 <view style='margin-top:64px'>
 		<block wx:for="{{orderParams.orderList}}" wx:key="*this">

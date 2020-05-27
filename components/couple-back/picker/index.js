@@ -4,7 +4,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
   },
 
   /**
@@ -12,24 +11,12 @@ Component({
    */
   data: {
     coupleList: [{
-        text: '投诉1',
+        text: '建议',
         id: 1
       },
       {
-        text: '投诉2',
+        text: '投诉',
         id: 2
-      },
-      {
-        text: '投诉3',
-        id: 3
-      },
-      {
-        text: '投诉4',
-        id: 4
-      },
-      {
-        text: '投诉5',
-        id: 5
       },
     ],
     coupleIndex: 0
@@ -43,11 +30,10 @@ Component({
     handleChangeCoupleBack(e) {
       const {detail} = e
       const {value} = detail
-      console.log('选择了', value);
       this.setData({
         coupleIndex: value
       })
-      this.triggerEvent('picker', value)
+      this.triggerEvent('change', value)
     }
   }
 })

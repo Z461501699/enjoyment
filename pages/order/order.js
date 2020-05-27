@@ -6,12 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    active: 'all',
     orderParams: {
-      pageIndex: 1,
+      PageIndex: 1,
       PageSize: 10,
       memberId: '',
       orderList: [],
-      active: 'all'
+      OrderStatus: ''
     },
     isLoadAll: false
   },
@@ -44,18 +45,19 @@ Page({
     })
   },
   // 初始数据
-  initData(){
+  initData() {
     this.setData({
-      'orderParams.PageSize': 1,
-      'orderParams.orderList':[]
+      'orderParams.PageIndex': 1,
+      'orderParams.orderList': []
     })
   },
   // 切换tabs
   onChange(event) {
-    this.initData()
     this.setData({
-      'orderParams.active': event.detail.name,
+      active: event.detail.name,
+      'orderParams.OrderStatus': event.detail.name === 'all' ? '' : event.detail.name,
     })
+    this.initData()
     this.getOrderList()
 
   },
@@ -63,11 +65,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('options', options)
+    const {
+      active
+    } = this.data
     this.setData({
-      'orderParams.active': options.type,
+      active: options.type,
+      'orderParams.OrderStatus': options.type === 'all' ? '' : options.type,
       'orderParams.memberId': App.request.getUser().userId,
     })
-    this.getOrderList()
+    // 当点击全部订单进入时在获取数据,因为tabs的change事件会导致加载两次列表数据
+    if (options.type === 'all') {
+      this.getOrderList()
+    }
   },
 
   /**
@@ -110,7 +120,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if(this.data.isLoadAll) return
+    if (this.data.isLoadAll) return
     this.getOrderList()
   },
 
