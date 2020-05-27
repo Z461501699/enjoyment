@@ -7,6 +7,10 @@ Page({
   data: {
     fileList: []
   },
+  // 获取changePicker事件
+  changePicker(e){
+    console.log('e',e.detail)
+  },
   onChange(event) {
     const {
       picker,

@@ -69,7 +69,6 @@ Page({
    * 订单导航跳转
    */
   onTargetOrder(e) {
-    console.log('订单',e.currentTarget.dataset.type)
      let _this = this;
     // if (!_this.onCheckLogin()) {
     //   return false;
@@ -77,9 +76,9 @@ Page({
     // 记录formid
     let urls = {
       all: '/pages/order/order?type=all',
-      payment: '/pages/order/order?type=payment',
-      received: '/pages/order/order?type=received',
-      refund: '/pages/salesReturn/salesReturn',
+      payment: '/pages/order/order?type=1',
+      received: '/pages/order/order?type=2',
+      refund: '/pages/order-refund/order-refund',
     };
     //转跳指定的页面
     wx.navigateTo({
