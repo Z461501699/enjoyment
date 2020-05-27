@@ -1,1 +1,3 @@
-<sales-return-item bind:click="handleGoDetail" />
+  <block wx:for="{{reFundList}}">
+      <sales-return-item options="{{item}}" bind:click="handleGoDetail" />
+  </block>

@@ -5,7 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fileList: []
+    fileList: [],
+    postData:{
+      "parentsId": "",
+      "schoolId": "",
+      "feedbackType": 0,
+      "content": "",
+      "flag": 0,
+      "img1": "",
+      "img2": "",
+      "img3": ""
+    }
   },
   // 获取changePicker事件
   changePicker(e){
@@ -56,8 +66,17 @@ Page({
     })
   },
   // 提交表单
-  handleSubmit() {
+  handleSubmit(e) {
+    const {postData} = this.data
+    console.log('post',postData)
     console.log('提交表单');
+    // App.request.start({
+    //   apiKey: 'feedBack',
+    //   loadingMessage: '加载中',
+    //   data:e
+    // }).then(res => {
+    //   console.log('res',res)
+    // })
 
   },
   /**

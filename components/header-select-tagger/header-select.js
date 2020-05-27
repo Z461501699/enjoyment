@@ -10,7 +10,20 @@ Component({
   data: {
     key: '',
     value: '',
-    search: ''
+    search: '',
+    options: [
+      {
+        title: '时间',
+        value: '1'
+      }, {
+        title: '人数',
+        value: '2'
+      }, {
+        title: '价格',
+        value: '3'
+      }
+
+    ]
 
     // selectTitles:[{key:'距离',value:'dance'},{key:'销量',value:'num'},{key:'排序',value:'sort'}],
     // selectOptions: [
@@ -32,18 +45,7 @@ Component({
     // ]
   },
   properties: {
-    hasPosition:{
-      type:Boolean,
-      value:false,
-    },
-    selectTitles: {
-      type: Array,
-      value: []
-    },
-    selectOptions: {
-      type: Array,
-      value: []
-    }
+
   },
 
 
@@ -54,7 +56,7 @@ Component({
       })
     },
     handleSearch() {
-      this.triggerEvent('handleSearch',this.data.search)
+      this.triggerEvent('handleSearch', this.data.search)
     },
     getItem(event) {
       // 自定义事件返回 {key,value}

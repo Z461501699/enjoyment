@@ -10,10 +10,10 @@
 		<!-- 课程详情 -->
 		<view class="flex-row num">
 			<view>
-				以学课程：10 / 99
+				已学课程：{{options.OffClassCount}} / 99
 			</view>
 			<view style="padding-right: 10rpx;">
-				退款金额：<span class="price">￥1000</span>
+				退款金额：<span class="price">￥{{options.RefundAmount}}</span>
 			</view>
 		</view>
 

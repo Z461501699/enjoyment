@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "header-select":"/components/header-select/header-select",
+    "header-select":"/components/header-select-tagger/header-select",
     "school-item": "/components/school-item/index"
   },
   "navigationBarBackgroundColor": "#12AE85",
