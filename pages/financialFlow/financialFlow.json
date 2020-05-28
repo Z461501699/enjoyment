@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "财务流水",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#12AE85",
+  "usingComponents": {
+    "financial-item": "../../components/financial-item/index"
+  }
 }

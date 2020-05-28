@@ -1,2 +1,19 @@
-<!--pages/financialFlow/financialFlow.wxml-->
-<text>pages/financialFlow/financialFlow.wxml</text>
+<view class="container">
+	<van-tabs color="#12AE85" active="{{ params['Flag'] }}" bind:change="onChange">
+		<van-tab title="支出">
+			<view class="list">
+				<block wx:for="{{dataList}}" wx:key="*this">
+					<financial-item options="{{item}}"></financial-item>
+				</block>
+			</view>
+		</van-tab>
+		<van-tab title="收入">
+			<view class="list">
+				<block wx:for="{{dataList}}" wx:key="*this">
+					<financial-item options="{{item}}"></financial-item>
+				</block>
+			</view>
+		</van-tab>
+	</van-tabs>
+
+</view>
