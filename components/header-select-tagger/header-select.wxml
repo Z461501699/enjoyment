@@ -21,17 +21,10 @@
       </block>
     </van-dropdown-menu> -->
     <view class="box-select">
-      <view>
-       时间
-          <image class="image" src='/images/icon/up.png'></image>
-      </view>
-       <view>
-       人数
-          <image class="image" src='/images/icon/down.png'></image>
-      </view>
-       <view>
-       价格
-          <image class="image" src='/images/icon/down.png'></image>
+      <view wx:for="{{options}}" wx:key="index" bind:tap='active' data-index="{{index}}">
+        {{item.title}}
+        <image  wx:if='{{currentIndex === index}}' class="image" src='/images/icon/up.png'></image>
+        <image wx:else class="image" src='/images/icon/down.png'></image>
       </view>
     </view>
   </view>
