@@ -63,3 +63,6 @@
   font-size: 28rpx;
   color: #FC5260;
 }
+.foot{
+  justify-content: space-between !important;
+}

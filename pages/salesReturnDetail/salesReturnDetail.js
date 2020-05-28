@@ -25,7 +25,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      steps: [
+        {
+          text: options.Flag === 1 ? '未退款':'退款成功',
+          desc: options.RefundTime
+        },
+        {
+          text: '银行处理',
+          desc: options.RefundTime
+        },
+        {
+          text: '发起退款',
+          desc: options.CreateTime
+        }
+      ]
+    })
+    console.log('detailOptions',options)
   },
 
   /**

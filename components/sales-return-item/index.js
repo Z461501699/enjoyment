@@ -6,7 +6,8 @@ Component({
   properties: {
     options:{
       type:Object,
-      value:()=>{}
+      value:()=>{
+      }
     }
   },
 
@@ -22,7 +23,7 @@ Component({
    */
   methods: {
     handleClick(){
-      this.triggerEvent('click')
-    }
-  }
+      this.triggerEvent('click',this.data.options)
+    },
+  },
 })

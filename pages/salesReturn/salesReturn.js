@@ -1,4 +1,5 @@
 // pages/salesReturn/salesReturn.js
+ import moment from '../../utils/moment.js'
 const App = getApp()
 Page({
 
@@ -13,9 +14,12 @@ Page({
     reFundList:[],
     isLoadAll:false
   },
-  handleGoDetail() {
+  handleGoDetail(e) {
+    console.log('detail',e)
+    const detail = e.detail
     wx.navigateTo({
-      url: '/pages/salesReturnDetail/salesReturnDetail',
+      url: `/pages/salesReturnDetail/salesReturnDetail?RefundTime=${detail.RefundTime}&CreateTime=${detail.CreateTime
+      }&Flag=${detail.Flag}`,
     })
   },
   /**
@@ -40,10 +44,15 @@ Page({
       apiKey:'reFund',
       params:params
     }).then(({data}) =>{
+      data.forEach(i =>{
+        i.SubjectLogo = App.Host + i.SubjectLogo
+        i.RefundTime = moment(i.RefundTime).format('YYYY-MM-DD HH:MM:SS')
+        i.CreateTime = moment(i.CreateTime).format('YYYY-MM-DD HH:MM:SS')
+      })
       that.setData({
         'params.PageIndex':params.PageIndex++,
         isLoadAll: params.PageSize > data.length,
-        reFundList: reFundList.concat(data)
+         reFundList: reFundList.concat(data)
       })
       console.log('data',data)
     })
