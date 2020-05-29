@@ -34,6 +34,7 @@ export const Apis = {
     uploadFile: { path: '/File/UploadFile' },//上传
     getSignUpStatus: { type: 'GET', path: '/api/Order/GetSignUpStatus' },//获取报名状态接口 根据学生课程id，判断报名状态
     createOrder: { type: "POST", path: '/api/Order/CreateOrder' },//生成订单接口
+    getFinanceList: { type: "GET", path: '/api/Finance/GetFinanceList' },//获取财务流水分页列表
 };
 
 // keys

@@ -1,1 +1,14 @@
-/* pages/financialFlow/financialFlow.wxss */
+.container {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.list {
+  width: 100vw;
+  height: 90vh;
+  overflow: scroll;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
