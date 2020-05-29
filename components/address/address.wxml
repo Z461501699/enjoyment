@@ -1,0 +1,1 @@
+<van-area area-list="{{ areaList }}" bind:change="handleChange" bind:confirm="handleConfirm" />

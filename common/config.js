@@ -35,6 +35,8 @@ export const Apis = {
     getSignUpStatus: { type: 'GET', path: '/api/Order/GetSignUpStatus' },//获取报名状态接口 根据学生课程id，判断报名状态
     createOrder: { type: "POST", path: '/api/Order/CreateOrder' },//生成订单接口
     getFinanceList: { type: "GET", path: '/api/Finance/GetFinanceList' },//获取财务流水分页列表
+    getCityInfoByLocation: { type: 'GET', path: '/api/Area/GetCityInfoByLocation' },//获取定位信息
+    getCityList: { type: 'GET', path: '/api/Area/GetCityList' },//获取城市列表
 };
 
 // keys

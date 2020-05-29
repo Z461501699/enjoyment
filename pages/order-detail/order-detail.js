@@ -53,6 +53,7 @@ Page({
     let { formData, courseDetailData } = this.data;
     formData['subjectId'] = courseDetailData['Id'];
     formData['amount'] = courseDetailData['PreferentialPrice'];
+    if (!formData['amount1']) formData['amount1'] = 0
     console.log(formData)
     // return
     App.request.start({

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "address-sel":"../../components/address/address"
+  },
+  "enablePullDownRefresh":false
+}

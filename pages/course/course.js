@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isGetLocation: true,
+    locationData: false,
     courseList: [],
     pageSize: 10,
     pageNo: 1,
@@ -91,21 +93,121 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCourseList()
+
+
 
   },
+  onShow: function () {
+    let {
+      locationData
+    } = this.data;
+    this.getLocationStr().then(addLocation => {
+      console.log(!!locationData)
+      if (!!locationData) {
+        this.getCourseList()
+      } else {
+        this.getCityInfoByLocation(addLocation).then(res => {
+          this.getCourseList()
+        })
+      }
+    })
+  },
+  //跳转选择城市
+  onSelectAddress() {
+    let {
+      locationData
+    } = this.data;
+    if (locationData) {
+      wx.navigateTo({
+        url: `/pages/selectAddress/selectAddress?locationData=${JSON.stringify(this.data.locationData)}`,
+      })
+    } else {
+      this.getSetting().then(() => {
+        this.getLocationStr().then(addLocation => {
+          this.getCityInfoByLocation(addLocation).then(res => {
+            this.getCourseList(1)
+          })
+        })
+      }).catch(() => {
+        this.setData({
+          isGetLocation: false,
+        })
+      })
 
+    }
+  },
+  //活动当前定位详细数据
+  getCityInfoByLocation(location) {
+    return new Promise((relove, reject) => {
+      App.request.start({
+        apiKey: 'getCityInfoByLocation',
+        params: { location }
+      }).then(res => {
+        console.log(res)
+        let locationData = res.data
+        this.setData({
+          locationData
+        }, () => {
+          relove(locationData)
+        })
+      }).catch(err => {
+        reject(err)
+      })
+    })
+  },
+  //获取当前定位信息
+  getLocationStr() {
+    return new Promise((relove, reject) => {
+      wx.getLocation({
+        type: 'gcj02',
+        success: (res) => {
+          console.log(res)
+          relove(`${res.longitude},${res.latitude}`)
+        },
+        fail: (err) => {
+          reject(err)
+        }
+      })
+    })
+  },
+  onOpensetting(e) {
+    console.log(e)
+    if (e.detail.authSetting['scope.userLocation']) {
+      this.setData({
+        isGetLocation: true,
+      })
+    }
+  },
+  getSetting() {
+    return new Promise((relove, reject) => {
+      wx.getSetting({
+        success: (res) => {
+          console.log(res.authSetting)
+          if (res.authSetting["scope.userLocation"]) {
+            relove(relove)
+          } else {
+            console.log('没有权限')
+            wx.authorize({
+              scope: 'scope.userLocation',
+              success: (ress) => {
+                console.log(ress)
+                // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+                relove()
+              },
+              fail: (err) => {
+                console.log(err)
+                reject()
+              }
+            })
+          }
+        }
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
   },
 

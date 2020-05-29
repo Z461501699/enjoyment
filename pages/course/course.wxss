@@ -6,3 +6,18 @@
   left: 0;
   z-index: 1;
 }
+
+.search-address {
+  min-width: 20vw;
+  height: 8.7vh;
+  line-height: 8.7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.search-address image {
+  width: 40rpx;
+  height: 40rpx;
+}

@@ -1,0 +1,23 @@
+<view class='container'>
+	<view class="hot-title">当前定位</view>
+	<view class="hotCityList">
+		<view class="hotItem now" data-item="{{locationData}}" bindtap="handleSelect">
+			<image src="../../images/icon/z-icon-location-b.png"></image>
+			{{locationData.AreaName}}
+		</view>
+	</view>
+	<view class="hot-title">全国</view>
+	<view class="hotCityList">
+		<view class="hotItem" data-item="{{wholeCountry}}" bindtap="handleSelect">{{wholeCountry.AreaName}}</view>
+	</view>
+	<view class="hot-title" wx:if="{{hotList.length>0}}">热门城市</view>
+	<view class="hotCityList" wx:if="{{hotList.length>0}}">
+		<view class="hotItem" data-item="{{item}}" bindtap="handleSelect" wx:for="{{hotList}}" wx:key='AreaCode'>{{item.AreaName}}</view>
+	</view>
+	<van-index-bar scroll-top="{{ scrollTop }}" select="handleSelect">
+		<view wx:for="{{list}}" wx:key="index">
+			<van-index-anchor index="{{item['letter']}}" />
+			<van-cell data-item="{{zItem}}" bindtap="handleSelect" title="{{zItem.AreaName}}" wx:for="{{item.data}}" wx:for-item='zItem' wx:for-index='zIndex' wx:key="AreaCode" />
+		</view>
+	</van-index-bar>
+</view>
