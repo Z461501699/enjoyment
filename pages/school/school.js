@@ -30,6 +30,8 @@ Page({
   change({
     detail
   }) {
+    
+      this.getSchoolList()
     console.log('change', detail)
   },
   // 搜索功能
@@ -72,6 +74,7 @@ Page({
       }
 
       wx.stopPullDownRefresh()
+      
     })
   },
   /**
