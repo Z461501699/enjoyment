@@ -144,12 +144,14 @@ Page({
         params: { location }
       }).then(res => {
         console.log(res)
-        let locationData = res.data
-        this.setData({
-          locationData
-        }, () => {
-          relove(locationData)
-        })
+        if (res.success) {
+          let locationData = res.data
+          this.setData({
+            locationData
+          }, () => {
+            relove(locationData)
+          })
+        }
       }).catch(err => {
         reject(err)
       })

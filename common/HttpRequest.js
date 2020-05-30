@@ -9,11 +9,12 @@ import {
     Host,
     Apis
 } from "./config";
-
+import GlobalData from './GlobalData';
+const globalData = new GlobalData()
 export default class HTTPRequest {
     constructor() {
-        this._token = null;
-        this._userId = null;
+        // this._token = null;
+        // this._userId = null;
     }
     /**
      * 发起请求
@@ -26,7 +27,7 @@ export default class HTTPRequest {
             let params = options.params; // 请求参数
             let loadingMessage = options.loadingMessage; // loading 信息, null 则不显示loading
             let hideError = options.hideError || false; // 是否隐藏错误提示，默认会提示
-            let token = this.getUser().token || '';
+            let token = globalData.getToken() || '';
             let result = {
                 success: false,
                 message: '',
@@ -61,7 +62,22 @@ export default class HTTPRequest {
                     } else {
                         result.success = false;
                         result.data = response.data;
-                        if (!hideError) {
+
+                        if (result.message.includes('未授权')) {
+                            wx.clearStorage()
+                            wx.showToast({
+                                icon: "none",
+                                title: result.message,
+                                success: () => {
+                                    setTimeout(() => {
+                                        wx.switchTab({
+                                            url: '/pages/personal/personal',
+                                        })
+                                    }, 1500)
+                                }
+                            })
+
+                        } else if (!hideError) {
                             wx.showToast({
                                 icon: "none",
                                 title: result.message
@@ -145,15 +161,15 @@ export default class HTTPRequest {
             })
         })
     }
-    setUser(user) {
-        this._userId = user.id;
-        this._token = user.token;
-    }
-    getUser() {
-        return {
-            token: this._token,
-            userId: this._userId
-        }
-    }
+    // setUser(user) {
+    //     this._userId = user.id;
+    //     this._token = user.token;
+    // }
+    // getUser() {
+    //     return {
+    //         token: this._token,
+    //         userId: this._userId
+    //     }
+    // }
 
 }

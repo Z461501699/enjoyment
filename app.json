@@ -14,7 +14,8 @@
     "pages/salesReturn/salesReturn",
     "pages/salesReturnDetail/salesReturnDetail",
     "pages/studentInfoEdit/studentInfoEdit",
-    "pages/selectAddress/selectAddress"
+    "pages/selectAddress/selectAddress",
+    "pages/classSchedule/classSchedule"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -69,6 +70,8 @@
     "van-skeleton": "dist/skeleton/index",
     "van-tabs": "dist/tabs/index",
     "van-tab": "dist/tab/index",
-    "van-steps": "dist/steps/index"
+    "van-steps": "dist/steps/index",
+    "van-collapse": "dist/collapse/index",
+    "van-collapse-item": "dist/collapse-item/index"
   }
 }

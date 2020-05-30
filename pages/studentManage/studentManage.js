@@ -37,6 +37,10 @@ Page({
   },
   onViewClass(e) {
     console.log('课时表', e.detail)
+    let { Id } = e.detail
+    wx.navigateTo({
+      url: `/pages/classSchedule/classSchedule?id=${Id}`,
+    })
   },
   getSudentListByParent() {
     let parentId = App.globalData.getUserId()

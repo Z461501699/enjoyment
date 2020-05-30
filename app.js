@@ -52,9 +52,7 @@ App({
   },
   onHide() {
     console.log('hide')
-    this.globalData.removeToken();
-    this.globalData.removeUserId();
-    this.globalData.removeUserInfo();
+    wx.clearStorage()
   },
   // 统一缓存用户信息
   setUserInfo({ wxInfo = false, userInfo = false, userId = false, token = false }) {
@@ -62,10 +60,10 @@ App({
     if (!!userInfo) this.globalData.setUserInfo(userInfo);
     if (!!userId) this.globalData.setUserId(userId);
     if (!!token) this.globalData.setToken(token);
-    if (!!token && !!userId) this.request.setUser({
-      id: userId,
-      token: token
-    })
+    // if (!!token && !!userId) this.request.setUser({
+    //   id: userId,
+    //   token: token
+    // })
     return true
   },
   // 用户登录
