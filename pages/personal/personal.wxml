@@ -148,7 +148,4 @@
 		</van-cell-group>
 	</view>
 </view>
-<view> {{tools.formatPrice(111)}} </view>
-<view> {{tools.msg}} </view>
-<!-- <wxs src="./../tools.wxs" module="tools" /> -->
 <wxs src="../../utils/common.wxs"  module="tools" />
