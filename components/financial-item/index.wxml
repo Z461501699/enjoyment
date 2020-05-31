@@ -1,7 +1,7 @@
 <view class="student-container">
 	<view class="student-info">
-		<view class="name">总金额: <text style="color:{{options['Flag']?'#39C339':'red'}}">{{options['Flag']?options["Amount"]:('-'+options["Amount"])}}</text></view>
-		<view class="detail">钱包支付:{{options['WalletBalance']}}</view>
+		<view class="name">总金额: <text style="color:{{options['Flag']?'#39C339':'red'}}">{{options['Flag']?options["Amount"]/100:('-'+options["Amount"]/100)}}</text></view>
+		<view class="detail">钱包支付:{{options['WalletBalance']/100}}</view>
 		<view class="time">时间:{{options['BaseCreateTime']}}</view>
 	</view>
 

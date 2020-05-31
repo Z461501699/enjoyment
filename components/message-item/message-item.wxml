@@ -1,4 +1,4 @@
-<view class="flex-row main">
+<view class="flex-row main {{options.Flag?'filter':''}}" data-id="{{options.Id}}" bindtap="{{options.Flag?'':'onSetFlag'}}">
 	<!-- 图标 -->
 	<view class="flex-column icon-box" style="background-color: {{MESSAGE_OPTIONS[options.MessageType -1].color}}">
 		<image class="image" src="{{MESSAGE_OPTIONS[options.MessageType -1].url}}" />

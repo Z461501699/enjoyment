@@ -10,6 +10,10 @@
   border: 0.5rpx solid #eee
 }
 
+.filter {
+  -webkit-filter: grayscale(100%);
+}
+
 .icon-box {
   background-color: #1A7CFC;
   width: 90rpx;

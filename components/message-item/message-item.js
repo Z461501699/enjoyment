@@ -11,9 +11,9 @@ Component({
       type: Number,
       value: 0
     },
-    options:{
-      type:Object,
-      value:{}
+    options: {
+      type: Object,
+      value: {}
     }
   },
 
@@ -28,6 +28,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onSetFlag(e) {
+      this.triggerEvent('setFlag', { value: e.currentTarget.dataset.id })
+    }
   }
 })

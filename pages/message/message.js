@@ -10,7 +10,7 @@ Page({
     messageParams: {
       PageSize: 10,
       PageIndex: 1,
-      MemberId:''
+      MemberId: ''
     },
     isLoadAll: false,
     messageList: []
@@ -29,30 +29,46 @@ Page({
     } = data
 
     App.request.start({
-        apiKey: 'getMessageList',
-        loadingMessage: '加载中',
-        params: messageParams
-      }).then(({
-        data
-      }) => {
-        console.log('data', data)
-        messageParams.PageIndex++
-        that.setData({
-          messageList: messageList.concat(data),
-          'messageParams.PageIndex': messageParams.PageIndex++,
-          isLoadAll: messageParams.PageSize > data.length
-        })
-        wx.stopPullDownRefresh()
+      apiKey: 'getMessageList',
+      loadingMessage: '加载中',
+      params: messageParams
+    }).then(({
+      data
+    }) => {
+      console.log('data', data)
+      messageParams.PageIndex++
+      that.setData({
+        messageList: messageList.concat(data),
+        'messageParams.PageIndex': messageParams.PageIndex++,
+        isLoadAll: messageParams.PageSize > data.length
       })
+      wx.stopPullDownRefresh()
+    })
       .catch(e => {
         wx.stopPullDownRefresh()
       })
   },
   /* 初始数据 */
-  initData() {
+  initData(back) {
     this.setData({
       messageList: [],
       "messageParams.PageIndex": 1,
+    }, () => {
+      back()
+    })
+  },
+  setMessageFlag(e) {
+    App.request.start({
+      apiKey: 'setMessageFlag',
+      params: {
+        messageIds: e.detail.value,
+      }
+    }).then(res => {
+      if (res.success) {
+        this.initData(() => {
+          this.getMessageList()
+        })
+      }
     })
   },
   /**
@@ -60,7 +76,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      'messageParams.MemberId': App.globalData.getUserId().userId
+      'messageParams.MemberId': App.globalData.getUserId()
     })
     console.log('options', this.data.messageParams)
     this.getMessageList()
