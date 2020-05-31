@@ -22,7 +22,7 @@ Page({
       BelongSchoolId: '',
       PageSize: 10,
       PageIndex: 1,
-      SortType:''
+      SortType:'StartTime'
     },
     options: [
       {
