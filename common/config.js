@@ -29,7 +29,7 @@ export const Apis = {
     getAdList: { type: "GET", path: '/api/Ad/GetAdList' },//首页轮播图
     getSudentListByParent: { type: 'GET', path: '/api/Student/GetSudentListByParent' },//根据会员ID获取绑定学生信息列表接口
     addStudentInfo: { type: 'POST', path: '/api/Student/AddStudentInfo' },//根据会员ID创建定学生信息接口
-    feedBack: { type: 'POST', path: '/api/Feedback/CommitFeedback' },//提交反馈
+    feedBack: { type: 'POST', path: "/api/Feedback/CommitFeedback" },//提交反馈
     reFund: { type: 'GET', path: '/api/Refund/GetRefundList' },//分页退款列表
     uploadFile: { path: '/File/UploadFile' },//上传
     UploadFileMult: { path: '/File/UploadFileMult' },//多个上传

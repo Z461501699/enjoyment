@@ -22,7 +22,10 @@ Page({
       BelongSchoolId: '',
       PageSize: 10,
       PageIndex: 1,
-      SortType:'StartTime'
+      SortType: 'StartTime',
+      AreaCode: '',
+      Longitude: '',
+      Latitude: '',
     },
     options: [
       {
@@ -39,7 +42,7 @@ Page({
     ],
   },
   // 筛选
-  change({detail}) {
+  change({ detail }) {
     console.log('change', detail)
     let { courseListParams } = this.data
     this.setData({
@@ -58,21 +61,37 @@ Page({
     this.setData({
       courseListParams: {
         ...courseListParams,
-        name:detail
+        name: detail
       }
     }, () => {
       this.getCourseList(1)
     })
   },
+  getList(num) {
+    this.getCourseList(num)
+  },
   // 获取课程数据
   getCourseList(num) {
     let {
       courseList,
-      courseListParams
+      courseListParams,
+      locationData
     } = this.data
     if (num == 1) {
       courseListParams['PageIndex'] = 1
       courseList = []
+    }
+    if (locationData) {
+      if (locationData['longitude'] && locationData['latitude']) {
+        courseListParams['Latitude'] = locationData['latitude']
+        courseListParams['Longitude'] = locationData['longitude']
+        courseListParams['AreaCode'] = ''
+
+      } else {
+        courseListParams['AreaCode'] = locationData['AreaCode']
+        courseListParams['Latitude'] = ''
+        courseListParams['Longitude'] = ''
+      }
     }
     App.request.start({
       apiKey: 'getSubjectList',
@@ -125,7 +144,6 @@ Page({
       locationData
     } = this.data;
     this.getLocationStr().then(addLocation => {
-      console.log(!!locationData)
       if (!!locationData) {
         this.getCourseList()
       } else {
@@ -164,11 +182,13 @@ Page({
     return new Promise((relove, reject) => {
       App.request.start({
         apiKey: 'getCityInfoByLocation',
-        params: { location }
+        params: { location: location.addLocation }
       }).then(res => {
         console.log(res)
         if (res.success) {
           let locationData = res.data
+          locationData.longitude = location.longitude
+          locationData.latitude = location.latitude
           this.setData({
             locationData
           }, () => {
@@ -187,7 +207,8 @@ Page({
         type: 'gcj02',
         success: (res) => {
           console.log(res)
-          relove(`${res.longitude},${res.latitude}`)
+          // relove(`${res.longitude},${res.latitude}`, { longitude: res.longitude, latitude: res.latitude })
+          relove({ addLocation: `${res.longitude},${res.latitude}`, longitude: res.longitude, latitude: res.latitude })
         },
         fail: (err) => {
           reject(err)

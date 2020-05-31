@@ -1,9 +1,18 @@
 <!-- pages/school/school.wxml -->
 <!--  hasPosition='{{true}}' selectTitles="{{selectTitles}}" selectOptions="{{selectOptions}}" -->
-<header-select class="header-select" options="{{options}}"  bind:change="change" bind:handleSearch="handleSearch" />
+<header-select class="header-select" options="{{options}}" bind:change="change" bind:handleSearch="handleSearch" hasPosition>
+	<view wx:if="{{isGetLocation}}" class="search-address" bindtap="onSelectAddress">
+		<image src="../../images/icon/z-icon-location-b.png"></image>
+		{{locationData['AreaName'] ||'获取定位'}}
+	</view>
+	<button bindopensetting="onOpensetting" wx:if="{{!isGetLocation}}" open-type="openSetting" wx:if="{{!isGetLocation}}" class="search-address">
+		<image src="../../images/icon/z-icon-location-b.png"></image>
+		获取定位
+	</button>
+</header-select>
 <view style='width:100%; height:127px' />
 <block wx:for="{{schoolList}}" wx:key="*this">
-	<school-item  options="{{item}}" title="{{item.SchoolName}}" url="{{item.Logo}}" address="{{item.Address}}" data-id="{{item.Id}}" bind:toDetail="toDetail"></school-item>
+	<school-item options="{{item}}" title="{{item.SchoolName}}" url="{{item.Logo}}" address="{{item.Address}}" data-id="{{item.Id}}" bind:toDetail="toDetail"></school-item>
 </block>
 
 <view wx:if="{{isLoadAll}}" class="load-all">
