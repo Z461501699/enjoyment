@@ -44,16 +44,19 @@ Page({
       apiKey:'reFund',
       params:params
     }).then(({data}) =>{
-      data.forEach(i =>{
-        i.SubjectLogo = App.Host + i.SubjectLogo
-        i.RefundTime = moment(i.RefundTime).format('YYYY-MM-DD HH:MM:SS')
-        i.CreateTime = moment(i.CreateTime).format('YYYY-MM-DD HH:MM:SS')
-      })
+      if(data&& data.length){
+        data.forEach(i =>{
+          i.SubjectLogo = App.Host + i.SubjectLogo
+          i.RefundTime = moment(i.RefundTime).format('YYYY-MM-DD HH:MM:SS')
+          i.CreateTime = moment(i.CreateTime).format('YYYY-MM-DD HH:MM:SS')
+        })
       that.setData({
         'params.PageIndex':params.PageIndex++,
         isLoadAll: params.PageSize > data.length,
          reFundList: reFundList.concat(data)
       })
+      }
+ 
       console.log('data',data)
     })
   },
