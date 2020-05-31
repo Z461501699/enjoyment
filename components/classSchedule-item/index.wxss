@@ -1,0 +1,7 @@
+.classSchedule-item {
+  width: 100%;
+  height: 100rpx;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+  border-bottom:1rpx solid #f3f3f3;
+}

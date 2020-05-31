@@ -7,11 +7,11 @@ Page({
    */
   data: {
     fileList: [],
-    schoolList:[
-      {name:1},
-      {name:2}
+    schoolList: [
+      { name: 1 },
+      { name: 2 }
     ],
-    postData:{
+    postData: {
       "parentsId": "",
       "schoolId": "",
       "feedbackType": 0,
@@ -20,25 +20,25 @@ Page({
       "img1": "",
       "img2": "",
       "img3": "",
-      ImageList:[]
+      ImageList: []
     }
   },
   // 获取changePicker事件
-  changePicker(e){
-    console.log('e',e.detail)
-    this.setData({'postData.feedbackType':Number(e.detail)})
+  changePicker(e) {
+    console.log('e', e.detail)
+    this.setData({ 'postData.feedbackType': Number(e.detail) })
   },
-  textareaHandle(e){
-    this.setData({'postData.content':e.detail})
-    console.log('e',this.data.postData)
+  textareaHandle(e) {
+    this.setData({ 'postData.content': e.detail })
+    console.log('e', this.data.postData)
   },
   // 获取投诉建议
-  getSchoolListByMember(){
+  getSchoolListByMember() {
     App.request.start({
-      apiKey:`GetSchoolListByMember`,
-      params:{memberId:App.request.getUser().userId}
-    }).then(data =>{
-      console.log('data----',data)
+      apiKey: `GetSchoolListByMember`,
+      params: { memberId: App.request.getUser().userId }
+    }).then(data => {
+      console.log('data----', data)
     })
   },
   onChange(event) {
@@ -86,34 +86,34 @@ Page({
     })
   },
   // 上传图片
-  upload(filePath){
+  upload(filePath) {
     App.request.uploadFile({
-      apiKey:'uploadFile',
-      fileModule:4,
+      apiKey: 'uploadFile',
+      fileModule: 4,
       filePath,
-      loadingMessage:'图片上传中'
-    }).then(data =>{
-      console.log('images',data)
+      loadingMessage: '图片上传中'
+    }).then(data => {
+      console.log('images', data)
     })
   },
   // 提交表单
   handleSubmit(e) {
-    const {postData} = this.data
-    console.log('post',postData)
+    const { postData } = this.data
+    console.log('post', postData)
     const ImgsList = this.data.fileList.map(item => item.path)
-    this.setData({'postData.ImageList': ImgsList})
+    this.setData({ 'postData.ImageList': ImgsList })
     ImgsList.map(item => {
       this.upload(item)
     })
-   
-  
-    // App.request.start({
-    //   apiKey: 'feedBack',
-    //   loadingMessage: '加载中',
-    //   data:e
-    // }).then(res => {
-    //   console.log('res',res)
-    // })
+
+
+    App.request.start({
+      apiKey: 'feedBack',
+      loadingMessage: '加载中',
+      data: e
+    }).then(res => {
+      console.log('res', res)
+    })
 
   },
   /**

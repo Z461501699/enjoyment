@@ -1,0 +1,4 @@
+<view class="classSchedule-item">
+	<view class="time">上课时间:{{options['ClassTime']}}</view>
+	<view class="status">课程状态:{{options['Status']==0?'未开始':(options['Status']==1?'开始':'已结束')}}</view>
+</view>

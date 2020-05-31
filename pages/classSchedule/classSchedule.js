@@ -5,14 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeName: '1',
-    classList: [{
-      title: '课程',
-      id: 1,
-      children: {
-        title: '课时表'
-      }
-    }]
+    subjectId: '',
+    classList: []
   },
 
   /**
@@ -20,22 +14,53 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    // this.getClassList(options['id'])
+    this.getSubjectByStudentId(options['id'])
   },
   onChange(event) {
     this.setData({
-      activeName: event.detail,
+      subjectId: event.detail,
+    }, () => {
+      this.getClassList()
     });
   },
-  getClassList(subjectId) {
+  getSubjectByStudentId(studentId) {
+    App.request.start({
+      apiKey: 'GetSubjectByStudentId',
+      params: {
+        studentId
+      },
+      loadingMessage: '加载中',
+    }).then(res => {
+      if (res.success) {
+        let classList = res.data
+        this.setData({
+          classList
+        })
+      }
+    })
+  },
+  getClassList() {
+    let { classList, subjectId } = this.data, idx = null;
+    classList.forEach((item, index) => {
+      if (item['Id'] === subjectId) {
+        idx = index
+      }
+      return item
+    })
+    if (!subjectId) return
+    if (classList[idx].children) return
     App.request.start({
       apiKey: 'getClassList',
       params: {
         subjectId
-      }
+      },
+      loadingMessage: '加载中',
     }).then(res => {
       if (res.success) {
-
+        classList[idx].children = res.data
+        this.setData({
+          classList
+        })
       }
     })
   },

@@ -8,9 +8,9 @@
 			<view class="btn" bindtap="onView">
 				<image class="icon" src="../../images/icon/icon-look.png"></image> 查看课时表
 			</view>
-			<view class="btn" bindtap="onEdit">
+			<!-- <view class="btn" bindtap="onEdit">
 				<image class="icon" src="../../images/icon/icon-edit.png"></image> 编辑
-			</view>
+			</view> -->
 		</view>
 	</view>
 
