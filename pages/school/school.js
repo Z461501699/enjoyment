@@ -11,6 +11,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    options: [
+      {
+        title: '时间',
+        value: 'defaultSort',
+      }, {
+        title: '人数',
+        value: 'Mark',
+      }, {
+        title: '价格',
+        value: 'Price',
+      }
+
+    ],
     schoolList: [],
     pageSize: 10,
     pageNo: 1,

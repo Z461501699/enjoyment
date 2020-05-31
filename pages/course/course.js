@@ -22,11 +22,34 @@ Page({
       BelongSchoolId: '',
       PageSize: 10,
       PageIndex: 1,
-    }
+      SortType:'StartTime'
+    },
+    options: [
+      {
+        title: '时间',
+        value: 'StartTime',
+      }, {
+        title: '评分',
+        value: 'Mark',
+      }, {
+        title: '价格',
+        value: 'Price',
+      }
+
+    ],
   },
-  // 下拉回调
-  change(e) {
-    console.log('change', e)
+  // 筛选
+  change({detail}) {
+    console.log('change', detail)
+    let { courseListParams } = this.data
+    this.setData({
+      courseListParams: {
+        ...courseListParams,
+        SortType: detail
+      }
+    }, () => {
+      this.getCourseList(1)
+    })
   },
   // 搜索功能
   handleSearch({ detail }) {
@@ -35,7 +58,7 @@ Page({
     this.setData({
       courseListParams: {
         ...courseListParams,
-        Name: detail
+        name:detail
       }
     }, () => {
       this.getCourseList(1)
