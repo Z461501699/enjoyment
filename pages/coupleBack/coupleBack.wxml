@@ -1,15 +1,18 @@
 <couple-back>
-	<couple-back-picker  bind:change='changePicker' />
+	<couple-back-picker bind:change='changePicker' />
 </couple-back>
 <couple-back title='学校列表'>
-	<couple-back-custom-picker  range="{{schoolList}}"  bind:change='changePicker2' />
+	<couple-back-custom-picker range="{{schoolList}}" bind:change='changePicker2' />
 </couple-back>
-<couple-back>
-	<couple-back-textarea bind:change='textareaHandle'/>
+<couple-back title='反馈类型'>
+	<couple-back-textarea bind:change='textareaHandle' />
 </couple-back>
-<view class="file-box">
+<couple-back title='反馈图片'>
+<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />
+</couple-back>
+<!-- <view class="file-box">
 	<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />
+</view> -->
+<view class="bottom">
+	<button class="btn-submit" bind:tap="handleSubmit">提交反馈</button>
 </view>
-  <view class="bottom">
-    <button class="btn-submit" bind:tap="handleSubmit">提交反馈</button>
-  </view>
