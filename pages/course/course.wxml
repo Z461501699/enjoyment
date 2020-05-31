@@ -1,5 +1,5 @@
 <!-- pages/course/course.wxml -->
-<header-select class="header-select" hasPosition selectTitles="{{selectTitles}}" selectOptions="{{selectOptions}}" bind:change="change" bind:handleSearch="handleSearch">
+<header-select class="header-select" options="{{options}}" hasPosition  bind:change="change" bind:handleSearch="handleSearch">
 	<view wx:if="{{isGetLocation}}" class="search-address" bindtap="onSelectAddress">
 		<image src="../../images/icon/z-icon-location-b.png"></image>
 		{{locationData['AreaName'] ||'获取定位'}}
