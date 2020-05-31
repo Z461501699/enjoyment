@@ -153,11 +153,10 @@ Page({
     imagesList.map((item, index) => {
       postData[`img${index + 1}`] = item
     })
-    postData['parentsId'] = App.globalData.getUserId()
     console.log('dataBack', postData)
     App.request.start({
-      apiKeys: 'feedBack',
-      data: postData
+      apiKey: 'feedBack',
+      params: postData
     }).then(data => {
       console.log('dataBack', data)
       if (res.success) {
@@ -179,7 +178,13 @@ Page({
    */
   onLoad: function (options) {
     console.log('data----', App.globalData.getUserId())
-    this.getSchoolListByMember()
+    let { postData } = this.data
+    postData['parentsId'] = App.globalData.getUserId()
+    this.setData({
+      postData
+    }, () => {
+      this.getSchoolListByMember()
+    })
   },
 
   /**

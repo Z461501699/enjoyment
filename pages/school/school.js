@@ -11,6 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isGetLocation: true,
+    locationData: false,
     options: [
       {
         title: '时间',
@@ -47,8 +49,8 @@ Page({
     //   'schoolListParams.Sort': detail,
     //   'schoolListParams.SortType': detail,
     // })
-    
-      this.getSchoolList()
+
+    this.getSchoolList()
     console.log('change', detail)
   },
   // 搜索功能
@@ -62,15 +64,32 @@ Page({
     })
     this.getSchoolList()
   },
+  getList(num) {
+    this.initData(() => {
+      this.getSchoolList()
 
+    })
+  },
   // 获取学校数据
   getSchoolList() {
     const that = this
     const {
       schoolList,
-      schoolListParams
+      schoolListParams,
+      locationData
     } = that.data
+    if (locationData) {
+      if (locationData['longitude'] && locationData['latitude']) {
+        schoolListParams['Latitude'] = locationData['latitude']
+        schoolListParams['Longitude'] = locationData['longitude']
+        schoolListParams['AreaCode'] = ''
 
+      } else {
+        schoolListParams['AreaCode'] = locationData['AreaCode']
+        schoolListParams['Latitude'] = ''
+        schoolListParams['Longitude'] = ''
+      }
+    }
     App.request.start({
       apiKey: 'getSchoolList',
       params: schoolListParams,
@@ -91,7 +110,7 @@ Page({
       }
 
       wx.stopPullDownRefresh()
-      
+
     })
   },
   /**
@@ -116,9 +135,120 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getSchoolList()
+    // this.getSchoolList()
   },
+  onShow: function () {
+    let {
+      locationData
+    } = this.data;
+    this.getLocationStr().then(addLocation => {
+      console.log(!!locationData)
+      if (!!locationData) {
+        this.getSchoolList()
+      } else {
+        this.getCityInfoByLocation(addLocation).then(res => {
+          this.getSchoolList()
+        })
+      }
+    })
+  },
+  //跳转选择城市
+  onSelectAddress() {
+    let {
+      locationData
+    } = this.data;
+    if (locationData) {
+      wx.navigateTo({
+        url: `/pages/selectAddress/selectAddress?locationData=${JSON.stringify(this.data.locationData)}`,
+      })
+    } else {
+      this.getSetting().then(() => {
+        this.getLocationStr().then(addLocation => {
+          this.getCityInfoByLocation(addLocation).then(res => {
+            this.getCourseList(1)
+          })
+        })
+      }).catch(() => {
+        this.setData({
+          isGetLocation: false,
+        })
+      })
 
+    }
+  },
+  //活动当前定位详细数据
+  getCityInfoByLocation(location) {
+    return new Promise((relove, reject) => {
+      App.request.start({
+        apiKey: 'getCityInfoByLocation',
+        params: { location: location.addLocation }
+      }).then(res => {
+        console.log(res)
+        if (res.success) {
+          let locationData = res.data
+          locationData.longitude = location.longitude
+          locationData.latitude = location.latitude
+          this.setData({
+            locationData
+          }, () => {
+            relove(locationData)
+          })
+        }
+      }).catch(err => {
+        reject(err)
+      })
+    })
+  },
+  //获取当前定位信息
+  getLocationStr() {
+    return new Promise((relove, reject) => {
+      wx.getLocation({
+        type: 'gcj02',
+        success: (res) => {
+          console.log(res)
+          // relove(`${res.longitude},${res.latitude}`)
+          relove({ addLocation: `${res.longitude},${res.latitude}`, longitude: res.longitude, latitude: res.latitude })
+        },
+        fail: (err) => {
+          reject(err)
+        }
+      })
+    })
+  },
+  onOpensetting(e) {
+    console.log(e)
+    if (e.detail.authSetting['scope.userLocation']) {
+      this.setData({
+        isGetLocation: true,
+      })
+    }
+  },
+  getSetting() {
+    return new Promise((relove, reject) => {
+      wx.getSetting({
+        success: (res) => {
+          console.log(res.authSetting)
+          if (res.authSetting["scope.userLocation"]) {
+            relove(relove)
+          } else {
+            console.log('没有权限')
+            wx.authorize({
+              scope: 'scope.userLocation',
+              success: (ress) => {
+                console.log(ress)
+                // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+                relove()
+              },
+              fail: (err) => {
+                console.log(err)
+                reject()
+              }
+            })
+          }
+        }
+      })
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
@@ -143,11 +273,13 @@ Page({
   },
 
   // 数据初始化
-  initData() {
+  initData(back) {
     this.setData({
       schoolList: [],
       'schoolListParams.PageIndex': 1,
       'schoolListParams.SchoolName': '',
+    }, () => {
+      back()
     })
   }
 

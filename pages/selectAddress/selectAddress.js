@@ -20,7 +20,7 @@ Page({
     nowPages.setData({
       locationData
     }, () => {
-      nowPages.getCourseList(1)
+      nowPages.getList(1)
       wx.navigateBack({
         deta: 1
       })

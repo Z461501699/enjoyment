@@ -6,7 +6,7 @@
 	</view>
 	<button bindopensetting="onOpensetting" wx:if="{{!isGetLocation}}" open-type="openSetting" wx:if="{{!isGetLocation}}" class="search-address">
 		<image src="../../images/icon/z-icon-location-b.png"></image>
-		获取定位2
+		获取定位
 	</button>
 </header-select>
 <view style='width:100%; height:127px' />
