@@ -5,7 +5,7 @@
 		<van-tab title="已付款" name='2' />
 </van-tabs>
 <view style='margin-top:64px'>
-		<block wx:for="{{orderParams.orderList}}" wx:key="*this">
+		<block wx:for="{{orderList}}" wx:key="*this">
 				<order-item options="{{item}}" bind:study="toStudy" />
 		</block>
 		<view class="load-all">没有更多课程了</view>

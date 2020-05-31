@@ -1,8 +1,11 @@
 <couple-back>
 	<couple-back-picker  bind:change='changePicker' />
 </couple-back>
+<couple-back title='学校列表'>
+	<couple-back-picker rangeKey="name" range="{{schoolList}}"  bind:change='changePicker' />
+</couple-back>
 <couple-back>
-	<couple-back-textarea />
+	<couple-back-textarea bind:change='textareaHandle'/>
 </couple-back>
 <view class="file-box">
 	<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />

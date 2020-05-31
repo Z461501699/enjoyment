@@ -28,8 +28,7 @@ Component({
       const {
         value
       } = detail
-      console.log('textarea', value);
-      this.triggerEvent('textarea', value)
+      this.triggerEvent('change', value)
     }
   }
 })

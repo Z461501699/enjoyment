@@ -37,6 +37,7 @@ export const Apis = {
     getFinanceList: { type: "GET", path: '/api/Finance/GetFinanceList' },//获取财务流水分页列表
     getCityInfoByLocation: { type: 'GET', path: '/api/Area/GetCityInfoByLocation' },//获取定位信息
     getCityList: { type: 'GET', path: '/api/Area/GetCityList' },//获取城市列表
+    GetSchoolListByMember: { type: 'GET', path: '/api/School/GetSchoolListByMember' },//获取投诉建议
 };
 
 // keys
