@@ -6,13 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    orderList: [],
     active: 'all',
     orderParams: {
       PageIndex: 1,
       PageSize: 10,
       memberId: '',
-      orderList: [],
-      OrderStatus: ''
+      OrderStatus: ""
     },
     isLoadAll: false
   },
@@ -34,14 +34,14 @@ Page({
     }).then(({
       data
     }) => {
-      if (data) {
+      if (data && data.length) {
         data.forEach(item => {
           item.SubjectImg = App.Host + item.SubjectImg
         })
       }
 
       that.setData({
-        'orderParams.orderList': orderParams.orderList.concat(data),
+        orderList: that.data.orderList.concat(data),
         'orderParams.PageIndex': orderParams.PageIndex++,
         isLoadAll: orderParams.PageSize > data.length
       })
@@ -51,7 +51,7 @@ Page({
   initData() {
     this.setData({
       'orderParams.PageIndex': 1,
-      'orderParams.orderList': []
+      orderList: []
     })
   },
   // 切换tabs
@@ -69,13 +69,13 @@ Page({
    */
   onLoad: function (options) {
 
-    console.log('options', options)
+    console.log('options', options.type)
     const {
       active
     } = this.data
     this.setData({
       active: options.type,
-      'orderParams.OrderStatus': options.type,
+      'orderParams.OrderStatus': options.type ? '':options.type,
       'orderParams.memberId': App.request.getUser().userId,
     })
     // 当点击全部订单进入时在获取数据,因为tabs的change事件会导致加载两次列表数据

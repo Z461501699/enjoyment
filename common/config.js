@@ -38,6 +38,7 @@ export const Apis = {
     getCityInfoByLocation: { type: 'GET', path: '/api/Area/GetCityInfoByLocation' },//获取定位信息
     getCityList: { type: 'GET', path: '/api/Area/GetCityList' },//获取城市列表
     getClassList: { type: 'GET', path: '/api/Class/GetClassList' },//获取课时列表
+    GetSchoolListByMember: { type: 'GET', path: '/api/School/GetSchoolListByMember' },//获取投诉建议
 };
 
 // keys

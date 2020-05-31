@@ -1,4 +1,5 @@
 // pages/coupleBack/coupleBack.js
+const App = getApp()
 Page({
 
   /**
@@ -6,6 +7,10 @@ Page({
    */
   data: {
     fileList: [],
+    schoolList:[
+      {name:1},
+      {name:2}
+    ],
     postData:{
       "parentsId": "",
       "schoolId": "",
@@ -14,12 +19,27 @@ Page({
       "flag": 0,
       "img1": "",
       "img2": "",
-      "img3": ""
+      "img3": "",
+      ImageList:[]
     }
   },
   // 获取changePicker事件
   changePicker(e){
     console.log('e',e.detail)
+    this.setData({'postData.feedbackType':Number(e.detail)})
+  },
+  textareaHandle(e){
+    this.setData({'postData.content':e.detail})
+    console.log('e',this.data.postData)
+  },
+  // 获取投诉建议
+  getSchoolListByMember(){
+    App.request.start({
+      apiKey:`GetSchoolListByMember`,
+      params:{memberId:App.request.getUser().userId}
+    }).then(data =>{
+      console.log('data----',data)
+    })
   },
   onChange(event) {
     const {
@@ -65,11 +85,28 @@ Page({
       fileList
     })
   },
+  // 上传图片
+  upload(filePath){
+    App.request.uploadFile({
+      apiKey:'uploadFile',
+      fileModule:4,
+      filePath,
+      loadingMessage:'图片上传中'
+    }).then(data =>{
+      console.log('images',data)
+    })
+  },
   // 提交表单
   handleSubmit(e) {
     const {postData} = this.data
     console.log('post',postData)
-    console.log('提交表单');
+    const ImgsList = this.data.fileList.map(item => item.path)
+    this.setData({'postData.ImageList': ImgsList})
+    ImgsList.map(item => {
+      this.upload(item)
+    })
+   
+  
     // App.request.start({
     //   apiKey: 'feedBack',
     //   loadingMessage: '加载中',
@@ -83,7 +120,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getSchoolListByMember()
   },
 
   /**

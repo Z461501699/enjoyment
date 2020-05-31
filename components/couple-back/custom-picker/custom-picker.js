@@ -18,16 +18,16 @@ Component({
    * 组件的初始数据
    */
   data: {
-    coupleList: [{
-        text: '建议',
-        id: 1
-      },
-      {
-        text: '投诉',
-        id: 2
-      },
-    ],
-    coupleIndex: 0
+    // coupleList: [{
+    //     text: '建议',
+    //     id: 1
+    //   },
+    //   {
+    //     text: '投诉',
+    //     id: 2
+    //   },
+    // ],
+    // coupleIndex: 0
   },
 
   /**
