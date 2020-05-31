@@ -4,10 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    rangeKey:{
-     type:String,
-     value:''
-    },
+   index:{
+     type: Number,
+     value:0
+   },
     range:{
       type:Array,
       value:()=>[]
@@ -36,13 +36,9 @@ Component({
   methods: {
     // 选择投诉类型
     handleChangeCoupleBack(e) {
-      console.log('range',this.range)
-      // const {detail} = e
-      // const {value} = detail
-      // this.setData({
-      //   coupleIndex: value
-      // })
-      // this.triggerEvent('change', value)
+      const {detail} = e
+      const {value} = detail
+       this.triggerEvent('change', this.data.range[Number(value)])
     }
   }
 })

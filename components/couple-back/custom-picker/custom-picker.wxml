@@ -1,3 +1,7 @@
-<view class="container">
-  <slot></slot>
-</view>
+<!--components/couple-back/picker/index.wxml-->
+<picker class="flex-row container" range="{{range}}" value="{{index}}" bind:change='handleChangeCoupleBack' range-key="text">
+	<view class="flex-row box">
+		{{range[index].text}}
+		<image class='image' src="/images/icon/icon_down.png" />
+	</view>
+</picker>

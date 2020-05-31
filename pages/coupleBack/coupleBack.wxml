@@ -2,7 +2,7 @@
 	<couple-back-picker  bind:change='changePicker' />
 </couple-back>
 <couple-back title='学校列表'>
-	<couple-back-picker rangeKey="name" range="{{schoolList}}"  bind:change='changePicker' />
+	<couple-back-custom-picker  range="{{schoolList}}"  bind:change='changePicker2' />
 </couple-back>
 <couple-back>
 	<couple-back-textarea bind:change='textareaHandle'/>

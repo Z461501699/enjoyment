@@ -2,6 +2,7 @@
   "usingComponents": {
     "couple-back": "/components/couple-back/index/index",
     "couple-back-picker": "/components/couple-back/picker/index",
+    "couple-back-custom-picker": "/components/couple-back/custom-picker/custom-picker",
     "couple-back-textarea": "/components/couple-back/textarea/index"
   },
   "navigationBarTitleText": "反馈"

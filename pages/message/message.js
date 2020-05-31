@@ -60,7 +60,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      'messageParams.MemberId': App.request.getUser().userId
+      'messageParams.MemberId': App.globalData.getUserId().userId
     })
     console.log('options', this.data.messageParams)
     this.getMessageList()

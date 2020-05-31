@@ -76,7 +76,7 @@ Page({
     this.setData({
       active: options.type,
       'orderParams.OrderStatus': options.type ? '':options.type,
-      'orderParams.memberId': App.request.getUser().userId,
+      'orderParams.memberId': App.globalData.getUserId().userId,
     })
     // 当点击全部订单进入时在获取数据,因为tabs的change事件会导致加载两次列表数据
     this.getOrderList()

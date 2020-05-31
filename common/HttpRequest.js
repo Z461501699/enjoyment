@@ -101,7 +101,7 @@ export default class HTTPRequest {
         return new Promise((resolve, reject) => {
             let apiKey = options.apiKey; // api 键名
             let api = Apis[apiKey]; // api 对象
-            let token = this.getUser().token || '';
+            let token = globalData.getUserId().token || '';
             let fileModule = options.fileModule
             let filePath = options.filePath
             if (options.loadingMessage) {
