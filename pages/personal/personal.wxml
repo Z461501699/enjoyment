@@ -32,7 +32,7 @@
 		</view>
 		<!-- 订单导航栏 -->
 		<view class="order-navbar">
-			<form bindsubmit="onTargetOrder" data-type="all" >
+			<form bindsubmit="onTargetOrder" data-type="all">
 				<button formType="submit" class="btn-normal">
 					<view class="order-navbar-header dis-flex">
 						<text class="f-30">我的订单</text>
@@ -45,7 +45,7 @@
 			</form>
 			<view class="order-navbar-footer dis-flex m-top10">
 				<view class="order-navbar-item flex-box">
-					<form bindsubmit="onTargetOrder" data-type="all" >
+					<form bindsubmit="onTargetOrder" data-type="all">
 						<button formType="submit" class="btn-normal">
 							<!-- <text class="order-navbar__icon iconfont icon-form"></text> -->
 							<van-icon class="order-navbar__icon" name="notes-o" />
@@ -54,7 +54,7 @@
 					</form>
 				</view>
 				<view class="order-navbar-item flex-box">
-					<form catchsubmit="onTargetOrder" data-type="payment" >
+					<form catchsubmit="onTargetOrder" data-type="payment">
 						<button formType="submit" class="btn-normal">
 							<!-- <text class="order-navbar__icon iconfont icon-daifukuan"></text> -->
 							<van-icon class="order-navbar__icon" name="pending-payment" />
@@ -64,7 +64,7 @@
 					</form>
 				</view>
 				<view class="order-navbar-item flex-box">
-					<form bindsubmit="onTargetOrder" data-type="received" >
+					<form bindsubmit="onTargetOrder" data-type="received">
 						<button formType="submit" class="btn-normal">
 							<van-icon class="order-navbar__icon" name="paid" />
 							<text class="order-navbar__name">已付款</text>
@@ -73,7 +73,7 @@
 					</form>
 				</view>
 				<view class="order-navbar-item flex-box">
-					<form bindsubmit="onTargetOrder" data-type="refund" >
+					<form bindsubmit="onTargetOrder" data-type="refund">
 						<button formType="submit" class="btn-normal">
 							<van-icon class="order-navbar__icon" name="after-sale" />
 							<text class="order-navbar__name">退款/售后</text>
@@ -95,7 +95,7 @@
 								<text>钱包（元）</text>
 							</view>
 							<view class="item-value dis-flex flex-x-center">
-								<text>{{ isLogin ? '0.00' : '0.00' }}</text>
+								<text>{{ isLogin ? tools.formatPrice(userInfo.Wallet) : '0.00' }}</text>
 							</view>
 						</button>
 					</form>
@@ -109,7 +109,7 @@
 								<text>课程数量</text>
 							</view>
 							<view class="item-value dis-flex flex-x-center">
-								<text>{{ isLogin ? '0' : '0' }}</text>
+								<text>{{ isLogin ? userInfo.SubjectCount : '0' }}</text>
 							</view>
 						</button>
 					</form>
@@ -123,7 +123,7 @@
 								<text>学生数量</text>
 							</view>
 							<view class="item-value dis-flex flex-x-center">
-								<text>{{ isLogin ? '0' : '0' }}</text>
+								<text>{{ isLogin ? userInfo.StudentCount : '0' }}</text>
 							</view>
 						</button>
 					</form>
@@ -148,3 +148,4 @@
 		</van-cell-group>
 	</view>
 </view>
+<wxs src="../../utils/common.wxs"  module="tools" />

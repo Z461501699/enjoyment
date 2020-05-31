@@ -1,0 +1,12 @@
+
+/**
+ * 将分格式化为多少元
+ * @param [Number, String] 分
+ * @return [Number, String] 元 0.00
+ */
+var formatPrice = function(penny) {  
+  return (penny / 100).toFixed(2)
+}
+module.exports = {
+  formatPrice: formatPrice
+};
