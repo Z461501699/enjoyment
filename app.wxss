@@ -3,6 +3,6 @@
 
 page {
   background: #f7f7f7;
-  --bg-color: #f3f3f3;
+  --bg-color: hsl(0, 0%, 95%);
   --theme-color: #12AE85;
 }

@@ -18,7 +18,7 @@ Component({
         value: 'defaultSort',
       }, {
         title: '人数',
-        value: ' Mark',
+        value: 'Mark',
       }, {
         title: '价格',
         value: 'Price',

@@ -75,7 +75,7 @@ Page({
     // }
     // 记录formid
     let urls = {
-      all: "/pages/order/order?type=",
+      all: "/pages/order/order?type=''",
       payment: '/pages/order/order?type=1',
       received: '/pages/order/order?type=2',
       refund: '/pages/salesReturn/salesReturn',

@@ -34,9 +34,12 @@ Page({
     }).then(({
       data
     }) => {
-      data.forEach(item => {
-        item.SubjectImg = App.Host + item.SubjectImg
-      })
+      if (data) {
+        data.forEach(item => {
+          item.SubjectImg = App.Host + item.SubjectImg
+        })
+      }
+
       that.setData({
         'orderParams.orderList': orderParams.orderList.concat(data),
         'orderParams.PageIndex': orderParams.PageIndex++,
@@ -65,6 +68,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     console.log('options', options)
     const {
       active

@@ -5,41 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    steps: [
-    {
-      text: '退款成功',
-      desc: '2020-05-24',
-    },
-    {
-      text: '银行处理',
-      desc: '2020-05-22',
-    },
-    {
-      text: '发起退款',
-      desc: '2020-05-21',
-    },
-  ],
+    steps: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('options',options)
+    const steps = [
+      {
+        text: options.Flag === '1' ? '未退款':'退款成功',
+        desc: options.RefundTime
+      },
+      {
+        text: '银行处理',
+        desc: options.RefundTime
+      },
+      {
+        text: '发起退款',
+        desc: options.CreateTime
+      }
+    ]
     this.setData({
-      steps: [
-        {
-          text: options.Flag === 1 ? '未退款':'退款成功',
-          desc: options.RefundTime
-        },
-        {
-          text: '银行处理',
-          desc: options.RefundTime
-        },
-        {
-          text: '发起退款',
-          desc: options.CreateTime
-        }
-      ]
+      steps
     })
     console.log('detailOptions',options)
   },

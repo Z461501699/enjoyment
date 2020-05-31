@@ -21,7 +21,7 @@ Page({
       Address: '',
       Phone: '',
       PageSize: 10,
-      PageIndex: 1
+      PageIndex: 1,
     },
     selectTitles: HEADER_SELECT_TITLES,
     selectOptions: HEADER_SELECT_OPTIONS
@@ -30,6 +30,10 @@ Page({
   change({
     detail
   }) {
+    // this.setData({
+    //   'schoolListParams.Sort': detail,
+    //   'schoolListParams.SortType': detail,
+    // })
     
       this.getSchoolList()
     console.log('change', detail)
