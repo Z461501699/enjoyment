@@ -36,13 +36,12 @@ Component({
   methods: {
     // 选择投诉类型
     handleChangeCoupleBack(e) {
-      console.log('range',this.range)
-      // const {detail} = e
-      // const {value} = detail
-      // this.setData({
-      //   coupleIndex: value
-      // })
-      // this.triggerEvent('change', value)
+      const {detail} = e
+      const {value} = detail
+      this.setData({
+        coupleIndex: value
+      })
+      this.triggerEvent('change', value)
     }
   }
 })

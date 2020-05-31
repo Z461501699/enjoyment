@@ -6,38 +6,58 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imagesList: [],
     fileList: [],
-    schoolList: [
-      { name: 1 },
-      { name: 2 }
-    ],
+    schoolList: [],
     postData: {
-      "parentsId": "",
-      "schoolId": "",
-      "feedbackType": 0,
-      "content": "",
-      "flag": 0,
-      "img1": "",
-      "img2": "",
-      "img3": "",
-      ImageList: []
+      parentsId: "",
+      schoolId: "",
+      feedbackType: 0,
+      content: "",
+      flag: 0,
+      img1: "",
+      img2: "",
+      img3: "",
     }
   },
   // 获取changePicker事件
   changePicker(e) {
-    console.log('e', e.detail)
-    this.setData({ 'postData.feedbackType': Number(e.detail) })
+    console.log('e--', e.detail)
+    this.setData({
+      'postData.feedbackType': Number(e.detail)
+    })
+  },
+  // 获取changePicker事件
+  changePicker2(e) {
+    console.log('e+++', e.detail)
+    this.setData({
+      'postData.schoolId': e.detail.id
+    })
   },
   textareaHandle(e) {
-    this.setData({ 'postData.content': e.detail })
+    this.setData({
+      'postData.content': e.detail
+    })
     console.log('e', this.data.postData)
   },
   // 获取投诉建议
   getSchoolListByMember() {
+    const that = this
     App.request.start({
       apiKey: `GetSchoolListByMember`,
-      params: { memberId: App.request.getUser().userId }
-    }).then(data => {
+      params: {
+        memberId: App.globalData.getUserId()
+      }
+    }).then(({ data }) => {
+      if (data && data.length) {
+        data.forEach((item) => {
+          item.text = item.SchoolName,
+            item.id = item.Id
+        })
+      }
+      that.setData({
+        schoolList: data || []
+      })
       console.log('data----', data)
     })
   },
@@ -66,6 +86,10 @@ Page({
     })
     this.setData({
       fileList
+    }, () => {
+      this.upload('fileList').then(res => {
+        console.log(res)
+      })
     })
   },
   // 删除图片
@@ -86,40 +110,75 @@ Page({
     })
   },
   // 上传图片
-  upload(filePath) {
-    App.request.uploadFile({
-      apiKey: 'uploadFile',
-      fileModule: 4,
-      filePath,
-      loadingMessage: '图片上传中'
-    }).then(data => {
-      console.log('images', data)
+  upload(listName) {
+    const that = this
+    const {
+      fileList,
+      imagesList
+    } = that.data
+    return new Promise((resolve, reject) => {
+      const promiseAll = []
+      that.data[listName].forEach(el => {
+        promiseAll.push(
+          App.request.uploadFile({
+            apiKey: 'uploadFile',
+            fileModule: 4,
+            filePath: el.path,
+            loadingMessage: '图片上传中'
+          }).then(({
+            data
+          }) => {
+            if (typeof data === 'string') {
+              data = JSON.parse(data)
+            }
+            imagesList.push(data.Result)
+            that.setData({
+              imagesList
+            })
+          })
+        )
+        Promise.all(promiseAll).then(res => {
+          resolve(res)
+        }).catch(error => {
+          reject(error)
+        })
+      })
     })
+
+
   },
   // 提交表单
   handleSubmit(e) {
-    const { postData } = this.data
-    console.log('post', postData)
-    const ImgsList = this.data.fileList.map(item => item.path)
-    this.setData({ 'postData.ImageList': ImgsList })
-    ImgsList.map(item => {
-      this.upload(item)
+    let { postData, imagesList } = this.data
+    imagesList.map((item, index) => {
+      postData[`img${index + 1}`] = item
     })
-
-
+    postData['parentsId'] = App.globalData.getUserId()
+    console.log('dataBack', postData)
     App.request.start({
-      apiKey: 'feedBack',
-      loadingMessage: '加载中',
-      data: e
-    }).then(res => {
-      console.log('res', res)
+      apiKeys: 'feedBack',
+      data: postData
+    }).then(data => {
+      console.log('dataBack', data)
+      if (res.success) {
+        wx.showToast({
+          title: res.message,
+          success: () => {
+            setTimeout(() => {
+              wx.navigateBack({
+                delta: 1,
+              })
+            }, 1500)
+          }
+        })
+      }
     })
-
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('data----', App.globalData.getUserId())
     this.getSchoolListByMember()
   },
 
