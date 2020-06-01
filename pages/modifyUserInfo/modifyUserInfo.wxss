@@ -1,0 +1,19 @@
+.login-btn {
+  padding: 0 20rpx;
+  margin-top: 400rpx;
+}
+
+.login-btn button {
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #04be01;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 999rpx;
+  text-align: center;
+}
+
+.submit-box {
+  padding: 20rpx;
+  margin-top: 100rpx;
+}

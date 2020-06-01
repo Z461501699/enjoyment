@@ -1,3 +1,3 @@
 <view class="flex-row container">
-	<input bindinput="onIpt" value="{{value}}" class="flex-row box" maxlength="11" placeholder="{{placeholder}}" />
+	<input bindinput="onIpt" value="{{value}}" class="flex-row box" maxlength="20" placeholder="{{placeholder}}" />
 </view>

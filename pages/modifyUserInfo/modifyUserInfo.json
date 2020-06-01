@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "input-box": "/components/couple-back/index/index",
+    "input-item": "/components/couple-back/input/index"
+  }
+}

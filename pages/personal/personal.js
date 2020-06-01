@@ -140,4 +140,11 @@ Page({
       wx.stopPullDownRefresh()
     }, 1000);
   },
+
+  // 跳转到修改个人资料页面
+  handleModifyUserInfo(){
+    wx.navigateTo({
+      url: '/pages/modifyUserInfo/modifyUserInfo',
+    })
+  }
 })

@@ -1,0 +1,19 @@
+<!-- <view class="login-btn">
+	<button class="btn-normal " open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权获取手机号修改个人资料</button>
+</view> -->
+<input-box title="真实姓名">
+	<input-item value="{{formData['realName']}}" bindinput="handleGetRealName" placeholder="请输入真实姓名" />
+</input-box>
+<input-box title="电话">
+	<input-item value="{{formData['phone']}}" bindinput="handleGetPhoneNum" placeholder="请输入电话" />
+</input-box>
+<input-box title="邮箱地址">
+	<input-item value="{{formData['email']}}" bindinput="handleGetEmail" placeholder="请输入邮箱地址" />
+</input-box>
+<input-box title="当前住址">
+	<input-item value="{{formData['address']}}" bindinput="handleGetAddress" placeholder="请输入当前住址" />
+</input-box>
+
+<view class="submit-box">
+	<button class="submit" type="primary" bind:tap="handleSubmit">提交</button>
+</view>

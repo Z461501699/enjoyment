@@ -3,7 +3,7 @@
 	<view class="user">
 		<view class="user-header" style="background-image: url('/images/user-bg.png');">
 			<!-- 已登录 -->
-			<view wx:if="{{ isLogin }}" class="user-header-cont">
+			<view wx:if="{{ isLogin }}" class="user-header-cont" bind:tap="handleModifyUserInfo">
 				<view class="user-header-avatar">
 					<!-- 微信头像 -->
 					<open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>

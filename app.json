@@ -16,7 +16,8 @@
     "pages/studentInfoEdit/studentInfoEdit",
     "pages/selectAddress/selectAddress",
     "pages/classSchedule/classSchedule",
-    "pages/courseEvaluation/courseEvaluation"
+    "pages/courseEvaluation/courseEvaluation",
+    "pages/modifyUserInfo/modifyUserInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
