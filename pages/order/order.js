@@ -39,7 +39,6 @@ Page({
           item.SubjectImg = App.Host + item.SubjectImg
         })
       }
-      console.log('orderList',data)
       that.setData({
         orderList: Array.isArray(data) ?  that.data.orderList.concat(data):[],
         'orderParams.PageIndex': orderParams.PageIndex++,
