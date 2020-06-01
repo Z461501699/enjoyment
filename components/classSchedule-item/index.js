@@ -21,6 +21,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onToEvaluation(e) {
+      wx.navigateTo({
+        url: `/pages/courseEvaluation/courseEvaluation?subjectId=${e.currentTarget.dataset.id}`,
+      })
+    }
   }
 })

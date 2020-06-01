@@ -87,7 +87,7 @@ App({
           }).then(res => {
             if (res.success) {
               if (this.setUserInfo({ userInfo: res['data']['UserInfo'], token: res['data']['Token'], userId: res['data']['UserInfo']['Id'] })) {
-                resolve({ userInfo: info })
+                resolve({ userInfo: res['data']['UserInfo'] })
               }
             }
 

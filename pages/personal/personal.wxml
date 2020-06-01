@@ -95,7 +95,7 @@
 								<text>钱包（元）</text>
 							</view>
 							<view class="item-value dis-flex flex-x-center">
-								<text>{{ isLogin ? tools.formatPrice(userInfo.Wallet) : '0.00' }}</text>
+								<text>{{ isLogin && !!userInfo.Wallet ? tools.formatPrice(userInfo.Wallet) : '0.00' }}</text>
 							</view>
 						</button>
 					</form>
@@ -135,16 +135,16 @@
 	<!-- 菜单列表 -->
 	<view class="menus-list">
 		<van-cell-group>
-			<van-cell title-class="title-class" icon="friends-o" title="学生管理" url="/pages/studentManage/studentManage" clickable="true" is-link="true" />
-			<van-cell title-class="title-class" icon="orders-o" title="订单管理" url="/pages/order/order?type" clickable="true" is-link="true" />
-			<van-cell title-class="title-class" icon="bullhorn-o" title="信息列表" url="/pages/message/message" clickable="true" is-link="true" />
-			<van-cell title-class="title-class" icon="bill-o" title="财务流水" url="/pages/financialFlow/financialFlow" clickable="true" is-link="true" />
-			<!-- <van-cell title-class="title-class" icon="friends-o" bindtap="copyCode" title="获取code" url="" clickable="true" is-link="true" /> -->
+			<van-cell custom-class="custom-class" title-class="title-class" icon="friends-o" title="学生管理" url="/pages/studentManage/studentManage" clickable="true" is-link="true" />
+			<van-cell custom-class="custom-class" title-class="title-class" icon="orders-o" title="订单管理" url="/pages/order/order?type" clickable="true" is-link="true" />
+			<van-cell custom-class="custom-class" title-class="title-class" icon="bullhorn-o" title="信息列表" url="/pages/message/message" clickable="true" is-link="true" />
+			<van-cell custom-class="custom-class" title-class="title-class" icon="bill-o" title="财务流水" url="/pages/financialFlow/financialFlow" clickable="true" is-link="true" />
+			<!-- <van-cell custom-class="custom-class" title-class="title-class" icon="friends-o" bindtap="copyCode" title="获取code" url="" clickable="true" is-link="true" /> -->
 		</van-cell-group>
 	</view>
 	<view class="menus-list">
 		<van-cell-group>
-			<van-cell title-class="title-class" icon="chat-o" title="反馈" url="/pages/coupleBack/coupleBack" clickable="true" is-link="true" />
+			<van-cell custom-class="custom-class" title-class="title-class" icon="chat-o" title="反馈" url="/pages/coupleBack/coupleBack" clickable="true" is-link="true" />
 		</van-cell-group>
 	</view>
 </view>

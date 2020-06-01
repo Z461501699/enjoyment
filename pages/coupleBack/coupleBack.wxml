@@ -4,7 +4,7 @@
 <couple-back title='学校列表'>
 	<couple-back-custom-picker range="{{schoolList}}" bind:change='changePicker2' />
 </couple-back>
-<couple-back title='反馈类型'>
+<couple-back title='反馈内容'>
 	<couple-back-textarea bind:change='textareaHandle' />
 </couple-back>
 <couple-back title='反馈图片'>

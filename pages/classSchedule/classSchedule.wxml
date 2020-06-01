@@ -1,6 +1,6 @@
 <van-collapse accordion value="{{ subjectId }}" bind:change="onChange">
 	<block wx:for="{{classList}}" wx:key="*this">
-		<van-collapse-item title="{{item.Name}}" name="{{item.Id}}">
+		<van-collapse-item content-class="custom-class" title="{{item.Name}}" name="{{item.Id}}">
 			<block wx:for="{{item.children}}" wx:for-item="chindItem" wx:for-index="chindIndex" wx:key="*this">
 				<classSchedule-item options="{{chindItem}}" />
 			</block>
