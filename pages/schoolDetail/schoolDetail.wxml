@@ -15,7 +15,7 @@
 		<view>
 			<!-- <tag>美术</tag> -->
 		</view>
-		{{schoolInfo.Remark}}
+		{{schoolInfo.Description}}
 	</view>
 	<image bindtap="onShowMoreMsg" class="introduction-icon {{isShowAll?'':'rotate90'}}" src="../../images/icon/icon_down.png"></image>
 </school-title>

@@ -1,7 +1,7 @@
 // pages/course/course.js
 import { HEADER_SELECT_TITLES, HEADER_SELECT_OPTIONS } from '../../config/commonData'
 const App = getApp();
-import { formatTime, formatStatus } from "./format";
+import { formatTime, formatStatus } from "../../utils/util";
 Page({
 
   /**

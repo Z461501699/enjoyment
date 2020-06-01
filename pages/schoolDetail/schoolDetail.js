@@ -1,5 +1,8 @@
 // pages/schoolDetail/schoolDetail.js
+
+
 const App = getApp()
+import {formatStatus} from '../../utils/util'
 Page({
 
   /**
@@ -30,7 +33,10 @@ Page({
       console.log('schoolInfo', res);
       res.data['Logo'] = `${App['Host']}${res.data['Logo']}`
       res.data.TeacherList.forEach(item => (item.Avatar = App.Host + item.Avatar))
-      res.data.SubjectList.forEach(item => (item.Logo = App.Host + item.Logo))
+      res.data.SubjectList.forEach(item => {
+        item.Logo = App.Host + item.Logo
+        item['Status'] = formatStatus(item['Status'])
+      })
       this.setData({
         schoolInfo: res.data
       })
