@@ -76,7 +76,7 @@
 					<form bindsubmit="onTargetOrder" data-type="refund">
 						<button formType="submit" class="btn-normal">
 							<van-icon class="order-navbar__icon" name="after-sale" />
-							<text class="order-navbar__name">退款/售后</text>
+							<text class="order-navbar__name">退款</text>
 							<text class="order-badge" wx:if="{{orderCount.refund > 0}}">{{orderCount.refund}}</text>
 						</button>
 					</form>
