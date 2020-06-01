@@ -15,14 +15,14 @@ Page({
     locationData: false,
     options: [
       {
-        title: '时间',
-        value: 'defaultSort',
-      }, {
-        title: '人数',
+        title: '评分',
         value: 'Mark',
       }, {
-        title: '价格',
-        value: 'Price',
+        title: '师资',
+        value: 'TeacherCount',
+      }, {
+        title: '课程',
+        value: 'SubjectCount',
       }
 
     ],
@@ -37,21 +37,24 @@ Page({
       Phone: '',
       PageSize: 10,
       PageIndex: 1,
+      Sort:'DefaultSort',
+      SortType:'desc'
     },
     selectTitles: HEADER_SELECT_TITLES,
     selectOptions: HEADER_SELECT_OPTIONS
   },
-  // 下拉回调
+  // 筛选
   change({
     detail
   }) {
-    // this.setData({
-    //   'schoolListParams.Sort': detail,
-    //   'schoolListParams.SortType': detail,
-    // })
-
-    this.getSchoolList()
-    console.log('change', detail)
+    this.setData({
+      'schoolListParams.Sort':detail
+    },()=>{
+      console.log('this',this.data.schoolListParams)
+      this.initData(()=>{
+        this.getSchoolList()
+      })
+    })
   },
   // 搜索功能
   handleSearch({
@@ -60,14 +63,16 @@ Page({
     console.log('搜索', detail)
     this.initData()
     this.setData({
-      'schoolListParams.SchoolName': detail
+      "schoolListParams.SchoolName":detail
+    },()=>{
+     
+      this.getSchoolList()
     })
-    this.getSchoolList()
+    
   },
   getList(num) {
     this.initData(() => {
       this.getSchoolList()
-
     })
   },
   // 获取学校数据

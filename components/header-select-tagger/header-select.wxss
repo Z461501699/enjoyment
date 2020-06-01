@@ -26,3 +26,8 @@
   width: 24rpx;
   height: 24rpx;
 }
+.elis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

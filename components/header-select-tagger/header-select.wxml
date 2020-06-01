@@ -1,7 +1,7 @@
 <view class="box">
  	<van-row custom-class="box-search">
 		<block wx:if="{{hasPosition}}">
-			<van-col class="center" span='6'>
+			<van-col class="center elis" span='6' >
 				<slot />
 			</van-col>
 			<van-col span='14'>

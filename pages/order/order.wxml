@@ -4,7 +4,7 @@
 		<van-tab title="待付款" name='1' />
 		<van-tab title="已付款" name='2' />
 </van-tabs>
-<view style='margin-top:64px'>
+<view style='margin-top:64px' wx:if="{{orderList && orderList.length}}">
 		<block wx:for="{{orderList}}" wx:key="*this">
 				<order-item options="{{item}}" bind:study="toStudy" />
 		</block>

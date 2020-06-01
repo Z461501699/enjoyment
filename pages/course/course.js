@@ -1,7 +1,7 @@
 // pages/course/course.js
 import { HEADER_SELECT_TITLES, HEADER_SELECT_OPTIONS } from '../../config/commonData'
 const App = getApp();
-import { formatTime, formatStatus } from "../../utils/util";
+import { formatTime, formatStatus,moment } from "../../utils/util";
 Page({
 
   /**
@@ -22,10 +22,10 @@ Page({
       BelongSchoolId: '',
       PageSize: 10,
       PageIndex: 1,
-      SortType: 'StartTime',
       AreaCode: '',
       Longitude: '',
       Latitude: '',
+      SortType:'desc'
     },
     options: [
       {
@@ -41,15 +41,19 @@ Page({
 
     ],
   },
+    // 数据初始化
+    initData() {
+      this.setData({
+        courseList: [],
+        'courseListParams.PageIndex': 1,
+        'courseListParams.Name': '',
+      })
+    },
   // 筛选
   change({ detail }) {
     console.log('change', detail)
-    let { courseListParams } = this.data
     this.setData({
-      courseListParams: {
-        ...courseListParams,
-        SortType: detail
-      }
+      'courseListParams.Sort':detail
     }, () => {
       this.getCourseList(1)
     })
@@ -57,12 +61,9 @@ Page({
   // 搜索功能
   handleSearch({ detail }) {
     console.log('搜索', detail)
-    let { courseListParams } = this.data
+    this.initData()
     this.setData({
-      courseListParams: {
-        ...courseListParams,
-        name: detail
-      }
+      'courseListParams.Name':detail
     }, () => {
       this.getCourseList(1)
     })
@@ -101,10 +102,11 @@ Page({
       console.log(res)
       if (res.success && res.data.length) {
         let newArr = res.data
+        console.log('newArr',newArr)
         newArr = newArr.map(item => {
           item['Logo'] = `${App['Host']}${item['Logo']}`
-          item['StartTime'] = formatTime(item['StartTime'])
-          item['Status'] = formatStatus(item['Status'])
+          item['StartTime'] =item['StartTime'].replace('T',' ')
+          item['Status'] =['取消','报名中','开始','结束'][item['Status']]
           return item
         })
         courseList = [...courseList, ...newArr]
@@ -135,9 +137,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-
-
   },
   onShow: function () {
     let {

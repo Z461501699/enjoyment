@@ -39,12 +39,13 @@ Page({
           item.SubjectImg = App.Host + item.SubjectImg
         })
       }
-
+      console.log('orderList',data)
       that.setData({
-        orderList: that.data.orderList.concat(data),
+        orderList: Array.isArray(data) ?  that.data.orderList.concat(data):[],
         'orderParams.PageIndex': orderParams.PageIndex++,
         isLoadAll: orderParams.PageSize > data.length
       })
+     
     })
   },
   // 初始数据
@@ -76,7 +77,7 @@ Page({
     this.setData({
       active: options.type,
       'orderParams.OrderStatus': options.type ? '':options.type,
-      'orderParams.memberId': App.globalData.getUserId().userId,
+      'orderParams.memberId': App.globalData.getUserId(),
     })
     // 当点击全部订单进入时在获取数据,因为tabs的change事件会导致加载两次列表数据
     this.getOrderList()

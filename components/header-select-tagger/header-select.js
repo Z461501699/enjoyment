@@ -8,7 +8,7 @@ Component({
   
   },
   data: {
-    currentIndex:0,//默认值0
+    currentIndex:-1,//默认值0
     key: '',
     value: '',
     search: '',
