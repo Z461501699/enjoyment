@@ -15,7 +15,8 @@
     "pages/salesReturnDetail/salesReturnDetail",
     "pages/studentInfoEdit/studentInfoEdit",
     "pages/selectAddress/selectAddress",
-    "pages/classSchedule/classSchedule"
+    "pages/classSchedule/classSchedule",
+    "pages/courseEvaluation/courseEvaluation"
   ],
   "window": {
     "backgroundTextStyle": "light",

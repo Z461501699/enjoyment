@@ -592,3 +592,7 @@ button:after {
 .title-class {
   font-size: 28rpx;
 }
+.custom-class{ 
+  padding: 30rpx!important;
+  font-size: 32rpx!important;
+}

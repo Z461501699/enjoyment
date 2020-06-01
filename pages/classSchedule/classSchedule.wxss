@@ -1,1 +1,5 @@
 /* pages/classSchedule/classSchedule.wxss */
+.custom-class{
+  background-color: #f3f3f3!important;
+  padding: 0!important;
+}

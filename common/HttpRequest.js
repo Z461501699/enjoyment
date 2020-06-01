@@ -62,7 +62,6 @@ export default class HTTPRequest {
                     } else {
                         result.success = false;
                         result.data = response.data;
-
                         if (result.message.includes('未授权')) {
                             wx.clearStorage()
                             wx.showToast({

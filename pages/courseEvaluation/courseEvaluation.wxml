@@ -1,0 +1,10 @@
+
+<couple-back title='评价内容'>
+	<couple-back-textarea bind:change='textareaHandle' />
+</couple-back>
+<couple-back title='反馈图片'>
+<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />
+</couple-back>
+<view class="bottom">
+	<button class="btn-submit" bind:tap="handleSubmit">提交反馈</button>
+</view>

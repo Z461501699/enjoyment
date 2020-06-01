@@ -1,0 +1,21 @@
+/* pages/coupleBack/coupleBack.wxss */
+.file-box {
+  background-color: #fff;
+  padding: 20rpx;
+}
+.bottom{
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding: 24rpx 0;
+}
+.btn-submit {
+  width: 562rpx;
+  height: 88rpx;
+  background-color: var(--theme-color);
+  color: #fff;
+  margin: 0 auto;
+}

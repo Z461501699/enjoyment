@@ -43,6 +43,7 @@ export const Apis = {
     getClassList: { type: 'GET', path: '/api/Class/GetClassList' },//获取课时列表
     GetSchoolListByMember: { type: 'GET', path: '/api/School/GetSchoolListByMember' },//获取投诉建议
     GetSubjectByStudentId: { type: 'GET', path: '/api/Subject/GetSubjectByStudentId' },//根据学生id获取课程列表
+    appraisea: { type: 'POST', path: '/api/Class/Appraise' },//提交课程评价按钮
 };
 
 // keys
