@@ -63,12 +63,12 @@ export default class HTTPRequest {
                         result.success = false;
                         result.data = response.data;
                         if (result.message.includes('未授权')) {
-                            wx.clearStorage()
                             wx.showToast({
                                 icon: "none",
                                 title: result.message,
                                 success: () => {
                                     setTimeout(() => {
+                                        wx.clearStorage()
                                         wx.switchTab({
                                             url: '/pages/personal/personal',
                                         })

@@ -1,10 +1,6 @@
 // pages/studentInfoEdit/studentInfoEdit.js
 const App = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     formData: {
       Name: '',
@@ -29,7 +25,28 @@ Page({
     },
     type: null
   },
-
+  verifyData(data) {
+    if (!data['Name']) {
+      wx.showToast({
+        icon: 'none',
+        title: '请输入学生姓名',
+      })
+      return true
+    }else if (!data['Avatar']) {
+      wx.showToast({
+        icon: 'none',
+        title: '请上传头像',
+      })
+      return true
+    }else if (!data['Sex']) {
+      wx.showToast({
+        icon: 'none',
+        title: '选择性别',
+      })
+      return true
+    }
+    return false
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -85,7 +102,10 @@ Page({
       formData
     })
   },
+
   formSubmit(e) {
+    let { formData } = this.data
+    if (this.verifyData(formData)) return
     wx.showModal({
       title: '提示',
       content: '是否添加学生?',
@@ -101,11 +121,12 @@ Page({
   submit(e) {
     let { formData, type } = this.data, apiKey = ''
     console.log(formData)
-    if (type === 'edit') apiKey = '';
-    if (type === 'add') apiKey = 'addStudentInfo';
+    // if (type === 'edit') apiKey = '';
+    // if (type === 'add') apiKey = 'addStudentInfo';
     App.request.start({
-      apiKey,
-      params: formData
+      apiKey:'addStudentInfo',
+      params: formData,
+      loadingMessage: '加载中',
     }).then(res => {
       console.log(res)
       if (res.success) {

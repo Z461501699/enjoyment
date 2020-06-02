@@ -24,7 +24,9 @@ export default class GlobalData {
         wx.setStorageSync(KEY_TOKEN, token)
     }
     getToken() {
-        return wx.getStorageSync(KEY_TOKEN)
+        let token = wx.getStorageSync(KEY_TOKEN)
+        console.log(token)
+        return token
     }
     removeToken() {
         return wx.removeStorageSync(KEY_TOKEN)

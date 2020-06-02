@@ -16,6 +16,11 @@ Page({
     console.log(options)
     this.getSubjectByStudentId(options['id'])
   },
+  onToDetail(e){
+    wx.navigateTo({
+      url: `/pages/courseDetail/courseDetail?subjectId=${e.currentTarget.dataset.id}`,
+    })
+  },
   onChange(event) {
     this.setData({
       subjectId: event.detail,
