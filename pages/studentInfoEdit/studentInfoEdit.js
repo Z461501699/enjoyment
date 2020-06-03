@@ -32,13 +32,13 @@ Page({
         title: '请输入学生姓名',
       })
       return true
-    }else if (!data['Avatar']) {
+    } else if (!data['Avatar']) {
       wx.showToast({
         icon: 'none',
         title: '请上传头像',
       })
       return true
-    }else if (!data['Sex']) {
+    } else if (!data['Sex']) {
       wx.showToast({
         icon: 'none',
         title: '选择性别',
@@ -51,7 +51,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+
     let type = options['type']
     if (options['type'] === 'edit') {
       this.edit()
@@ -104,47 +104,44 @@ Page({
   },
 
   formSubmit(e) {
-    let { formData } = this.data
+    let { formData, type } = this.data, apiKey = ''
+    console.log(App.globalData.getToken())
     if (this.verifyData(formData)) return
+    console.log(App.globalData.getToken())
     wx.showModal({
       title: '提示',
       content: '是否添加学生?',
       success: (res) => {
         if (res.confirm) {
-          this.submit(e)
+
+          // if (type === 'edit') apiKey = '';
+          // if (type === 'add') apiKey = 'addStudentInfo';
+          App.request.start({
+            apiKey: 'addStudentInfo',
+            params: formData,
+            loadingMessage: '加载中',
+          }).then(res => {
+            console.log(res)
+            if (res.success) {
+              wx.showToast({
+                title: res.message,
+                success: () => {
+                  let page = getCurrentPages().slice(-2)[0];
+                  setTimeout(() => {
+                    if (page.getList) page.getList()
+                    wx.navigateBack({
+                      delta: 1,
+                    })
+                  }, 1500)
+                }
+              })
+            }
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
       }
     })
-  },
-  submit(e) {
-    let { formData, type } = this.data, apiKey = ''
-    console.log(formData)
-    // if (type === 'edit') apiKey = '';
-    // if (type === 'add') apiKey = 'addStudentInfo';
-    App.request.start({
-      apiKey:'addStudentInfo',
-      params: formData,
-      loadingMessage: '加载中',
-    }).then(res => {
-      console.log(res)
-      if (res.success) {
-        wx.showToast({
-          title: res.message,
-          success: () => {
-            let page = getCurrentPages().slice(-2)[0];
-            setTimeout(() => {
-              if (page.getList) page.getList()
-              wx.navigateBack({
-                delta: 1,
-              })
-            }, 1500)
-          }
-        })
-      }
-    })
-
   },
   onChangeSex(e) {
     console.log(e)
