@@ -53,8 +53,8 @@
 </view>
 <!-- 课程列表 -->
 <list-title title="课程推荐" bind:click="onToCourseList">
-	<block wx:for="{{schoolInfo.SubjectList}}" wx:key="*this">
-		<course-item options="{{item}}" bind:toDetail="onToCourseDetail"></course-item>
+	<block wx:for="{{schoolInfo.SubjectList}}" wx:key="index">
+		<course-item options="{{item}}" data-id="{{item.Id}}" bind:toDetail="onToCourseDetail"></course-item>
 	</block>
 </list-title>
 <!-- 底部填充 -->

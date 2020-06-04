@@ -2,7 +2,9 @@
 
 
 const App = getApp()
-import {formatStatus} from '../../utils/util'
+import {
+  formatStatus
+} from '../../utils/util'
 Page({
 
   /**
@@ -60,9 +62,12 @@ Page({
    * 跳转课程详情
    */
   onToCourseDetail(e) {
-    console.log(e.detail.id)
+    console.log('课程id', e.detail.id)
+    const {
+      id
+    } = e.detail
     wx.navigateTo({
-      url: '/pages/courseDetail/courseDetail',
+      url: '/pages/courseDetail/courseDetail?subjectId=' + id,
     })
   },
 
