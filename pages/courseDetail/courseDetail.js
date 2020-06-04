@@ -19,7 +19,8 @@ Page({
     },
     courseDetailData: {},
     teacherList: [],
-    schoolInfo: {}
+    schoolInfo: {},
+    options: {}
   },
 
   /**
@@ -27,7 +28,15 @@ Page({
    */
   onLoad: function (options) {
     console.log('options', options);
-
+    this.setData({
+      options
+    }, () => {
+      this.getSubjectInfo(options)
+      this.getTeachersBySubjectId(options)
+    })
+  },
+  getList() {
+    let { options } = this.data
     this.getSubjectInfo(options)
     this.getTeachersBySubjectId(options)
   },

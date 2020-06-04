@@ -36,9 +36,9 @@ Page({
   onLoad: function (options) {
     let page = getCurrentPages().slice(-2)[0],
       courseDetailData = page.data.courseDetailData
-    courseDetailData['showPrice'] = courseDetailData['PreferentialPrice'] / 100
+    courseDetailData['showPrice'] = courseDetailData['PreferentialPrice']
     this.payType(courseDetailData['showPrice'])
-    console.log('==',courseDetailData['showPrice'], this.data.formData)
+    console.log('==', courseDetailData['showPrice'], this.data.formData)
     this.setData({
       courseDetailData
     }, () => {
@@ -47,23 +47,23 @@ Page({
   },
   // 处理支付方式
   payType(m) {
-    m = m*1
+    m = m * 1
     const {
       formData
     } = this.data
-    const money = App.globalData.getUserInfo().Wallet / 100 || 0
-    if( money >= m && money > 0){
-      return  this.setData({
+    const money = App.globalData.getUserInfo().Wallet || 0
+    if (money >= m && money > 0) {
+      return this.setData({
         'formData.payType': 1,
-        'formData.amount1': m.toString(),
+        'formData.amount1': m,
       })
-    } else if(money < m && money > 0){
-      return   this.setData({
+    } else if (money < m && money > 0) {
+      return this.setData({
         'formData.payType': 2,
-        'formData.amount1': money.toString()
+        'formData.amount1': money
       })
     } else {
-      return  this.setData({
+      return this.setData({
         'formData.payType': 3,
         'formData.amount1': '0'
       })
@@ -98,7 +98,18 @@ Page({
       loadingMessage: '加载中',
     }).then(res => {
       if (res.success) {
-
+        wx.showToast({
+          title: res.message,
+          success: () => {
+            let page = getCurrentPages().slice(-2)[0];
+            setTimeout(() => {
+              if (page.getList) page.getList()
+              wx.navigateBack({
+                delta: 1,
+              })
+            }, 1500)
+          }
+        })
       }
     })
   },
@@ -166,13 +177,27 @@ Page({
     }).then(res => {
       if (res.success) {
         let studentList = res.data
-        studentList = studentList.map(item => {
-          // item['Avatar'] = `${App.Host}${item.Avatar}`
-          return item
-        })
-        this.setData({
-          studentList
-        })
+        if (studentList.length > 0) {
+          studentList = studentList.map(item => {
+            // item['Avatar'] = `${App.Host}${item.Avatar}`
+            return item
+          })
+          this.setData({
+            studentList
+          })
+        } else if (studentList.length == 0) {
+          wx.showToast({
+            title: '先绑定学生',
+            success: () => {
+              setTimeout(() => {
+                wx.navigateTo({
+                  url: '/pages/studentManage/studentManage',
+                })
+              }, 1500)
+            }
+          })
+        }
+
       }
 
     })
