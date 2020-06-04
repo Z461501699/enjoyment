@@ -12,7 +12,7 @@ Page({
     postData: {
       parentsId: "",
       subjectId: "",
-      content: "",
+      appraise: "",
       img1: "",
       img2: "",
       img3: "",
@@ -23,7 +23,7 @@ Page({
     this.setData({
       postData: {
         ...postData,
-        content: e.detail
+        appraise: e.detail
       }
     })
   },
@@ -115,8 +115,8 @@ Page({
     App.request.start({
       apiKey: 'appraisea',
       params: postData
-    }).then(data => {
-      console.log('dataBack', data)
+    }).then(res => {
+      console.log('dataBack', res)
       if (res.success) {
         wx.showToast({
           title: res.message,

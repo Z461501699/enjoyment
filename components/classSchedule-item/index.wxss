@@ -7,10 +7,10 @@
 }
 
 .classSchedule-item .btn {
-  width: 100%;
   display: flex;
   justify-content: flex-end;
-
+  padding-right:40rpx;
+  box-sizing: border-box;
 }
 
 .classSchedule-item .btn .evaluation {

@@ -63,12 +63,12 @@ export default class HTTPRequest {
                         result.success = false;
                         result.data = response.data;
                         if (result.message.includes('未授权')) {
-                            wx.clearStorage()
                             wx.showToast({
                                 icon: "none",
                                 title: result.message,
                                 success: () => {
                                     setTimeout(() => {
+                                        wx.clearStorage()
                                         wx.switchTab({
                                             url: '/pages/personal/personal',
                                         })
@@ -100,7 +100,7 @@ export default class HTTPRequest {
         return new Promise((resolve, reject) => {
             let apiKey = options.apiKey; // api 键名
             let api = Apis[apiKey]; // api 对象
-            let token = globalData.getUserId().token || '';
+            let token = globalData.getToken() || '';
             let fileModule = options.fileModule
             let filePath = options.filePath
             if (options.loadingMessage) {

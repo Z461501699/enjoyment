@@ -30,6 +30,10 @@ App({
     //   }
     // })
     // 获取用户信息
+  
+  },
+  onShow(){
+    console.log('onshow')
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
