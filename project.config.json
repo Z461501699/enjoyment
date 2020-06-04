@@ -76,6 +76,34 @@
 					"id": -1,
 					"name": "pages/personal/personal",
 					"pathName": "pages/personal/personal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/course/course",
+					"pathName": "pages/course/course",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/courseDetail/courseDetail",
+					"pathName": "pages/courseDetail/courseDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/personal/personal",
+					"pathName": "pages/personal/personal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
 					"scene": null
 				}
 			]

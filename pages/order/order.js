@@ -18,7 +18,6 @@ Page({
   },
   toStudy() {
     console.log('去学习');
-
   },
   // 获取订单列表
   getOrderList() {

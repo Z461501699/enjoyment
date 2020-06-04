@@ -3,13 +3,16 @@ Page({
   data: {
     courseDetailData: {},
     studentList: [],
-    keys: { label: 'Name', value: 'Id' },
+    keys: {
+      label: 'Name',
+      value: 'Id'
+    },
     formData: {
       studentId: '',
       subjectId: '',
       amount: 0,
       amount1: '',
-      payType: 3,
+      payType: 1,
     },
     studentStatusData: {
       status: 0,
@@ -25,16 +28,46 @@ Page({
       label: '微信',
       Id: 3
     }],
-    payKeys: { label: 'label', value: 'Id' },
+    payKeys: {
+      label: 'label',
+      value: 'Id'
+    },
   },
   onLoad: function (options) {
-    let page = getCurrentPages().slice(-2)[0], courseDetailData = page.data.courseDetailData
+    let page = getCurrentPages().slice(-2)[0],
+      courseDetailData = page.data.courseDetailData
     courseDetailData['showPrice'] = courseDetailData['PreferentialPrice'] / 100
+    this.payType(courseDetailData['showPrice'])
+    console.log('==',courseDetailData['showPrice'], this.data.formData)
     this.setData({
       courseDetailData
     }, () => {
       this.getSudentListByParent()
     })
+  },
+  // 处理支付方式
+  payType(m) {
+    m = m*1
+    const {
+      formData
+    } = this.data
+    const money = App.globalData.getUserInfo().Wallet / 100 || 0
+    if( money >= m && money > 0){
+      return  this.setData({
+        'formData.payType': 1,
+        'formData.amount1': m.toString(),
+      })
+    } else if(money < m && money > 0){
+      return   this.setData({
+        'formData.payType': 2,
+        'formData.amount1': money.toString()
+      })
+    } else {
+      return  this.setData({
+        'formData.payType': 3,
+        'formData.amount1': '0'
+      })
+    }
   },
   formSubmit(e) {
     wx.showModal({
@@ -50,7 +83,10 @@ Page({
     })
   },
   submit(e) {
-    let { formData, courseDetailData } = this.data;
+    let {
+      formData,
+      courseDetailData
+    } = this.data;
     formData['subjectId'] = courseDetailData['Id'];
     formData['amount'] = courseDetailData['PreferentialPrice'];
     if (!formData['amount1']) formData['amount1'] = 0
@@ -68,7 +104,9 @@ Page({
   },
   onIptAmount(e) {
     console.log(e)
-    let { formData } = this.data, amount1 = e.detail.value;
+    let {
+      formData
+    } = this.data, amount1 = e.detail.value;
     this.setData({
       formData: {
         ...formData,
@@ -77,7 +115,9 @@ Page({
     })
   },
   onSelectPayType(e) {
-    let { formData } = this.data, payType = e.detail.value;
+    let {
+      formData
+    } = this.data, payType = e.detail.value;
     if (payType == 3) {
       formData['amount1'] = ''
     }
@@ -89,7 +129,10 @@ Page({
     })
   },
   onSelectStudent(e) {
-    let { formData, studentStatusData } = this.data, studentId = e.detail.value;
+    let {
+      formData,
+      studentStatusData
+    } = this.data, studentId = e.detail.value;
     this.getSignUpStatus(studentId, res => {
       console.log(res)
       studentStatusData.status = res.data
@@ -135,7 +178,9 @@ Page({
     })
   },
   getSignUpStatus(studentId, back) {
-    let { courseDetailData } = this.data;
+    let {
+      courseDetailData
+    } = this.data;
     App.request.start({
       apiKey: 'getSignUpStatus',
       params: {
