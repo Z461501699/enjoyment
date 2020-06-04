@@ -62,7 +62,7 @@ export default class HTTPRequest {
                     } else {
                         result.success = false;
                         result.data = response.data;
-                        if (result.message.includes('未授权')) {
+                        if ( result.message&&result.message.includes('未授权')) {
                             wx.showToast({
                                 icon: "none",
                                 title: result.message,
