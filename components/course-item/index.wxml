@@ -7,6 +7,7 @@
 				<view class="course-msg">课时数量：<text style="color:#39C339">{{options.ClassCount||0}}</text> 节 <text style="color:red;">{{options.Price}}</text> 元</view>
 				<view class="course-msg">开始时间：<text style="color:#39C339">{{options.StartTime}}</text></view>
 				<view class="course-msg">报名人数：<text style="color:red;">{{options.StudentCount||0}}</text> 人 </view>
+				<view class="course-msg">评分：<text style="color:red;">{{options.Mark||0}}</text> 分 </view>
 			</view>
 			<view class="course-right flex-column">
 				<view class="course-tip">

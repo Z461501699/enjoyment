@@ -26,6 +26,7 @@ Page({
       }
 
     ],
+    toggle:false,
     schoolList: [],
     pageSize: 10,
     pageNo: 1,
@@ -47,8 +48,11 @@ Page({
   change({
     detail
   }) {
+    this.toggle = !this.toggle
+    const SortType = this.toggle ? 'asc':'desc'
     this.setData({
-      'schoolListParams.Sort':detail
+      'schoolListParams.Sort':detail,
+      'schoolListParams.SortType':SortType,
     },()=>{
       console.log('this',this.data.schoolListParams)
       this.initData(()=>{
