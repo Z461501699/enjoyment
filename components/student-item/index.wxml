@@ -4,6 +4,8 @@
 	</view>
 	<view class="student-info">
 		<view class="name">{{options["Name"]}}</view>
+		<view class="name">年龄：<text style="color:#12AE85;font-size:28rpx;">{{options["Age"]}}</text> 岁</view>
+		<view class="name" style="color:#ccc;font-size:28rpx;">{{options["SchoolGrade"]+' '+options["SchoolGrade"]}}</view>
 		<view class="btn-box">
 			<view class="btn" bindtap="onView">
 				<image class="icon" src="../../images/icon/icon-look.png"></image> 查看课时表

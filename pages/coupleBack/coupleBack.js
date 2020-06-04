@@ -149,25 +149,33 @@ Page({
   },
   // 提交表单
   handleSubmit(e) {
-    let { postData, imagesList } = this.data
-    imagesList.map((item, index) => {
-      postData[`img${index + 1}`] = item
-    })
-    console.log('dataBack', postData)
-    App.request.start({
-      apiKey: 'feedBack',
-      params: postData
-    }).then(data => {
-      console.log('dataBack', data)
-      if (res.success) {
-        wx.showToast({
-          title: res.message,
-          success: () => {
-            setTimeout(() => {
-              wx.navigateBack({
-                delta: 1,
-              })
-            }, 1500)
+    wx.showModal({
+      title: '提示',
+      content: '是否提交反馈?',
+      success: (res) => {
+        if (res.confirm) { }
+
+        let { postData, imagesList } = this.data
+        imagesList.map((item, index) => {
+          postData[`img${index + 1}`] = item
+        })
+        console.log('dataBack', postData)
+        App.request.start({
+          apiKey: 'feedBack',
+          params: postData
+        }).then(res => {
+          console.log('dataBack', res)
+          if (res.success) {
+            wx.showToast({
+              title: res.message,
+              success: () => {
+                setTimeout(() => {
+                  wx.navigateBack({
+                    delta: 1,
+                  })
+                }, 1500)
+              }
+            })
           }
         })
       }
