@@ -1,5 +1,8 @@
 const App = getApp()
-import { formatTime, formatStatus } from "../course/format";
+import {
+  formatTime,
+  formatStatus
+} from "../course/format";
 
 Page({
 
@@ -7,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShowAll: true,//显示隐藏
+    isShowAll: true, //显示隐藏
     subjectInfoParams: {
       subjectId: '',
     },
@@ -23,13 +26,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('options', options);
+
     this.getSubjectInfo(options)
     this.getTeachersBySubjectId(options)
   },
-  getSchoolInfo({ schoolId }) {
+  getSchoolInfo({
+    schoolId
+  }) {
     App.request.start({
       apiKey: 'getSchoolInfo',
-      params: { schoolId },
+      params: {
+        schoolId
+      },
       loadingMessage: '加载中',
     }).then(res => {
       console.log(res)
@@ -42,8 +51,13 @@ Page({
       }
     })
   },
-  getSubjectInfo({ subjectId = null }) {
-    let { subjectInfoParams, courseDetailData } = this.data
+  getSubjectInfo({
+    subjectId = null
+  }) {
+    let {
+      subjectInfoParams,
+      courseDetailData
+    } = this.data
     subjectInfoParams['subjectId'] = subjectId
     App.request.start({
       apiKey: 'getSubjectInfo',
@@ -59,13 +73,20 @@ Page({
         this.setData({
           courseDetailData
         }, () => {
-          this.getSchoolInfo({schoolId:courseDetailData['BelongSchoolId']})
+          this.getSchoolInfo({
+            schoolId: courseDetailData['BelongSchoolId']
+          })
         })
       }
     })
   },
-  getTeachersBySubjectId({ subjectId = null }) {
-    let { teachersParams, teacherList } = this.data
+  getTeachersBySubjectId({
+    subjectId = null
+  }) {
+    let {
+      teachersParams,
+      teacherList
+    } = this.data
     teachersParams['subjectId'] = subjectId
     App.request.start({
       apiKey: "getTeachersBySubjectId",
@@ -85,7 +106,7 @@ Page({
     })
   },
   toSchoolDetail(e) {
-    let id=e.currentTarget.dataset.id
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: `/pages/schoolDetail/schoolDetail?schoolId=${id}`,
     })
@@ -104,7 +125,9 @@ Page({
 
   },
   onShowMoreMsg() {
-    let { isShowAll } = this.data
+    let {
+      isShowAll
+    } = this.data
     this.setData({
       isShowAll: !isShowAll
     })
