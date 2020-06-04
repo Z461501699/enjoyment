@@ -41,7 +41,7 @@
   width: 170rpx;
   height: 240rpx;
   box-sizing: border-box;
-  padding: 30rpx;
+  padding:0 30rpx;
 }
 
 .course-title {

@@ -18,7 +18,6 @@ Page({
   },
   toStudy() {
     console.log('去学习');
-
   },
   // 获取订单列表
   getOrderList() {
@@ -40,11 +39,11 @@ Page({
         })
       }
       that.setData({
-        orderList: Array.isArray(data) ?  that.data.orderList.concat(data):[],
+        orderList: Array.isArray(data) ? that.data.orderList.concat(data) : [],
         'orderParams.PageIndex': orderParams.PageIndex++,
         isLoadAll: orderParams.PageSize > data.length
       })
-     
+
     })
   },
   // 初始数据
@@ -68,18 +67,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    console.log('options', options.type)
+    console.log('options---------------',options, options.type, options.type == 'undefined')
     const {
-      active
+      active,
     } = this.data
     this.setData({
       active: options.type,
-      'orderParams.OrderStatus': options.type ? '':options.type,
+      'orderParams.OrderStatus': '',
       'orderParams.memberId': App.globalData.getUserId(),
+    }, () => {
+      this.getOrderList()
     })
     // 当点击全部订单进入时在获取数据,因为tabs的change事件会导致加载两次列表数据
-    this.getOrderList()
+
   },
 
   /**

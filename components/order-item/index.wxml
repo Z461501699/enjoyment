@@ -13,7 +13,7 @@
 		<view class="flex-row buy">
 			<view class="buy-num">{{options.Amount}}人购买</view>
 			<view class="buy-btn" bind:tap="bandleStudy">
-				去学习
+				{{options.OrderStatus === 1 ? '待付款':'已付款'}}
 			</view>
 		</view>
 	</view>

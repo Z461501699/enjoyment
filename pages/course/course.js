@@ -1,13 +1,21 @@
 // pages/course/course.js
-import { HEADER_SELECT_TITLES, HEADER_SELECT_OPTIONS } from '../../config/commonData'
+import {
+  HEADER_SELECT_TITLES,
+  HEADER_SELECT_OPTIONS
+} from '../../config/commonData'
 const App = getApp();
-import { formatTime, formatStatus,moment } from "../../utils/util";
+import {
+  formatTime,
+  formatStatus,
+  moment
+} from "../../utils/util";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    toggle: false,
     isGetLocation: true,
     locationData: false,
     courseList: [],
@@ -25,10 +33,9 @@ Page({
       AreaCode: '',
       Longitude: '',
       Latitude: '',
-      SortType:'desc'
+      SortType: 'desc'
     },
-    options: [
-      {
+    options: [{
         title: '时间',
         value: 'StartTime',
       }, {
@@ -41,29 +48,36 @@ Page({
 
     ],
   },
-    // 数据初始化
-    initData() {
-      this.setData({
-        courseList: [],
-        'courseListParams.PageIndex': 1,
-        'courseListParams.Name': '',
-      })
-    },
+  // 数据初始化
+  initData() {
+    this.setData({
+      courseList: [],
+      'courseListParams.PageIndex': 1,
+      'courseListParams.Name': '',
+    })
+  },
   // 筛选
-  change({ detail }) {
+  change({
+    detail
+  }) {
+      this.toggle = !this.toggle
+    const SortType = this.toggle ? 'desc' : 'asc'
     console.log('change', detail)
     this.setData({
-      'courseListParams.Sort':detail
+      'courseListParams.Sort': detail,
+      'courseListParams.SortType': SortType,
     }, () => {
       this.getCourseList(1)
     })
   },
   // 搜索功能
-  handleSearch({ detail }) {
+  handleSearch({
+    detail
+  }) {
     console.log('搜索', detail)
     this.initData()
     this.setData({
-      'courseListParams.Name':detail
+      'courseListParams.Name': detail
     }, () => {
       this.getCourseList(1)
     })
@@ -102,11 +116,11 @@ Page({
       console.log(res)
       if (res.success && res.data.length) {
         let newArr = res.data
-        console.log('newArr',newArr)
+        console.log('newArr', newArr)
         newArr = newArr.map(item => {
           item['Logo'] = `${App['Host']}${item['Logo']}`
-          item['StartTime'] =item['StartTime'].replace('T',' ')
-          item['Status'] =['取消','报名中','开始','结束'][item['Status']]
+          item['StartTime'] = item['StartTime'].replace('T', ' ')
+          item['Status'] = ['取消', '报名中', '开始', '结束'][item['Status']]
           return item
         })
         courseList = [...courseList, ...newArr]
@@ -136,8 +150,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  },
+  onLoad: function (options) {},
   onShow: function () {
     let {
       locationData
@@ -181,7 +194,9 @@ Page({
     return new Promise((relove, reject) => {
       App.request.start({
         apiKey: 'getCityInfoByLocation',
-        params: { location: location.addLocation }
+        params: {
+          location: location.addLocation
+        }
       }).then(res => {
         console.log(res)
         if (res.success) {
@@ -207,7 +222,11 @@ Page({
         success: (res) => {
           console.log(res)
           // relove(`${res.longitude},${res.latitude}`, { longitude: res.longitude, latitude: res.latitude })
-          relove({ addLocation: `${res.longitude},${res.latitude}`, longitude: res.longitude, latitude: res.latitude })
+          relove({
+            addLocation: `${res.longitude},${res.latitude}`,
+            longitude: res.longitude,
+            latitude: res.latitude
+          })
         },
         fail: (err) => {
           reject(err)
