@@ -5,6 +5,7 @@ Page({
     formData: {
       Name: '',
       Sex: '',
+      Age: '',
       SchoolName: '',
       SchoolGrade: '',
       SchoolClass: '',
@@ -12,6 +13,54 @@ Page({
       Avatar: '',
       ParentId: ''
     },
+    GradeList: [
+      {
+        label: '一年级',
+        value: '一年级'
+      }, {
+        label: '二年级',
+        value: '二年级'
+      }, {
+        label: '三年级',
+        value: '三年级'
+      }, {
+        label: '四年级',
+        value: '四年级'
+      }, {
+        label: '五年级',
+        value: '五年级'
+      }, {
+        label: '六年级',
+        value: '六年级'
+      }
+    ],
+    SchoolClassList: [
+      {
+        label: '一班',
+        value: '一班'
+      }, {
+        label: '二班',
+        value: '二班'
+      }, {
+        label: '三班',
+        value: '三班'
+      }, {
+        label: '四班',
+        value: '四班'
+      }, {
+        label: '五班',
+        value: '五班'
+      }, {
+        label: '六班',
+        value: '六班'
+      }, {
+        label: '七班',
+        value: '七班'
+      }, {
+        label: '八班',
+        value: '八班'
+      },
+    ],
     sexList: [{
       label: '男',
       value: 1
@@ -153,7 +202,26 @@ Page({
       }
     })
   },
-
+  onChangeSchoolClass(e) {
+    console.log(e)
+    let { formData } = this.data
+    this.setData({
+      formData: {
+        ...formData,
+        SchoolClass: e.detail.value
+      }
+    })
+  },
+  onChangeGrade(e) {
+    console.log(e)
+    let { formData } = this.data
+    this.setData({
+      formData: {
+        ...formData,
+        SchoolGrade: e.detail.value
+      }
+    })
+  },
   onUploadAvata(e) {
     console.log(e)
     let { formData } = this.data

@@ -48,7 +48,7 @@ Page({
       apiKey: 'getSudentListByParent',
       params: {
         parentId
-      },
+      }, 
       loadingMessage: '加载中',
     }).then(res => {
       if (res.success) {
