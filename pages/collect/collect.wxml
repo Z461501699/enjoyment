@@ -1,0 +1,19 @@
+<view class="container">
+	<van-tabs color="#12AE85" active="{{ flag }}" bind:change="onChange">
+		<van-tab title="学校">
+			<view class="list">
+				<block wx:for="{{schoolList}}" wx:key="*this">
+        	<school-item options="{{item}}" title="{{item.SchoolName}}" url="{{item.Logo}}" address="{{item.Address}}" data-id="{{item.Id}}" bind:toDetail="toDetail"></school-item>
+				</block>
+			</view>
+		</van-tab>
+		<van-tab title="课程">
+			<view class="list">
+				<block wx:for="{{subjectList}}" wx:key="*this">
+        	<course-item bind:toDetail="onToCourseDetail" options="{{item}}"></course-item>
+				</block>
+			</view>
+		</van-tab>
+	</van-tabs>
+
+</view>
