@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "school-item": "../../components/school-item/index",
+    "course-item": "../../components/course-item/index"
+  },
+  "navigationBarTitleText": "我的收藏",
+  "enablePullDownRefresh": true
+}

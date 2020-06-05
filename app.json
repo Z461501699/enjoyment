@@ -18,7 +18,8 @@
     "pages/classSchedule/classSchedule",
     "pages/courseEvaluation/courseEvaluation",
     "pages/modifyUserInfo/modifyUserInfo",
-    "pages/salesReturnForm/salesReturnForm"
+    "pages/salesReturnForm/salesReturnForm",
+    "pages/collect/collect"
   ],
   "window": {
     "backgroundTextStyle": "light",

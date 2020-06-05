@@ -140,7 +140,7 @@
 			<van-cell custom-class="custom-class" title-class="title-class" icon="orders-o" title="订单管理" url="/pages/order/order?type" clickable="true" is-link="true" />
 			<van-cell custom-class="custom-class" title-class="title-class" icon="bullhorn-o" title="信息列表" url="/pages/message/message" clickable="true" is-link="true" />
 			<van-cell custom-class="custom-class" title-class="title-class" icon="bill-o" title="财务流水" url="/pages/financialFlow/financialFlow" clickable="true" is-link="true" />
-
+			<van-cell custom-class="custom-class" title-class="title-class" icon="like-o" title="我的收藏" url="/pages/collect/collect" clickable="true" is-link="true" />
 			<!-- <van-cell custom-class="custom-class" title-class="title-class" icon="friends-o" bindtap="copyCode" title="获取code" url="" clickable="true" is-link="true" /> -->
 		</van-cell-group>
 	</view>
