@@ -50,6 +50,8 @@ export const Apis = {
     GetCollectionStatus: { type: 'GET', path: '/api/Collection/GetCollectionStatus' },// 获取收藏状态 
     AddCollection: { type: 'GET', path: '/api/Collection/AddCollection' },// 添加收藏   itemType  学校1   课程2
     DelCollection: { type: 'GET', path: '/api/Collection/DelCollection' },// 取消收藏
+    GetSchoolList: { type: 'GET', path: '/api/Collection/GetSchoolList' },// 获取收藏的学校列表
+    GetSubjectList: { type: 'GET', path: '/api/Collection/GetSubjectList' },// 获取收藏的课程列表
 };
 
 // keys
