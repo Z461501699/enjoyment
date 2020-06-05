@@ -4,10 +4,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    options:{
-      type:Object,
-      value:{}
-    }
+    options: {
+      type: Object,
+      value: {}
+    },
+    studentId: {
+      type: [String, Number]
+    },
   },
 
   /**
@@ -25,20 +28,23 @@ Component({
       this.triggerEvent('toDetail', { id: e.currentTarget.dataset.id })
     },
     // 退款按钮
-    handleRefund() {
+    handleRefund(e) {
       wx.showModal({
         title: '',
         content: '您确定要退款吗？',
-        success(res) {
+        success: (res) => {
           if (res.confirm) {
-            console.log('用户点击确定')
+            console.log(e)
+            wx.navigateTo({
+              url: `/pages/salesReturnForm/salesReturnForm?subjectId=${e.currentTarget.dataset.subjectid}&studentId=${this.data.studentId}`,
+            })
           } else if (res.cancel) {
             console.log('用户点击取消')
           }
         }
       })
     },
-    handleComment(){
+    handleComment() {
       this.triggerEvent('comment')
     }
   }

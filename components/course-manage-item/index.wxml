@@ -10,7 +10,7 @@
 		<!-- 占位用的view -->
 		<view />
 		<view class="flex-row handle">
-			<view class="handle-refund" bind:tap="handleRefund">退款</view>
+			<view class="handle-refund" data-subjectId="{{options['Id']}}" catch:tap="handleRefund">退款</view>
 			<!-- <view class="handle-btn" bind:tap="handleComment">
 				点评
 			</view> -->

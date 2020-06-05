@@ -17,7 +17,8 @@
     "pages/selectAddress/selectAddress",
     "pages/classSchedule/classSchedule",
     "pages/courseEvaluation/courseEvaluation",
-    "pages/modifyUserInfo/modifyUserInfo"
+    "pages/modifyUserInfo/modifyUserInfo",
+    "pages/salesReturnForm/salesReturnForm"
   ],
   "window": {
     "backgroundTextStyle": "light",

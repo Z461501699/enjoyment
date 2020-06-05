@@ -1,8 +1,6 @@
 {
   "usingComponents": {
-    "course-manage-item": "/components/course-manage-item/index",
-    "course-item": "../../components/course-item/index"
+    "course-manage-item": "/components/course-manage-item/index"
   },
   "navigationBarTitleText": "课程管理"
-
 }
