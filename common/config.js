@@ -8,7 +8,7 @@
 // 生产状态
 export const ProductStatus = false;
 // 测试环境
-const HostTest = 'http://121.36.4.133:8080';
+const HostTest = 'http://52.81.65.217:8083';
 // 生产环境
 const HostProduct = '';
 // 域名
