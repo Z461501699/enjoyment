@@ -2,7 +2,7 @@
  * @Author: Arthur_Zhang
  * @Date: 2020-06-05 22:59:12
  * @lastEditors: Arthur_Zhang
- * @LastEditTime: 2020-06-05 23:46:41
+ * @LastEditTime: 2020-06-05 23:51:05
  * @Description:
  */
 
@@ -25,7 +25,13 @@ Page({
     this.getCollectSchool();
     this.getCollectSubject();
   },
+  onShow() {
+    this.initList();
+  },
   onPullDownRefresh: function () {
+    this.initList();
+  },
+  initList() {
     this.setData({
       schoolList: [],
       subjectList: [],
