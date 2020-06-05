@@ -12,7 +12,8 @@
       <view class="num">评分：<text class="green">{{options.Mark}}</text>分</view>
     </view>
     <!-- 学校类型 -->
-    <test class="type flex-column">{{schoolType}}</test>
+    <text wx:if="{{options.Genre !== 0}}" class="type flex-column">{{options.Genre==1? '文化类':'艺术类'}}</text>
+    <text wx:if="{{options.Genre === 0}}" style="background-color: #fff;" class="type flex-column">占位</text>
     <!-- 学校地址 -->
     <view class='address hidden-beyond'>{{address}}</view>
   </view>
