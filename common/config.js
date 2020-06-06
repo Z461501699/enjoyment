@@ -8,7 +8,7 @@
 // 生产状态
 export const ProductStatus = false;
 // 测试环境
-const HostTest = 'http://121.36.4.133:8080';
+const HostTest = 'http://52.81.65.217:8083';
 // 生产环境
 const HostProduct = '';
 // 域名
@@ -44,8 +44,16 @@ export const Apis = {
     GetSchoolListByMember: { type: 'GET', path: '/api/School/GetSchoolListByMember' },//获取投诉建议
     GetSubjectByStudentId: { type: 'GET', path: '/api/Subject/GetSubjectByStudentId' },//根据学生id获取课程列表
     appraisea: { type: 'POST', path: '/api/Class/Appraise' },//提交课程评价按钮
-     GetMemberInfo: { type: 'GET', path: '/api/Member/GetMemberInfo' },// 获取用户信息接口
-    UpdateMemeberInfo: { type: 'POST', path: '/api/Member/UpdateMemeberInfo' },// 修改用户信息
+    GetMemberInfo: { type: 'GET', path: '/api/Member/GetMemberInfo' },// 获取用户信息接口
+    UpdateMemeberInfo: { type: 'POST', path: '/api/Member/UpdateMemeberInfo' },// 修改用户信息
+    // 收藏 课程详情和学校详情
+    GetCollectionStatus: { type: 'GET', path: '/api/Collection/GetCollectionStatus' },// 获取收藏状态 
+    AddCollection: { type: 'GET', path: '/api/Collection/AddCollection' },// 添加收藏   itemType  学校1   课程2
+    DelCollection: { type: 'GET', path: '/api/Collection/DelCollection' },// 取消收藏
+    GetRefundDetail: { type: 'GET', path: '/api/Refund/GetRefundDetail' },//获取退款信息
+    ApplyRefund: { type: "POST", path: '/api/Refund/ApplyRefund' },//退款申请接口
+    GetSchoolList: { type: 'GET', path: '/api/Collection/GetSchoolList' },// 获取收藏的学校列表
+    GetSubjectList: { type: 'GET', path: '/api/Collection/GetSubjectList' },// 获取收藏的课程列表
 };
 
 // keys

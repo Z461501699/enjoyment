@@ -104,7 +104,7 @@
 .btn-share .icon {
   width: 40rpx;
   height: 40rpx;
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 .btn-share .text {

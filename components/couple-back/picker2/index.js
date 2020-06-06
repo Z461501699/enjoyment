@@ -7,7 +7,11 @@ Component({
     data: Array,
     keys: Object,
     value: Number,
-    placeholder: String
+    placeholder: String,
+    disabled: {
+      type: Boolean,
+      value: false
+    }
   },
 
   /**
@@ -31,7 +35,7 @@ Component({
   methods: {
     // 选择投诉类型
     handleChangeCoupleBack(e) {
-      let { data,keys } = this.data,
+      let { data, keys } = this.data,
         selectIndex = e.detail.value
       this.setData({
         selectIndex

@@ -5,13 +5,13 @@
 			<couple-back-picker data="{{studentList}}" keys="{{keys}}" placeholder="请选择学生" value="{{formData['studentId']}}" bindchange="onSelectStudent" />
 		</couple-back>
 		<couple-back title="订单金额(元)">
-			<couple-back-input value="{{courseDetailData['showPrice']}}" disabled />
+			<couple-back-input value="{{courseDetailData['showPrice']/100}}" disabled />
 		</couple-back>
-		<couple-back title="支付类型">
-			<couple-back-picker data="{{payTypeList}}" keys="{{payKeys}}" placeholder="请选择支付类型" value="{{formData['payType']}}" bindchange="onSelectPayType" />
-		</couple-back>
+		<!-- <couple-back title="支付类型">
+			<couple-back-picker disabled data="{{payTypeList}}" keys="{{payKeys}}" placeholder="请选择支付类型" value="{{formData['payType']}}" bindchange="onSelectPayType" />
+		</couple-back> -->
 		<couple-back title="钱包支付部分金额(元)" wx:if="{{formData['payType']==2 || formData['payType']==1}}">
-			<couple-back-input value="{{formData['amount1']}}" placeholder="请输入钱包支付部分金额" bindinput="onIptAmount" />
+			<couple-back-input disabled value="{{formData['amount1']/100}}" placeholder="请输入钱包支付部分金额" bindinput="onIptAmount" />
 		</couple-back>
 		<view class="bottom">
 			<button disabled="{{studentStatusData['status'] !=0}}" class="btn-submit" formType="submit">{{studentStatusData['message']}}</button>

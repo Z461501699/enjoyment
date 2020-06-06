@@ -1,25 +1,30 @@
 <view class="container">
-	<course-item options="{{courseDetailData}}"></course-item>
-
-	<course-title title="课程介绍">
-		<view class="introduction-msg {{isShowAll?'msgHeight':''}}">{{courseDetailData['Description']}}</view>
-		<image bindtap="onShowMoreMsg" wx:if="{{courseDetailData['Description'].length>46}}" class="introduction-icon {{isShowAll?'':'rotate90'}}" src="../../images/icon/icon_down.png"></image>
-	</course-title>
-	<course-title title="任课老师">
-		<scroll-view scroll-x="true" class="teacher-list">
-			<view class="scroll-box" wx:for="{{teacherList}}" wx:key="*this">
-				<teacher-card options="{{item}}"></teacher-card>
-			</view>
-		</scroll-view>
-	</course-title>
-	<course-title title="所属机构">
-		<school-item  options="{{schoolInfo}}" title="{{schoolInfo.SchoolName}}" url="{{schoolInfo.Logo}}" address="{{schoolInfo.Address}}" data-id="{{schoolInfo.Id}}" bind:toDetail="toSchoolDetail"></school-item>
-	</course-title>
+		<course-item options="{{courseDetailData}}"></course-item>
+		<course-title title="课程介绍">
+				<view class="introduction-msg {{isShowAll?'msgHeight':''}}">
+						{{courseDetailData['Description']}}
+				</view>
+				<image bindtap="onShowMoreMsg" wx:if="{{courseDetailData['Description'].length>46}}" class="introduction-icon {{isShowAll?'':'rotate90'}}" src="../../images/icon/icon_down.png"></image>
+		</course-title>
+		<course-title title="任课老师">
+				<scroll-view scroll-x="true" class="teacher-list">
+						<view class="scroll-box" wx:for="{{teacherList}}" wx:key="*this">
+								<teacher-card options="{{item}}"></teacher-card>
+						</view>
+				</scroll-view>
+		</course-title>
+		<course-title title="所属机构">
+				<school-item options="{{schoolInfo}}" title="{{schoolInfo.SchoolName}}" url="{{schoolInfo.Logo}}" address="{{schoolInfo.Address}}" data-id="{{schoolInfo.Id}}" bind:toDetail="toSchoolDetail"></school-item>
+		</course-title>
 </view>
 <view class="btm-box flex-row">
-	<button class="btn-share flex-column" open-type="share">
-		<image class="icon"></image>
-		<view class="text">分享</view>
-	</button>
-	<button class="btn-submit" bind:tap='orderDetail'>我要报名</button>
+		<button class="btn-share flex-column" open-type="share">
+				<image class="icon" src="../../images/icon/icon_share.png"></image>
+		</button>
+		<!-- 收藏按钮 -->
+		<button class="btn-share flex-column" bind:tap="handleChangeCollectionType">
+				<image wx:if="{{isCollection == 1}}" class="icon" src="../../images/icon/icon_collect.png"></image>
+				<image wx:elif="{{isCollection == 0}}" class="icon" src="../../images/icon/icon_un_collect.png"></image>
+		</button>
+		<button class="btn-submit" bind:tap='orderDetail'>我要报名</button>
 </view>

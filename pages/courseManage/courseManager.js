@@ -1,84 +1,87 @@
 // pages/courseManage/courseManager.js
+const App = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    option1: [{
-        text: '学生1',
-        value: 0
-      },
-      {
-        text: '学生2',
-        value: 1
-      },
-      {
-        text: '学生3',
-        value: 2
-      },
-    ],
-    value1: 0
+    studentList: [],
+    studentId: null,
+    classList: []
+  },
+  /**
+ * 跳转课程详情
+ */
+  onToCourseDetail(e) {
+    wx.navigateTo({
+      url: `/pages/courseDetail/courseDetail?subjectId=${e.detail.id}`,
+    })
   },
   // 切换学生
   handleChangeStudent(e) {
-    const {detail} = e
+    const { detail } = e
     console.log('切换学生', detail);
-
+    this.setData({
+      studentId: detail,
+      classList: []
+    }, () => {
+      this.getSubjectByStudentId()
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getSudentListByParent()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getSubjectByStudentId() {
+    let { studentId } = this.data
+    App.request.start({
+      apiKey: 'GetSubjectByStudentId',
+      params: {
+        studentId
+      },
+      loadingMessage: '加载中',
+    }).then(res => {
+      if (res.success) {
+        let classList = res.data
+        classList = classList.map(item => {
+          item['Logo'] = `${App['Host']}${item['Logo']}`
+          item['Status'] = ['取消', '报名中', '开始', '结束'][item['Status']]
+          return item
+        })
+        this.setData({
+          classList
+        })
+      }
+    })
   },
+  getSudentListByParent() {
+    let parentId = App.globalData.getUserId()
+    App.request.start({
+      apiKey: 'getSudentListByParent',
+      params: {
+        parentId
+      },
+      loadingMessage: '加载中',
+    }).then(res => {
+      if (res.success) {
+        let studentList = res.data
+        studentList = studentList.map(item => {
+          item['text'] = item['Name']
+          item['value'] = item['Id']
+          return item
+        })
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+        this.setData({
+          studentList,
+          studentId: studentList[0]['Id']
+        }, () => {
+          this.getSubjectByStudentId()
+        })
+      }
 
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

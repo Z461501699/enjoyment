@@ -1,20 +1,19 @@
-<view class="flex-row container">
-	<image class="image" src="{{imageUrl}}" />
+<view class="flex-row container" data-id="{{options['Id']}}" bindtap="onToDetail">
+	<image class="image" src="{{options['Logo']}}" />
 	<view class="flex-column hidden-beyond info">
 		<view class="hidden-beyond title">
-			英语星概念第一册英语星概念第一册英语星概念第一册
+			{{options.Name}}
 		</view>
 		<view class="hidden-beyond course-total">
-			共10节 以学5节
-
+			课时数:{{options.ClassCount}}
 		</view>
 		<!-- 占位用的view -->
 		<view />
 		<view class="flex-row handle">
-			<view class="handle-refund" bind:tap="handleRefund">退款</view>
-			<view class="handle-btn" bind:tap="handleComment">
+			<view class="handle-refund" data-subjectId="{{options['Id']}}" catch:tap="handleRefund">退款</view>
+			<!-- <view class="handle-btn" bind:tap="handleComment">
 				点评
-			</view>
+			</view> -->
 		</view>
 	</view>
 </view>

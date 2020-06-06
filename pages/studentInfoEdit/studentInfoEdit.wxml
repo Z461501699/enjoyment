@@ -3,6 +3,9 @@
 		<couple-back essential title="姓名">
 			<couple-back-input value="{{formData['Name']}}" data-formLabel="Name" bindinput="onIpt" placeholder="请输入姓名"></couple-back-input>
 		</couple-back>
+		<couple-back essential title="年龄">
+			<couple-back-input value="{{formData['Age']}}" data-formLabel="Age" bindinput="onIpt" placeholder="请输入年龄"></couple-back-input>
+		</couple-back>
 		<couple-back essential title="头像">
 			<couple-back-uploadFile value="{{formData['Avatar']}}" bindupload="onUploadAvata"></couple-back-uploadFile>
 		</couple-back>
@@ -13,10 +16,12 @@
 			<couple-back-input value="{{formData['SchoolName']}}" data-formLabel="SchoolName" bindinput="onIpt" placeholder="请输入学校"></couple-back-input>
 		</couple-back>
 		<couple-back title="年级">
-			<couple-back-input value="{{formData['SchoolGrade']}}" data-formLabel="SchoolGrade" bindinput="onIpt" placeholder="请输入年级"></couple-back-input>
+			<!-- <couple-back-input value="{{formData['SchoolGrade']}}" data-formLabel="SchoolGrade" bindinput="onIpt" placeholder="请输入年级"></couple-back-input> -->
+			<couple-back-pick value="{{formData['SchoolGrade']}}" bindchange="onChangeGrade" data="{{GradeList}}" keys="{{sexKey}}" placeholder="请输入年级"></couple-back-pick>
 		</couple-back>
 		<couple-back title="班级">
-			<couple-back-input value="{{formData['SchoolClass']}}" data-formLabel="SchoolClass" bindinput="onIpt" placeholder="请输入班级"></couple-back-input>
+			<!-- <couple-back-input value="{{formData['SchoolClass']}}" data-formLabel="SchoolClass" bindinput="onIpt" placeholder="请输入班级"></couple-back-input> -->
+			<couple-back-pick value="{{formData['SchoolClass']}}" bindchange="onChangeSchoolClass" data="{{SchoolClassList}}" keys="{{sexKey}}" placeholder="请输入班级"></couple-back-pick>
 		</couple-back>
 		<couple-back title="学号">
 			<couple-back-input value="{{formData['SchoolNumber']}}" data-formLabel="SchoolNumber" bindinput="onIpt" placeholder="请输入学号"></couple-back-input>
