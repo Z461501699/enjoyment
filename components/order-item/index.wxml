@@ -8,6 +8,14 @@
 		{{options.SubjectDes}}
 
 		</view>
+		<view class="hidden-beyond course-total">
+	订单号:	{{options.OrderCode}}
+
+		</view>
+				<view class="hidden-beyond course-total">
+	订单时间:	{{options.CreatTime}}
+
+		</view>
 		<!-- 占位用的view -->
 		<view />
 		<view class="flex-row buy">

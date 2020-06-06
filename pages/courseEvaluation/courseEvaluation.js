@@ -12,7 +12,7 @@ Page({
     postData: {
       parentsId: "",
       subjectId: "",
-      appraise: "",
+      AppraiseToTeacher: "",
       img1: "",
       img2: "",
       img3: "",
@@ -23,7 +23,7 @@ Page({
     this.setData({
       postData: {
         ...postData,
-        appraise: e.detail
+        AppraiseToTeacher: e.detail,
       }
     })
   },
