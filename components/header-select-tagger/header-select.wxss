@@ -1,32 +1,36 @@
 .box {
   background: #fff;
-
 }
 
 .box-search {
-  padding: 6px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #eee;
-
+  height: 60rpx;
 }
 
 .center {
-  line-height: 44px;
+  line-height: 38px;
   text-align: center;
+  font-size: 24rpx;
   background: #fff !important;
 }
-.drop{
+.drop {
   border-bottom: 1px solid #eee;
+  height: 80rpx;
 }
-.box-select{
+.box-select {
   display: flex;
   justify-content: space-between;
-  padding: 24px;
+  height: 100%;
+  padding: 0 15px;
+  font-size: 24rpx;
+  line-height: 80rpx;
 }
-.image{
+.image {
   width: 24rpx;
   height: 24rpx;
 }
-.elis{
+.elis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

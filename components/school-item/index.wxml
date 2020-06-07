@@ -7,8 +7,8 @@
     <view class="title hidden-beyond">{{title}}</view>
     <!-- 学校详情 -->
     <view class="info flex-row hidden-beyond">
-      <view class="num">课程：<text class="green">{{options.SubjectList.length}}</text>个</view>
-      <view class="num">师资：<text class="green">{{options.TeacherList.length}}</text>个</view>
+      <view class="num">课程：<text class="green">{{courseNum}}</text>个</view>
+      <view class="num">师资：<text class="green">{{teacherNum}}</text>个</view>
       <view class="num">评分：<text class="green">{{options.Mark}}</text>分</view>
     </view>
     <!-- 学校类型 -->

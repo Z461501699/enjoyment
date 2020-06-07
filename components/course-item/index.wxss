@@ -7,6 +7,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1rpx solid #eee;
+
 }
 
 .course-item .course-box {

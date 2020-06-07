@@ -24,6 +24,7 @@ Page({
     isLoadAll: false,
     selectTitles: HEADER_SELECT_TITLES,
     selectOptions: HEADER_SELECT_OPTIONS,
+    isLoadAll: false,
     courseListParams: {
       Name: '',
       Status: 1,
@@ -114,7 +115,7 @@ Page({
       loadingMessage: '加载中',
     }).then(res => {
       console.log(res)
-      if (res.success && res.data.length) {
+      if (res.success) {
         let newArr = res.data
         console.log('newArr', newArr)
         newArr = newArr.map(item => {
@@ -126,15 +127,11 @@ Page({
         courseList = [...courseList, ...newArr]
         this.setData({
           courseList,
+          isLoadAll: res.data.length < courseListParams.PageSize,
           courseListParams: {
             ...courseListParams,
             PageIndex: courseListParams['PageIndex'] + 1
           }
-        })
-      } else if (res.success) {
-        wx.showToast({
-          title: '已经加载全部',
-          icon: 'none'
         })
       }
     })
@@ -303,6 +300,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    const that = this
+    const {
+      isLoadAll
+    } = that.data
+    if (isLoadAll) {
+      return
+    }
     this.getCourseList()
 
   },

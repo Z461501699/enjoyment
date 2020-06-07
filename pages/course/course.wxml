@@ -9,9 +9,14 @@
 		获取定位
 	</button>
 </header-select>
-<view style='width:100%; height:127px' />
+<view style='width:100%; height:110px' />
+
 <block wx:for="{{courseList}}" wx:key="*this">
 	<van-skeleton row="4" loading="{{ !courseList.length }}">
 		<course-item bind:toDetail="onToCourseDetail" options="{{item}}"></course-item>
 	</van-skeleton>
 </block>
+
+<view wx:if="{{isLoadAll}}" class="load-all">
+	没有更多课程啦~~~
+</view>

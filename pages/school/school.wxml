@@ -10,9 +10,9 @@
 		获取定位
 	</button>
 </header-select>
-<view style='width:100%; height:127px' />
+<view style='width:100%; height:110px' />
 <block wx:for="{{schoolList}}" wx:key="*this">
-	<school-item options="{{item}}" title="{{item.SchoolName}}" url="{{item.Logo}}" address="{{item.Address}}" data-id="{{item.Id}}" bind:toDetail="toDetail"></school-item>
+	<school-item options="{{item}}" title="{{item.SchoolName}}" courseNum="{{item.SubjectCount}}" teacherNum="{{item.TeacherCount}}" url="{{item.Logo}}" address="{{item.Address}}" data-id="{{item.Id}}" bind:toDetail="toDetail"></school-item>
 </block>
 
 <view wx:if="{{isLoadAll}}" class="load-all">
