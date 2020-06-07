@@ -1,1 +1,7 @@
 /* pages/salesReturnForm/salesReturnForm.wxss */
+.tips {
+  font-size: 22rpx;
+  color: #8F9AA8;
+  margin-top: 100rpx;
+  padding: 0 20rpx;
+}
