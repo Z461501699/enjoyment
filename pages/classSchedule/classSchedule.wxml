@@ -1,7 +1,8 @@
 <van-collapse accordion value="{{ subjectId }}" bind:change="onChange">
 	<block wx:for="{{classList}}" wx:key="*this">
 		<van-collapse-item content-class="custom-class" name="{{item.Id}}">
-		 <view style="width:500rpx" slot="title" data-id="{{item.Id}}" catchtap="onToDetail">{{item.Name}}</view>
+		 <!-- <view style="width:500rpx" slot="title" data-id="{{item.Id}}" catchtap="onToDetail">{{item.Name}}</view> -->
+		 <view style="width:500rpx" slot="title" data-id="{{item.Id}}">{{item.Name}}</view>
 			<block wx:for="{{item.children}}" wx:for-item="chindItem" wx:for-index="chindIndex" wx:key="*this">
 				<classSchedule-item options="{{chindItem}}" />
 			</block>
