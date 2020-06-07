@@ -8,7 +8,11 @@ Component({
       value: "请输入内容",
       type: String
     },
-    value: String
+    value: String,
+    disabled:{
+      value: false,
+      type: Boolean
+    }
   },
 
   /**
