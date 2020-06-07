@@ -5,12 +5,12 @@
 				<slot />
 			</van-col>
 			<van-col span='14'>
-				<van-field custom-style="background:#eee;border-radius:30px" left-icon='search' placeholder='搜索' value="{{search}}" bind:clear="onClear" bind:change="onChange" border="{{ false }}" clearable="{{true}}" />
+				<van-field custom-style="background:#eee;border-radius:30px;height: 60rpx;padding: 10rpx 20rpx;font-size: 24rpx;" left-icon='search' placeholder='搜索' value="{{search}}" bind:clear="onClear" bind:change="onChange" border="{{ false }}" clearable="{{true}}" />
 			</van-col>
 		</block>
 		<block wx:else="{{!hasPosition}}">
 			<van-col span='14' offset='6'>
-				<van-field custom-style="background:#eee;border-radius:30px" left-icon='search' placeholder='搜索' value="{{search}}" bind:clear="onClear" bind:change="onChange" border="{{ false }}" clearable="{{true}}" />
+				<van-field custom-style="background:#eee;border-radius:30px;height: 60rpx;padding: 10rpx 20rpx;font-size: 24rpx;" left-icon='search' placeholder='搜索' value="{{search}}" bind:clear="onClear" bind:change="onChange" border="{{ false }}" clearable="{{true}}" />
 			</van-col>
 		</block>
 		<van-col class="center" span='4' bind:tap='handleSearch'>查询</van-col>

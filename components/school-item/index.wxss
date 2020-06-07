@@ -8,7 +8,7 @@
   height: 240rpx;
   padding: 20rpx;
   justify-content: space-between;
-  border-bottom: 0.5rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
 }
 .school-container .left {
   width: 240rpx;
@@ -50,10 +50,10 @@
 }
 
 .school-container .right .type {
-  font-size: 28rpx;
+  font-size: 22rpx;
   color: #fff;
   line-height: 1;
-  padding: 6rpx 20rpx;
+  padding: 10rpx 20rpx;
   background-color: #39C339;
   border-radius: 10rpx;
 }
