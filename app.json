@@ -19,7 +19,8 @@
     "pages/courseEvaluation/courseEvaluation",
     "pages/modifyUserInfo/modifyUserInfo",
     "pages/salesReturnForm/salesReturnForm",
-    "pages/collect/collect"
+    "pages/collect/collect",
+    "pages/pay-money/pay-money"
   ],
   "window": {
     "backgroundTextStyle": "light",

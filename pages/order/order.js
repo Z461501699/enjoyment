@@ -16,8 +16,12 @@ Page({
     },
     isLoadAll: false
   },
-  toStudy() {
-    console.log('去学习');
+  toStudy({detail}) {
+    if(detail.OrderStatus === 2){
+      wx.navigateTo({ url: '/pages/pay-money/pay-money' });
+      
+    }
+    console.log('去学习',detail.OrderStatus);
   },
   // 获取订单列表
   getOrderList() {
@@ -36,6 +40,7 @@ Page({
       if (data && data.length) {
         data.forEach(item => {
           item.SubjectImg = App.Host + item.SubjectImg
+          item.CreatTime = item.CreatTime.replace('T',' ')
         })
       }
       that.setData({

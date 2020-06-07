@@ -3,6 +3,6 @@
 	<view class="status">课程状态:{{options['Status']==0?'未开始':(options['Status']==1?'开始':'已结束')}}</view>
 	<view class="btn">
 		<view class="evaluation" wx:if="{{!options['Appraise'] && options['Status']==2}}" data-id="{{options['Id']}}" bindtap="onToEvaluation">评价课程</view>
-		<view class="content" wx:if="{{options['AppraiseTostudert'] && options['Status']==2}}">课程评价：{{options['AppraiseTostudert']}}</view>
+		<view class="content" wx:if="{{options['AppraiseToStudert'] && options['Status']==2}}">课程评价：{{options['AppraiseToStudert']}}</view>
 	</view>
 </view>

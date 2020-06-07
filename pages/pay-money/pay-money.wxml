@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="bottom">
+    <button class="btn-submit" formType="submit">付款</button>
+  </view>
+</view>

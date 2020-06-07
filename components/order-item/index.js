@@ -22,8 +22,8 @@ Component({
    */
   methods: {
     bandleStudy() {
-      this.triggerEvent('study')
+      this.triggerEvent('study', this.data.options)
 
-    }
+    },
   }
 })
