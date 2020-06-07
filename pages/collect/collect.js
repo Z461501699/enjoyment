@@ -2,7 +2,7 @@
  * @Author: Arthur_Zhang
  * @Date: 2020-06-05 22:59:12
  * @lastEditors: Arthur_Zhang
- * @LastEditTime: 2020-06-05 23:51:05
+ * @LastEditTime: 2020-06-07 11:06:34
  * @Description:
  */
 
@@ -101,6 +101,8 @@ Page({
               return {};
             }
             item["Logo"] = `${App["Host"]}${item["Logo"]}`;
+            item["StartTime"] = item["StartTime"].replace("T", " ");
+            item["Status"] = ["取消", "报名中", "开始", "结束"][item["Status"]];
             return item;
           });
           this.setData({
