@@ -9,15 +9,15 @@
 
 .search-address {
   min-width: 20vw;
-  height: 8.7vh;
+  height: 5.7vh;
   line-height: 8.7vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30rpx;
+  font-size: 24rpx;
 }
 
 .search-address image {
-  width: 40rpx;
-  height: 40rpx;
+  width: 35rpx;
+  height: 35rpx;
 }

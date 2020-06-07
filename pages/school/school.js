@@ -104,16 +104,17 @@ Page({
       params: schoolListParams,
       loadingMessage: '加载中',
     }).then(res => {
-      console.log('successs', res);
+      console.log('学校列表', res, res.data.length < schoolListParams.PageSize);
       // success 为false时不继续操作
-      if (res.success && res.data.length) {
+      if (res.success) {
         let newArr = res.data.map(item => {
           item['Logo'] = `${App['Host']}${item['Logo']}`
           return item
         })
+        const isLoadAll = res.data.length < schoolListParams.PageSize
         that.setData({
           'schoolListParams.PageIndex': schoolListParams.PageIndex + 1,
-          isLoadAll: res.data.length < schoolListParams.PageSize,
+          isLoadAll,
           schoolList: schoolList.concat(newArr)
         })
       }
