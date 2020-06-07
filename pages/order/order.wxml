@@ -1,5 +1,5 @@
 <!-- pages/order/order.wxml -->
-<van-tabs class='order-fixd' active="{{ active }}" bind:change="onChange">
+<van-tabs class='order-fixd' active="{{ active }}" bind:click="onChange">
 		<van-tab title="全部订单" name="all" />
 		<van-tab title="待付款" name='1' />
 		<van-tab title="已付款" name='2' />

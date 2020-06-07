@@ -1,5 +1,16 @@
+
 <view class="container">
-  <view class="bottom">
-    <button class="btn-submit" formType="submit">付款</button>
-  </view>
+	<image class="tab-img" src="{{courseDetailData['SubjectImg']}}"></image>
+	<form bindsubmit="formSubmit">
+    	<couple-back title="课程名称">
+			<couple-back-input value="{{courseDetailData['SubjectName']}}" disabled />
+		</couple-back>
+		<couple-back title="订单金额(元)">
+			<couple-back-input value="{{courseDetailData['Amount']/100}}" disabled />
+		</couple-back>
+		<view class="bottom">
+			<button  class="btn-submit" formType="submit">订单付款</button>
+		</view>
+	</form>
+
 </view>

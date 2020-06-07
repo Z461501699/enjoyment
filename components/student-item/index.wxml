@@ -1,18 +1,20 @@
 <view class="student-container">
 	<view class="student-header">
-		<image mode="aspectFill" src="{{options['HeadImg']}}"></image>
+		<image mode="aspectFill" src="{{options['Avatar']}}"></image>
 	</view>
 	<view class="student-info">
 		<view class="name">{{options["Name"]}}</view>
-		<view class="name">年龄：<text style="color:#12AE85;font-size:28rpx;">{{options["Age"]}}</text> 岁</view>
-		<view class="name" style="color:#ccc;font-size:28rpx;">{{options["SchoolGrade"]+' '+options["SchoolGrade"]}}</view>
+		<view class="name"><text style="color:#12AE85;">{{options["Age"]}}</text> 岁</view>
+		<view class="name">
+		{{options["SchoolName"]}}
+		</view>
 		<view class="btn-box">
 			<view class="btn" bindtap="onView">
 				<image class="icon" src="../../images/icon/icon-look.png"></image> 查看课时表
 			</view>
-			<!-- <view class="btn" bindtap="onEdit">
+			<view class="btn" bindtap="onEdit">
 				<image class="icon" src="../../images/icon/icon-edit.png"></image> 编辑
-			</view> -->
+			</view>
 		</view>
 	</view>
 

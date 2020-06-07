@@ -20,8 +20,8 @@
 		<view />
 		<view class="flex-row buy">
 			<view class="buy-num">{{options.Amount}}人购买</view>
-			<view class="buy-btn" bind:tap="bandleStudy">
-				{{options.OrderStatus === 1 ? '去支付':'已付款'}}
+			<view wx:if="{{options.OrderStatus === 1}}"  class="buy-btn" bind:tap="bandleStudy" >
+				去支付
 			</view>
 		</view>
 	</view>

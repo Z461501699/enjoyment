@@ -54,9 +54,12 @@ Page({
       if (res.success) {
         let studentList = res.data
         studentList = studentList.map(item => {
-          // item['Avatar'] = `${App.Host}${item.Avatar}`
+          if(item['Avatar']){
+            item['Avatar'] = `${App.Host}${item.Avatar}`
+          }
           return item
         })
+        console.log('studentList',studentList)
         this.setData({
           studentList
         })

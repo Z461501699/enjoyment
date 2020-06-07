@@ -35,7 +35,7 @@ export const Apis = {
     UploadFileMult: { path: '/File/UploadFileMult' },//多个上传
 
     getSignUpStatus: { type: 'GET', path: '/api/Order/GetSignUpStatus' },//获取报名状态接口 根据学生课程id，判断报名状态
-    createOrder: { type: "POST", path: '/api/Order/CreateOrder' },//生成订单接口
+    createOrder: { type: "POST", path: '/api/Order/CreatOrder' },//生成订单接口
     setMessageFlag: { type: "GET", path: '/api/Message/SetMessageFlag' },//设置消息已读状态接口
     getFinanceList: { type: "GET", path: '/api/Finance/GetFinanceList' },//获取财务流水分页列表
     getCityInfoByLocation: { type: 'GET', path: '/api/Area/GetCityInfoByLocation' },//获取定位信息
@@ -54,6 +54,8 @@ export const Apis = {
     ApplyRefund: { type: "POST", path: '/api/Refund/ApplyRefund' },//退款申请接口
     GetSchoolList: { type: 'GET', path: '/api/Collection/GetSchoolList' },// 获取收藏的学校列表
     GetSubjectList: { type: 'GET', path: '/api/Collection/GetSubjectList' },// 获取收藏的课程列表
+    Payment: { type: 'GET', path: '/api/Order/Payment' },// 获取付款课程信息
+    GetOrderInfo: { type: 'GET', path: '/api/Order/GetOrderInfo' },// 获取付款课程信息
 };
 
 // keys

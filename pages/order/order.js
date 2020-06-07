@@ -16,12 +16,16 @@ Page({
     },
     isLoadAll: false
   },
-  toStudy({detail}) {
-    if(detail.OrderStatus === 2){
-      wx.navigateTo({ url: '/pages/pay-money/pay-money' });
-      
+  toStudy({
+    detail
+  }) {
+    if (detail.OrderStatus === 1) {
+      wx.navigateTo({
+        url: `/pages/pay-money/pay-money?id=${detail.OrderId}`,
+
+      });
+
     }
-    console.log('去学习',detail.OrderStatus);
   },
   // 获取订单列表
   getOrderList() {
@@ -40,15 +44,12 @@ Page({
       if (data && data.length) {
         data.forEach(item => {
           item.SubjectImg = App.Host + item.SubjectImg
-          item.CreatTime = item.CreatTime.replace('T',' ')
+          item.CreatTime = item.CreatTime.replace('T', ' ')
+        })
+        that.setData({
+          orderList: data
         })
       }
-      that.setData({
-        orderList: Array.isArray(data) ? that.data.orderList.concat(data) : [],
-        'orderParams.PageIndex': orderParams.PageIndex++,
-        isLoadAll: orderParams.PageSize > data.length
-      })
-
     })
   },
   // 初始数据
@@ -60,6 +61,7 @@ Page({
   },
   // 切换tabs
   onChange(event) {
+    console.log('event',event)
     this.setData({
       active: event.detail.name,
       'orderParams.OrderStatus': event.detail.name === 'all' ? '' : event.detail.name,
@@ -72,13 +74,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('options---------------',options, options.type, options.type == 'undefined')
+    console.log('options',options)
     const {
       active,
     } = this.data
     this.setData({
       active: options.type,
-      'orderParams.OrderStatus': '',
+      'orderParams.OrderStatus': options.type ?options.type:'',
       'orderParams.memberId': App.globalData.getUserId(),
     }, () => {
       this.getOrderList()
@@ -127,8 +129,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.isLoadAll) return
-    this.getOrderList()
+   
   },
 
   /**

@@ -65,7 +65,7 @@ Page({
     } else {
       return this.setData({
         'formData.payType': 3,
-        'formData.amount1': '0'
+        'formData.amount1': 0
       })
     }
   },
@@ -83,6 +83,7 @@ Page({
     })
   },
   submit(e) {
+    const that = this
     let {
       formData,
       courseDetailData
@@ -98,6 +99,7 @@ Page({
       loadingMessage: '加载中',
     }).then(res => {
       if (res.success) {
+        console.log('res----',res)
         wx.showToast({
           title: res.message,
           success: () => {
@@ -111,6 +113,22 @@ Page({
           }
         })
       }
+    })
+  },
+  // 去付款
+  payMent(orderId){
+    console.log('orderId',orderId)
+    App.request.start({
+      apiKey: "Payment",
+      params: {orderId},
+    }).then(data =>{
+      console.log('payMent',data)
+      wx.showToast({
+        title: res.message,
+        success: () => {
+         
+        }
+      })
     })
   },
   onIptAmount(e) {
