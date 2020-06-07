@@ -8,7 +8,8 @@ Component({
       type: Object,
       value: {}
     },
-    subjectId: String
+    classId: String,
+    studentId: String
   },
 
   /**
@@ -25,7 +26,7 @@ Component({
     onToViewComments(e) {
       let item = e.currentTarget.dataset.item
       wx.navigateTo({
-        url: `/pages/viewComments/viewComments?subjectId=${this.data.subjectId}&AppraiseToTeacher=${item['AppraiseToTeacher']}&AppraiseToStudent=${item['AppraiseToStudent']}`,
+        url: `/pages/viewComments/viewComments?classId=${this.data.classId}&AppraiseToTeacher=${item['AppraiseToTeacher']}&AppraiseToStudent=${item['AppraiseToStudent']}&studentId=${this.data.studentId}`,
       })
     }
   }

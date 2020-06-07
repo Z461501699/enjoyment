@@ -10,9 +10,9 @@ Page({
     fileList: [],
     schoolList: [],
     postData: {
-      parentsId: "",
-      subjectId: "",
-      AppraiseToTeacher: "",
+      studentId: "",
+      classId: "",
+      Appraise: "",
       img1: "",
       img2: "",
       img3: "",
@@ -23,7 +23,7 @@ Page({
     this.setData({
       postData: {
         ...postData,
-        AppraiseToTeacher: e.detail,
+        Appraise: e.detail,
       }
     })
   },
@@ -123,7 +123,7 @@ Page({
           success: () => {
             setTimeout(() => {
               wx.navigateBack({
-                delta: 1,
+                delta: 3,
               })
             }, 1500)
           }
@@ -136,8 +136,8 @@ Page({
    */
   onLoad: function (options) {
     let { postData } = this.data
-    postData['parentsId'] = App.globalData.getUserId()
-    postData['subjectId'] = options['subjectId']
+    postData['studentId'] = options['studentId']
+    postData['classId'] = options['classId']
     this.setData({
       postData
     }, () => {

@@ -6,7 +6,8 @@ Page({
    */
   data: {
     subjectId: '',
-    classList: []
+    classList: [],
+    studentId: ''
   },
 
   /**
@@ -14,9 +15,14 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    this.getSubjectByStudentId(options['id'])
+    this.setData({
+      studentId: options['id']
+    }, () => {
+      this.getSubjectByStudentId()
+    })
+
   },
-  onToDetail(e){
+  onToDetail(e) {
     wx.navigateTo({
       url: `/pages/courseDetail/courseDetail?subjectId=${e.currentTarget.dataset.id}`,
     })
@@ -28,7 +34,8 @@ Page({
       this.getClassList()
     });
   },
-  getSubjectByStudentId(studentId) {
+  getSubjectByStudentId() {
+    let { studentId } = this.data
     App.request.start({
       apiKey: 'GetSubjectByStudentId',
       params: {

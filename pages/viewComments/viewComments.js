@@ -5,9 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    subjectId:'',
-    AppraiseToTeacher:'',
-    AppraiseToStudent:'',
+    classId: '',
+    AppraiseToTeacher: '',
+    AppraiseToStudent: '',
+    studentId:''
   },
 
   /**
@@ -25,7 +26,7 @@ Page({
   },
   toAppraise() {
     wx.navigateTo({
-      url: `/pages/courseEvaluation/courseEvaluation?subjectId=${this.data.subjectId}`,
+      url: `/pages/courseEvaluation/courseEvaluation?classId=${this.data.classId}&studentId=${this.data.studentId}`,
     })
   },
   /**
