@@ -6,31 +6,35 @@ Page({
    */
   data: {
     steps: [],
+    active: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('options',options)
+    console.log('options', options)
     const steps = [
-      {
-        text: options.Flag === '1' ? '未退款':'退款成功',
-        desc: options.RefundTime
-      },
-      {
-        text: '银行处理',
-        desc: options.RefundTime
-      },
       {
         text: '发起退款',
         desc: options.CreateTime
+      },
+      {
+        text: '退款中',
+        desc: options.Flag === '2' ? options.RefundTime : ''
+      },
+      {
+        text: '退款成功',
+        desc: options.Flag === '2' ? options.RefundTime : ''
       }
     ]
+    let active = 0;
+    options.Flag == 2 ? active = 2 : active = 0
     this.setData({
-      steps
+      steps,
+      active
     })
-    console.log('detailOptions',options)
+    console.log('detailOptions', options)
   },
 
   /**
