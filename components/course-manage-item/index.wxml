@@ -5,7 +5,7 @@
 			{{options.Name}}
 		</view>
 		<view class="hidden-beyond course-total">
-			课时数:{{options.ClassCount}}
+			课程进度：{{options.ClassSchedule}}
 		</view>
 		<!-- 占位用的view -->
 		<view />
