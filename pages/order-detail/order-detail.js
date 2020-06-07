@@ -99,10 +99,23 @@ Page({
       loadingMessage: '加载中',
     }).then(res => {
       if (res.success) {
-        console.log('res----',res)
-        wx.showToast({
-          title: res.message,
-          success: () => {
+        console.log('res----', res)
+        this.payMent(res.data)
+      }
+    })
+  },
+  // 去付款
+  payMent(orderId) {
+    console.log('orderId', orderId)
+    App.request.start({
+      apiKey: "Payment",
+      params: { orderId },
+    }).then(data => {
+      console.log('payMent', data)
+      wx.showToast({
+        title: data.message,
+        success: () => {
+          if (data.success) {
             let page = getCurrentPages().slice(-2)[0];
             setTimeout(() => {
               if (page.getList) page.getList()
@@ -111,22 +124,7 @@ Page({
               })
             }, 1500)
           }
-        })
-      }
-    })
-  },
-  // 去付款
-  payMent(orderId){
-    console.log('orderId',orderId)
-    App.request.start({
-      apiKey: "Payment",
-      params: {orderId},
-    }).then(data =>{
-      console.log('payMent',data)
-      wx.showToast({
-        title: res.message,
-        success: () => {
-         
+
         }
       })
     })

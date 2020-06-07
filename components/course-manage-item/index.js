@@ -29,19 +29,8 @@ Component({
     },
     // 退款按钮
     handleRefund(e) {
-      wx.showModal({
-        title: '',
-        content: '您确定要退款吗？',
-        success: (res) => {
-          if (res.confirm) {
-            console.log(e)
-            wx.navigateTo({
-              url: `/pages/salesReturnForm/salesReturnForm?subjectId=${e.currentTarget.dataset.subjectid}&studentId=${this.data.studentId}`,
-            })
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
+      wx.navigateTo({
+        url: `/pages/salesReturnForm/salesReturnForm?subjectId=${e.currentTarget.dataset.subjectid}&studentId=${this.data.studentId}`,
       })
     },
     handleComment() {

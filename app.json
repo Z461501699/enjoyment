@@ -20,7 +20,8 @@
     "pages/modifyUserInfo/modifyUserInfo",
     "pages/salesReturnForm/salesReturnForm",
     "pages/collect/collect",
-    "pages/pay-money/pay-money"
+    "pages/pay-money/pay-money",
+    "pages/viewComments/viewComments"
   ],
   "window": {
     "backgroundTextStyle": "light",

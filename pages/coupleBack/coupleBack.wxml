@@ -1,14 +1,16 @@
 <couple-back>
 	<couple-back-picker bind:change='changePicker' />
 </couple-back>
-<couple-back title='学校列表'>
-	<couple-back-custom-picker range="{{schoolList}}" bind:change='changePicker2' />
-</couple-back>
+<block wx:if="{{postData['feedbackType']==1}}">
+	<couple-back title='学校列表'>
+		<couple-back-custom-picker range="{{schoolList}}" bind:change='changePicker2' />
+	</couple-back>
+</block>
 <couple-back title='反馈内容'>
 	<couple-back-textarea bind:change='textareaHandle' />
 </couple-back>
 <couple-back title='反馈图片'>
-<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />
+	<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />
 </couple-back>
 <!-- <view class="file-box">
 	<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />

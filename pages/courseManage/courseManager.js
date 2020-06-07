@@ -15,7 +15,7 @@ Page({
  */
   onToCourseDetail(e) {
     wx.navigateTo({
-      url: `/pages/courseDetail/courseDetail?subjectId=${e.detail.id}`,
+      url: `/pages/courseDetail/courseDetail?subjectId=${e.detail.id}&studentId=${this.data.studentId}`,
     })
   },
   // 切换学生
@@ -32,7 +32,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onShow: function (options) {
     this.getSudentListByParent()
   },
   getSubjectByStudentId() {
@@ -48,7 +48,7 @@ Page({
         let classList = res.data
         classList = classList.map(item => {
           item['Logo'] = `${App['Host']}${item['Logo']}`
-          item['Status'] = ['取消', '报名中', '开始', '结束'][item['Status']]
+          // item['Status'] = ['', '报名中', '开始', '结束'][item['Status']]
           return item
         })
         this.setData({
@@ -76,7 +76,8 @@ Page({
 
         this.setData({
           studentList,
-          studentId: studentList[0]['Id']
+          studentId: studentList[0]['Id'],
+          classList: []
         }, () => {
           this.getSubjectByStudentId()
         })

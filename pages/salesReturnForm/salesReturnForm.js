@@ -9,6 +9,7 @@ Page({
       refundAmount: '',
       subjectId: '',
       schoolId: '',
+      content: '',
       offClassCount: '',
       totalClassCount: '',
       img1: '',
@@ -16,7 +17,7 @@ Page({
       img3: '',
     },
     fileList: [],
-    imagesList:[]
+    imagesList: []
   },
 
   /**
@@ -40,18 +41,49 @@ Page({
             offClassCount: infoItem.OffClassCount,
             totalClassCount: infoItem.TotalClassCount,
             subjectId: params.subjectId,
-            refundAmount: infoItem.RefundAmount
+            refundAmount: infoItem.RefundAmount,
+            schoolId: infoItem.SchoolId,
+            studentId: params.studentId
           }
         })
       }
     })
   },
   formSubmit() {
-    let { formData,imagesList } = this.data;
+    let { formData, imagesList } = this.data;
     imagesList.map((item, index) => {
       formData[`img${index + 1}`] = item
     })
     console.log(formData)
+    wx.showModal({
+      title: '提示',
+      content: '是否退款?',
+      success: (ress) => {
+        if (ress.confirm) {
+          App.request.start({
+            apiKey: 'ApplyRefund',
+            params: formData,
+            loadingMessage: '加载中',
+          }).then(res => {
+            console.log(res)
+            if (res.success) {
+              wx.showToast({
+                title: res.message,
+                success: () => {
+                  setTimeout(() => {
+                    wx.navigateBack({
+                      delta: 1,
+                    })
+                  }, 1500)
+                }
+              })
+            }
+          })
+        } else if (ress.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   // 获取上传的图片
   getImages(e) {

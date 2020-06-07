@@ -7,10 +7,15 @@
 		<view class="hidden-beyond course-total">
 			课程进度：{{options.ClassSchedule}}
 		</view>
+		<view class="hidden-beyond course-total">
+			课程状态：{{options.Status==1?'报名中':options.Status==2?'进行中':options.Status==3?'已结束':options.Status==4?'已取消':''}}
+		</view>
 		<!-- 占位用的view -->
 		<view />
 		<view class="flex-row handle">
-			<view class="handle-refund" data-subjectId="{{options['Id']}}" catch:tap="handleRefund">退款</view>
+			<view class="course-total" style="text-align:right" wx:if="{{options['Status1']==1}}">申请退课中</view>
+			<view class="course-total" style="text-align:right" wx:if="{{options['Status1']==2}}">已退课</view>
+			<view wx:if="{{options['Status1']==0}}" class="handle-refund" data-subjectId="{{options['Id']}}" catch:tap="handleRefund">退款</view>
 			<!-- <view class="handle-btn" bind:tap="handleComment">
 				点评
 			</view> -->

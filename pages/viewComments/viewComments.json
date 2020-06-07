@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "couple-back": "/components/couple-back/index/index"
+  },
+  "navigationBarTitleText": "评价"
+}

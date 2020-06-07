@@ -1,0 +1,7 @@
+<couple-back title="老师点评">
+	<view class="content">{{AppraiseToStudent}}</view>
+</couple-back>
+<couple-back title="学生评价">
+	<view class="content">{{AppraiseToTeacher}}</view>
+	<view class="appraise" bindtap="toAppraise">评价课程</view>
+</couple-back>

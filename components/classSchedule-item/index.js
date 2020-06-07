@@ -7,7 +7,8 @@ Component({
     options: {
       type: Object,
       value: {}
-    }
+    },
+    subjectId: String
   },
 
   /**
@@ -21,9 +22,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onToEvaluation(e) {
+    onToViewComments(e) {
+      let item = e.currentTarget.dataset.item
       wx.navigateTo({
-        url: `/pages/courseEvaluation/courseEvaluation?subjectId=${e.currentTarget.dataset.id}`,
+        url: `/pages/viewComments/viewComments?subjectId=${this.data.subjectId}&AppraiseToTeacher=${item['AppraiseToTeacher']}&AppraiseToStudent=${item['AppraiseToStudent']}`,
       })
     }
   }

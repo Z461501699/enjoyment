@@ -1,7 +1,10 @@
 <view class='container'>
 	<form bindsubmit="formSubmit">
 		<couple-back essential title="退款金额">
-			<couple-back-input value="{{formData['Name']}}" data-formLabel="Name" bindinput="onIpt" placeholder="请输入退款金额"></couple-back-input>
+			<couple-back-input disabled value="{{formData['refundAmount']/100}}" data-formLabel="refundAmount" bindinput="onIpt" placeholder="请输入退款金额"></couple-back-input>
+		</couple-back>
+		<couple-back essential title="退款说明">
+			<couple-back-input value="{{formData['Content']}}" data-formLabel="Content" bindinput="onIpt" placeholder="请输入退款说明"></couple-back-input>
 		</couple-back>
 		<couple-back title='反馈图片'>
 			<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />
@@ -10,5 +13,5 @@
 	</form>
 </view>
 <view class="tips">
-Tips: 以上课程小于两节时，可全额退款，否则按照以上课程比例扣费。
+	Tips: 以上课程小于两节时，可全额退款，否则按照以上课程比例扣费。
 </view>
