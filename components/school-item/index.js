@@ -19,7 +19,7 @@ Component({
       type: String,
     },
     // 课程数量
-    sourseNum: {
+    courseNum: {
       value: 0,
       type: Number
     },
