@@ -12,7 +12,9 @@
 	</view>
 	<view class="btn-list">
 		<view class="btn-item" wx:for="{{btnList}}" wx:key="*this" data-path="{{item.path}}" bindtap="onNavigate">
-			<image class="icon" src="{{item.icon}}"></image>
+			<view class="flex-column icon-box" style="background-color:{{item.color}}">
+				<image class="icon" src="{{item.icon}}"></image>
+			</view>
 			<view class="text">{{item.name}}</view>
 		</view>
 	</view>

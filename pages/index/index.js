@@ -8,19 +8,26 @@ Page({
     btnList: [{
       name: '课程',
       icon: '../../images/icon/icon_course.png',
-      path: '/pages/courseManage/courseManager'
+      path: '/pages/courseManage/courseManager',
+      color: '#F84819'
     }, {
       name: '订单',
       icon: '../../images/icon/icon_order.png',
-      path: '/pages/order/order'
+      path: '/pages/order/order',
+      color: '#2AA4F4'
+
     }, {
       name: '消息',
       icon: '../../images/icon/icon_message.png',
-      path: '/pages/message/message'
+      path: '/pages/message/message',
+      color: '#39C339'
+
     }, {
       name: '反馈',
       icon: '../../images/icon/icon_feedback.png',
-      path: '/pages/coupleBack/coupleBack'
+      path: '/pages/coupleBack/coupleBack',
+      color: '#F488C0'
+
     }],
     subjectList: [],
     schoolList: [],

@@ -31,6 +31,8 @@
   height: 240rpx;
   box-sizing: border-box;
   padding: 20rpx 0;
+  background-color: #f6f6f6;
+  margin-top: 10rpx;
 }
 
 .course-left {
