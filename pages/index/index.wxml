@@ -20,7 +20,7 @@
 	</view>
 	<list-title title="学校推荐" bind:click="onToSchoolList" showMore>
 		<block wx:for="{{schoolList}}" wx:key="*this">
-			<school-item  options="{{item}}" title="{{item.SchoolName}}" url="{{item.Logo}}" address="{{item.Address}}" data-id="{{item.Id}}" bind:toDetail="toSchoolDetail"></school-item>
+			<school-item  options="{{item}}" title="{{item.SchoolName}}" url="{{item.Logo}}" address="{{item.Address}}" courseNum="{{item.SubjectCount}}" teacherNum="{{item.TeacherCount}}" data-id="{{item.Id}}" bind:toDetail="toSchoolDetail"></school-item>
 		</block>
 	</list-title>
 	<list-title title="课程推荐" bind:click="onToCourseList" showMore>
