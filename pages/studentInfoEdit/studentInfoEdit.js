@@ -82,10 +82,10 @@ Page({
         title: '请输入学生姓名',
       })
       return true
-    }else if (!data['Content']) {
+    }else if (!data['Age']) {
       wx.showToast({
         icon: 'none',
-        title: '请输入退款说明',
+        title: '请输入年龄',
       })
       return true
     } else if (!data['Avatar']) {
