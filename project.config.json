@@ -26,7 +26,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.0",
-	"appid": "wx99bb50060cd144fa",
+	"appid": "wx01642165d1d4fb9e",
 	"projectname": "enjoyment",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -125,6 +125,13 @@
 					"id": -1,
 					"name": "pages/courseDetail/courseDetail",
 					"pathName": "pages/courseDetail/courseDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
 					"scene": null
 				}
 			]

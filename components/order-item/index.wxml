@@ -19,7 +19,7 @@
 		<!-- 占位用的view -->
 		<view />
 		<view class="flex-row buy">
-			<view class="buy-num">{{options.Amount}}人购买</view>
+			<view class="buy-num"></view>
 			<view wx:if="{{options.OrderStatus === 1}}"  class="buy-btn" bind:tap="bandleStudy" >
 				去支付
 			</view>

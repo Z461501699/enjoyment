@@ -58,7 +58,6 @@ Page({
         orderId: courseDetailData.OrderId
       },
     }).then((data) => {
-      console.log('data+++',data,data.success)
     if(data.success){
       wx.showToast({
         title: '报名成功'
@@ -68,7 +67,34 @@ Page({
   },
   // 微信支付
   payWeiXin(){
-
+    const {
+      courseDetailData
+    } = this.data
+    App.request.start({
+      apiKey: 'Payment',
+      params: {
+        orderId: courseDetailData.OrderId
+      },
+    }).then((data) => {
+      if(data.success){
+        wx.requestPayment({
+          timeStamp: data.Timestamp,
+          nonceStr: data.NonceStr,
+          package: data.Package,
+          signType: 'MD5',
+          paySign: data.PaySign,
+          success (res) { 
+            console.log('success',res)
+          },
+          fail (res) {
+            console.log('fail',res)
+           }
+        })
+      }
+    
+   
+    })
   }
+  // 
 
 })
