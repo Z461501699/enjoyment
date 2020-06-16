@@ -106,27 +106,45 @@ Page({
   },
   // 去付款
   payMent(orderId) {
+    
     console.log('orderId', orderId)
     App.request.start({
       apiKey: "Payment",
       params: { orderId },
-    }).then(data => {
+    }).then(({data,success}) => {
       console.log('payMent', data)
-      wx.showToast({
-        title: data.message,
-        success: () => {
-          if (data.success) {
-            let page = getCurrentPages().slice(-2)[0];
-            setTimeout(() => {
-              if (page.getList) page.getList()
-              wx.navigateBack({
-                delta: 1,
-              })
-            }, 1500)
-          }
-
-        }
-      })
+      if(success){
+        wx.requestPayment({
+          timeStamp: data.Timestamp,
+          nonceStr: data.NonceStr,
+          package: data.Package,
+          signType: 'MD5',
+          paySign: data.PaySign,
+          success (data) { 
+            console.log('success',data)
+            wx.navigateTo({url:'/pages/courseManage/courseManager'})
+            // wx.showToast({
+            //   title: data.errMsg,
+            //   success: () => {
+            //     if (data.success) {
+            //       let page = getCurrentPages().slice(-2)[0];
+            //       setTimeout(() => {
+            //         if (page.getList) page.getList()
+            //         wx.navigateBack({
+            //           delta: 1,
+            //         })
+            //       }, 1500)
+            //     }
+      
+            //   }
+            // })
+          },
+          fail (res) {
+            console.log('fail',res)
+           }
+        })
+      }
+     
     })
   },
   onIptAmount(e) {
