@@ -26,7 +26,7 @@ Page({
       }
 
     ],
-    toggle:false,
+    toggle: false,
     schoolList: [],
     pageSize: 10,
     pageNo: 1,
@@ -38,8 +38,8 @@ Page({
       Phone: '',
       PageSize: 10,
       PageIndex: 1,
-      Sort:'DefaultSort',
-      SortType:'desc'
+      Sort: 'DefaultSort',
+      SortType: 'desc'
     },
     selectTitles: HEADER_SELECT_TITLES,
     selectOptions: HEADER_SELECT_OPTIONS
@@ -49,13 +49,13 @@ Page({
     detail
   }) {
     this.toggle = !this.toggle
-    const SortType = this.toggle ? 'asc':'desc'
+    const SortType = this.toggle ? 'asc' : 'desc'
     this.setData({
-      'schoolListParams.Sort':detail,
-      'schoolListParams.SortType':SortType,
-    },()=>{
-      console.log('this',this.data.schoolListParams)
-      this.initData(()=>{
+      'schoolListParams.Sort': detail,
+      'schoolListParams.SortType': SortType,
+    }, () => {
+      console.log('this', this.data.schoolListParams)
+      this.initData(() => {
         this.getSchoolList()
       })
     })
@@ -67,12 +67,12 @@ Page({
     console.log('搜索', detail)
     this.initData()
     this.setData({
-      "schoolListParams.SchoolName":detail
-    },()=>{
-     
+      "schoolListParams.SchoolName": detail
+    }, () => {
+
       this.getSchoolList()
     })
-    
+
   },
   getList(num) {
     this.initData(() => {
@@ -151,15 +151,20 @@ Page({
     let {
       locationData
     } = this.data;
-    this.getLocationStr().then(addLocation => {
-      console.log(!!locationData)
-      if (!!locationData) {
-        this.getSchoolList()
-      } else {
-        this.getCityInfoByLocation(addLocation).then(res => {
+    this.getSetting().then(() => {
+      this.getLocationStr().then(addLocation => {
+        if (!!locationData) {
           this.getSchoolList()
-        })
-      }
+        } else {
+          this.getCityInfoByLocation(addLocation).then(ress => {
+            this.getSchoolList()
+          })
+        }
+      })
+    }).catch(() => {
+      this.setData({
+        isGetLocation: false,
+      })
     })
   },
   //跳转选择城市

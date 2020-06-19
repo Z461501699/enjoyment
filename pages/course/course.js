@@ -152,15 +152,21 @@ Page({
     let {
       locationData
     } = this.data;
-    this.getLocationStr().then(addLocation => {
-      if (!!locationData) {
-        this.getCourseList()
-      } else {
-        this.getCityInfoByLocation(addLocation).then(res => {
+    this.getSetting().then(() => {
+      this.getLocationStr().then(addLocation => {
+        if (!!locationData) {
           this.getCourseList()
-        })
-      }
-    })
+        } else {
+          this.getCityInfoByLocation(addLocation).then(res => {
+            this.getCourseList()
+          })
+        }
+      })
+    }).catch(() => {
+      this.setData({
+        isGetLocation: false,
+      })
+    })  
   },
   //跳转选择城市
   onSelectAddress() {

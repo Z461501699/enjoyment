@@ -7,7 +7,7 @@ import { Host } from './common/config'
 
 App({
   Host: null,
-  // userInfoReadyCallback: null,
+  userInfoReadyCallback: null,
   globalData: null,
   request: null,
   common: null,
@@ -30,10 +30,13 @@ App({
     //   }
     // })
     // 获取用户信息
-  
+
   },
-  onShow(){
+  onShow() {
     console.log('onshow')
+    this.getSettingLogin()
+  },
+  getSettingLogin() {
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -47,7 +50,6 @@ App({
                   this.userInfoReadyCallback(res)
                 }
               });
-
             }
           })
         }
@@ -56,7 +58,7 @@ App({
   },
   onHide() {
     console.log('hide')
-    wx.clearStorage()
+    // wx.clearStorage()
   },
   // 统一缓存用户信息
   setUserInfo({ wxInfo = false, userInfo = false, userId = false, token = false }) {
