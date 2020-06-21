@@ -11,7 +11,7 @@ Page({
     orderParams: {
       PageIndex: 1,
       PageSize: 10,
-      memberId: '',
+      MemberId: '',
       OrderStatus: ""
     },
     isLoadAll: false
