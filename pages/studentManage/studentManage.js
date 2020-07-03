@@ -55,7 +55,7 @@ Page({
         let studentList = res.data
         studentList = studentList.map(item => {
           if(item['Avatar']){
-            item['Avatar'] = `${App.Host}${item.Avatar}`
+            item['AvatarShow'] = `${App.Host}${item.Avatar}`
           }
           return item
         })

@@ -64,10 +64,10 @@ Page({
     ],
     sexList: [{
       label: '男',
-      value: 1
+      value: '1'
     }, {
       label: '女',
-      value: 2
+      value: '2'
     }],
     sexKey: {
       label: 'label',
@@ -111,7 +111,6 @@ Page({
     let type = options['type']
     if (options['type'] === 'edit') {
       this.edit()
-
     } else {
       this.add()
     }
@@ -149,11 +148,13 @@ Page({
     formData['ParentId'] = App.globalData.getUserId()
     formData['Name'] = selectItem['Name'];
     formData['Sex'] = selectItem['Sex'];
+    formData['Age'] = selectItem['Age'];
     formData['SchoolName'] = selectItem['SchoolName'];
     formData['SchoolGrade'] = selectItem['SchoolGrade'];
     formData['SchoolNumber'] = selectItem['SchoolNumber'];
     formData['SchoolClass'] = selectItem['SchoolClass'];
-    // formData['Avatar'] = selectItem['Avatar'];
+    formData['Avatar'] = selectItem['Avatar'];
+    formData['id'] = selectItem['Id'];
     this.setData({
       formData
     })
@@ -163,7 +164,7 @@ Page({
     let { formData, type } = this.data, apiKey = ''
     console.log(App.globalData.getToken())
     if (this.verifyData(formData)) return
-    console.log(App.globalData.getToken())
+    console.log(formData)
     wx.showModal({
       title: '提示',
       content: '是否添加学生?',

@@ -1,6 +1,7 @@
 const App = getApp();
 Page({
   data: {
+    payState: true,
     courseDetailData: {},
     studentList: [],
     keys: {
@@ -43,6 +44,19 @@ Page({
       courseDetailData
     }, () => {
       this.getSudentListByParent()
+      this.getBPayState()
+    })
+  },
+  getBPayState() {
+    App.request.start({
+      apiKey: 'GetBPayState',
+      params: {},
+      loadingMessage: '加载中',
+    }).then(res => {
+      console.log(res.data)
+      this.setData({
+        payState: res.data
+      })
     })
   },
   // 处理支付方式
@@ -75,7 +89,11 @@ Page({
       content: '是否提交订单?',
       success: (res) => {
         if (res.confirm) {
-          this.submit(e)
+          if (this.data.payState) {
+            this.submit(e)
+          } else {
+              
+          }
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -106,23 +124,23 @@ Page({
   },
   // 去付款
   payMent(orderId) {
-    
+
     console.log('orderId', orderId)
     App.request.start({
       apiKey: "Payment",
       params: { orderId },
-    }).then(({data,success}) => {
+    }).then(({ data, success }) => {
       console.log('payMent', data)
-      if(success){
+      if (success) {
         wx.requestPayment({
           timeStamp: data.Timestamp,
           nonceStr: data.NonceStr,
           package: data.Package,
           signType: 'MD5',
           paySign: data.PaySign,
-          success (data) { 
-            console.log('success',data)
-            wx.navigateTo({url:'/pages/courseManage/courseManager'})
+          success(data) {
+            console.log('success', data)
+            wx.navigateTo({ url: '/pages/courseManage/courseManager' })
             // wx.showToast({
             //   title: data.errMsg,
             //   success: () => {
@@ -135,16 +153,16 @@ Page({
             //         })
             //       }, 1500)
             //     }
-      
+
             //   }
             // })
           },
-          fail (res) {
-            console.log('fail',res)
-           }
+          fail(res) {
+            console.log('fail', res)
+          }
         })
       }
-     
+
     })
   },
   onIptAmount(e) {

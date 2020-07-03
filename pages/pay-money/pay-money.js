@@ -2,6 +2,7 @@ const App = getApp();
 
 Page({
   data: {
+    payState: true,
     params: {
 
     },
@@ -13,7 +14,20 @@ Page({
       orderId: options.id
     })
     this.getPayDetail()
+    this.getBPayState()
     console.log('payMoney', options)
+  },
+  getBPayState() {
+    App.request.start({
+      apiKey: 'GetBPayState',
+      params: {},
+      loadingMessage: '加载中',
+    }).then(res => {
+      console.log(res.data)
+      this.setData({
+        payState: res.data
+      })
+    })
   },
   // 获取付款详情
   getPayDetail() {
@@ -37,11 +51,11 @@ Page({
   // 提交订单
   formSubmit() {
     const {
-      courseDetailData
+      courseDetailData, payState
     } = this.data
     if (courseDetailData.Amount === courseDetailData.Amount1) {
       this.payPag()
-    } else {
+    } else if (payState) {
       this.payWeiXin()
     }
     console.log('data---', this.data.courseDetailData)
@@ -58,15 +72,15 @@ Page({
         orderId: courseDetailData.OrderId
       },
     }).then((data) => {
-    if(data.success){
-      wx.showToast({
-        title: '报名成功'
-      })
-    }
+      if (data.success) {
+        wx.showToast({
+          title: '报名成功'
+        })
+      }
     })
   },
   // 微信支付
-  payWeiXin(){
+  payWeiXin() {
     const {
       courseDetailData
     } = this.data
@@ -76,23 +90,23 @@ Page({
         orderId: courseDetailData.OrderId
       },
     }).then((data) => {
-      if(data.success){
+      if (data.success) {
         wx.requestPayment({
           timeStamp: data.Timestamp,
           nonceStr: data.NonceStr,
           package: data.Package,
           signType: 'MD5',
           paySign: data.PaySign,
-          success (res) { 
-            console.log('success',res)
+          success(res) {
+            console.log('success', res)
           },
-          fail (res) {
-            console.log('fail',res)
-           }
+          fail(res) {
+            console.log('fail', res)
+          }
         })
       }
-    
-   
+
+
     })
   }
   // 

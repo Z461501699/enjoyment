@@ -1,6 +1,6 @@
 <view class="student-container">
 	<view class="student-header">
-		<image mode="aspectFill" src="{{options['Avatar']}}"></image>
+		<image mode="aspectFill" src="{{options['AvatarShow']}}"></image>
 	</view>
 	<view class="student-info">
 		<view class="name">{{options["Name"]}}</view>

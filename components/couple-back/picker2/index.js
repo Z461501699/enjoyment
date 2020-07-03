@@ -6,7 +6,7 @@ Component({
   properties: {
     data: Array,
     keys: Object,
-    value: Number,
+    value: String,
     placeholder: String,
     disabled: {
       type: Boolean,
@@ -23,7 +23,7 @@ Component({
   ready() {
     let { value, data, keys } = this.properties;
     let selectIndex = data.findIndex((item, index) => {
-      return value === item[keys['value']]
+      return value == item[keys['value']]
     })
     this.setData({
       selectIndex

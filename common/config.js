@@ -52,10 +52,11 @@ export const Apis = {
     DelCollection: { type: 'GET', path: '/api/Collection/DelCollection' },// 取消收藏
     GetRefundDetail: { type: 'GET', path: '/api/Refund/GetRefundDetail' },//获取退款信息
     ApplyRefund: { type: "POST", path: '/api/Refund/ApplyRefund' },//退款申请接口
-    GetSchoolList: { type: 'GET', path: '/api/Collection/GetSchoolList' },// 获取收藏的学校列表
-    GetSubjectList: { type: 'GET', path: '/api/Collection/GetSubjectList' },// 获取收藏的课程列表
-    Payment: { type: 'GET', path: '/api/Order/Payment' },// 获取付款课程信息
-    GetOrderInfo: { type: 'GET', path: '/api/Order/GetOrderInfo' },// 获取付款课程信息
+    GetSchoolList: { type: 'GET', path: '/api/Collection/GetSchoolList' },// 获取收藏的学校列表
+    GetSubjectList: { type: 'GET', path: '/api/Collection/GetSubjectList' },// 获取收藏的课程列表
+    Payment: { type: 'GET', path: '/api/Order/Payment' },// 获取付款课程信息
+    GetOrderInfo: { type: 'GET', path: '/api/Order/GetOrderInfo' },// 获取付款课程信息
+    GetBPayState: { type: 'GET', path: '/api/Member/GetBPayState' },// ********
 };
 
 // keys
