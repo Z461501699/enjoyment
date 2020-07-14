@@ -28,9 +28,9 @@ Component({
         fileModule: '1',
         filePath: file.path
       }).then(res => {
-        console.log(res)
         if (res.success) {
           let data = JSON.parse(res.data)
+          console.log(data)
           fileList.push({ url: file.path, ...file });
           this.setData({
             fileList
@@ -38,6 +38,12 @@ Component({
             this.triggerEvent('upload', { value: data.Result })
           });
         }
+      }).catch(err=>{
+        console.log('err',err)
+        wx.showToast({
+          icon:'none',
+          title: err.Message,
+        })
       })
 
     },

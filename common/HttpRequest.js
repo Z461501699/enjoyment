@@ -119,12 +119,20 @@ export default class HTTPRequest {
                 },
                 formData: {},
                 success: function (res) {
+                    // console.log(111111,res)
                     if (options.loadingMessage) {
                         wx.hideLoading();
                     }
                     //接口访问正常返回数据
                     if (res.statusCode == 200) {
                         //1. 操作成功返回数据,原则上只针对服务器端返回成功的状态（如本例中为000000）
+                        let data=JSON.parse(res.data)
+                        console.log(data)
+                        if(!data.Tag){
+                            reject({
+                                Message:'图片检测违规，请重新上传'
+                            })
+                        }
                         if (res.data.Result) {
                             resolve({
                                 success: true,
