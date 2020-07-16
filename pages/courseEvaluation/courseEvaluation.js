@@ -94,6 +94,14 @@ Page({
               imagesList
             })
           })
+          .catch(err=>{
+            console.log('err',err)
+            wx.showToast({
+              icon:'none',
+              title: err.Message,
+            })
+          })
+          
         )
         Promise.all(promiseAll).then(res => {
           resolve(res)
