@@ -1,13 +1,13 @@
 <view class="container">
 	<van-tabs color="#12AE85" active="{{ params['Flag'] }}" bind:change="onChange">
-		<van-tab title="支出">
+		<van-tab title="流出">
 			<view class="list">
 				<block wx:for="{{dataList}}" wx:key="*this">
 					<financial-item options="{{item}}"></financial-item>
 				</block>
 			</view>
 		</van-tab>
-		<van-tab title="收入">
+		<van-tab title="流入">
 			<view class="list">
 				<block wx:for="{{dataList}}" wx:key="*this">
 					<financial-item options="{{item}}"></financial-item>

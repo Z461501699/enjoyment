@@ -2,7 +2,9 @@
   "usingComponents": {
     "couple-back": "/components/couple-back/index/index",
     "couple-back-input": "/components/couple-back/input/index",
-    "couple-back-pick": "/components/couple-back/picker2/index"
+    "couple-back-pick": "/components/couple-back/picker2/index",
+    "couple-back-uploadFile": "/components/couple-back/uploadFile/index"
+
   },
   "navigationBarTitleText": "退款"
 }

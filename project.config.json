@@ -136,6 +136,27 @@
 					"id": -1,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/coupleBack/coupleBack",
+					"pathName": "pages/coupleBack/coupleBack",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/studentInfoEdit/studentInfoEdit",
+					"pathName": "pages/studentInfoEdit/studentInfoEdit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/personal/personal",
+					"pathName": "pages/personal/personal",
 					"scene": null
 				}
 			]

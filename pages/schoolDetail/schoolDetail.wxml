@@ -16,9 +16,9 @@
 		<image bindtap="onShowMoreMsg" class="introduction-icon {{isShowAll?'':'rotate90'}}" src="../../images/icon/icon_down.png"></image>
 </school-title>
 <!-- 公司官网 -->
-<school-title title="公司官网">
+<!-- <school-title title="公司官网">
 		<view class="url">https://www.yiweichuangxiang.com</view>
-</school-title>
+</school-title> -->
 <!-- 公司地址 -->
 <school-title title="公司地址">
 		<view class="flex-column map-box">

@@ -120,14 +120,14 @@ Page({
   },
   onIpt(e) {
     console.log(e)
-    let { formData } = this.data,
-      value = e.detail.value,
+    let { formData } = this.data
+      value = e.detail.value
       label = e.currentTarget.dataset.formlabel
-    console.log(label)
     this.setData({
       formData: {
         ...formData,
         [label]: value
+
       }
     })
   },
@@ -153,11 +153,12 @@ Page({
     formData['SchoolGrade'] = selectItem['SchoolGrade'];
     formData['SchoolNumber'] = selectItem['SchoolNumber'];
     formData['SchoolClass'] = selectItem['SchoolClass'];
-    formData['Avatar'] = selectItem['Avatar'];
+    formData['Avatar'] = App.Host +  selectItem['Avatar'];
     formData['id'] = selectItem['Id'];
     this.setData({
       formData
     })
+    console.log("formData",)
   },
 
   formSubmit(e) {
@@ -236,7 +237,7 @@ Page({
     this.setData({
       formData: {
         ...formData,
-        Avatar: e.detail.value
+        Avatar:  e.detail.value
       }
     })
   },

@@ -6,8 +6,9 @@
 		<couple-back essential title="年龄">
 			<couple-back-input value="{{formData['Age']}}" data-formLabel="Age" bindinput="onIpt" placeholder="请输入年龄"></couple-back-input>
 		</couple-back>
+		
 		<couple-back essential title="头像">
-			<couple-back-uploadFile value="{{formData['Avatar']}}" bindupload="onUploadAvata"></couple-back-uploadFile>
+			<couple-back-uploadFile  value="{{formData['Avatar']}}" bindupload="onUploadAvata"></couple-back-uploadFile>
 		</couple-back>
 		<couple-back essential title="性别">
 			<couple-back-pick value="{{formData['Sex']}}" bindchange="onChangeSex" data="{{sexList}}" keys="{{sexKey}}" placeholder="请输入性别"></couple-back-pick>
