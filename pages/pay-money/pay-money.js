@@ -73,6 +73,7 @@ Page({
       },
     }).then((data) => {
       if (data.success) {
+        App.getSettingLogin()
         wx.showToast({
           title: '报名成功'
         })
@@ -99,8 +100,9 @@ Page({
           package: res.data.Package,
           signType: 'MD5',
           paySign: res.data.PaySign,
-          success(ress) {
+          success: (ress) => {
             console.log('success', ress)
+            App.getSettingLogin()
             wx.navigateTo({ url: '/pages/courseManage/courseManager' })
           },
           fail(res) {
