@@ -89,16 +89,19 @@ Page({
       params: {
         orderId: courseDetailData.OrderId
       },
-    }).then((data) => {
-      if (data.success) {
+    }).then((res) => {
+      console.log(res)
+      console.log(res.data.Timestamp)
+      if (res.success) {
         wx.requestPayment({
-          timeStamp: data.Timestamp,
-          nonceStr: data.NonceStr,
-          package: data.Package,
+          timeStamp: res.data.Timestamp,
+          nonceStr: res.data.NonceStr,
+          package: res.data.Package,
           signType: 'MD5',
-          paySign: data.PaySign,
-          success(res) {
-            console.log('success', res)
+          paySign: res.data.PaySign,
+          success(ress) {
+            console.log('success', ress)
+            wx.navigateTo({ url: '/pages/courseManage/courseManager' })
           },
           fail(res) {
             console.log('fail', res)
