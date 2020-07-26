@@ -80,7 +80,7 @@ Page({
     } = this.data
     this.setData({
       active: options.type,
-      'orderParams.OrderStatus': options.type ?options.type:'',
+      'orderParams.OrderStatus': options.type !== 'undefined' ? options.type:'',
       'orderParams.memberId': App.globalData.getUserId(),
     }, () => {
       this.getOrderList()

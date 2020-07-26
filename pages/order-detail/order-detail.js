@@ -66,10 +66,10 @@ Page({
       formData
     } = this.data
     const money = App.globalData.getUserInfo().Wallet || 0
-    if (money >= m && money > 0) {
+    if (!money) {
       return this.setData({
-        'formData.payType': 1,
-        'formData.amount1': m,
+        'formData.payType': 3,
+        'formData.amount1': 0,
       })
     } else if (money < m && money > 0) {
       return this.setData({
@@ -78,8 +78,8 @@ Page({
       })
     } else {
       return this.setData({
-        'formData.payType': 3,
-        'formData.amount1': 0
+        'formData.payType': 1,
+        'formData.amount1': m
       })
     }
   },
@@ -109,7 +109,7 @@ Page({
     formData['subjectId'] = courseDetailData['Id'];
     formData['amount'] = courseDetailData['PreferentialPrice'];
     if (!formData['amount1']) formData['amount1'] = 0
-    console.log(formData)
+    console.log('formData', formData)
     // return
     App.request.start({
       apiKey: "createOrder",
@@ -132,37 +132,40 @@ Page({
     }).then(({ data, success }) => {
       console.log('payMent', data)
       if (success) {
-        wx.requestPayment({
-          timeStamp: data.Timestamp,
-          nonceStr: data.NonceStr,
-          package: data.Package,
-          signType: 'MD5',
-          paySign: data.PaySign,
-          success(data) {
-            console.log('success', data)
-            wx.navigateTo({ url: '/pages/courseManage/courseManager' })
-            // wx.showToast({
-            //   title: data.errMsg,
-            //   success: () => {
-            //     if (data.success) {
-            //       let page = getCurrentPages().slice(-2)[0];
-            //       setTimeout(() => {
-            //         if (page.getList) page.getList()
-            //         wx.navigateBack({
-            //           delta: 1,
-            //         })
-            //       }, 1500)
-            //     }
-
-            //   }
-            // })
-          },
-          fail(res) {
-            console.log('fail', res)
-          }
-        })
+        if(this.data.formData.payType !== 1){
+          wx.requestPayment({
+            timeStamp: data.Timestamp,
+            nonceStr: data.NonceStr,
+            package: data.Package,
+            signType: 'MD5',
+            paySign: data.PaySign,
+            success(data) {
+              console.log('success', data)
+              wx.navigateTo({ url: '/pages/courseManage/courseManager' })
+              // wx.showToast({
+              //   title: data.errMsg,
+              //   success: () => {
+              //     if (data.success) {
+              //       let page = getCurrentPages().slice(-2)[0];
+              //       setTimeout(() => {
+              //         if (page.getList) page.getList()
+              //         wx.navigateBack({
+              //           delta: 1,
+              //         })
+              //       }, 1500)
+              //     }
+  
+              //   }
+              // })
+            },
+            fail(res) {
+              console.log('fail', res)
+            }
+          })
+        } else {
+          wx.navigateTo({ url: '/pages/courseManage/courseManager' })
+        };
       }
-
     })
   },
   onIptAmount(e) {
