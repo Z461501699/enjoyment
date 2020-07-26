@@ -12,7 +12,7 @@ Page({
       SchoolNumber: '',
       Avatar: '',
       ParentId: '',
-      Content:''
+      Content: ''
     },
     GradeList: [
       {
@@ -82,7 +82,7 @@ Page({
         title: '请输入学生姓名',
       })
       return true
-    }else if (!data['Age']) {
+    } else if (!data['Age']) {
       wx.showToast({
         icon: 'none',
         title: '请输入年龄',
@@ -107,7 +107,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     let type = options['type']
     if (options['type'] === 'edit') {
       this.edit()
@@ -120,14 +119,13 @@ Page({
   },
   onIpt(e) {
     console.log(e)
-    let { formData } = this.data
-      value = e.detail.value
+    let { formData } = this.data,
+      value = e.detail.value,
       label = e.currentTarget.dataset.formlabel
     this.setData({
       formData: {
         ...formData,
         [label]: value
-
       }
     })
   },
@@ -153,12 +151,12 @@ Page({
     formData['SchoolGrade'] = selectItem['SchoolGrade'];
     formData['SchoolNumber'] = selectItem['SchoolNumber'];
     formData['SchoolClass'] = selectItem['SchoolClass'];
-    formData['Avatar'] = App.Host +  selectItem['Avatar'];
+    formData['Avatar'] = App.Host + selectItem['Avatar'];
     formData['id'] = selectItem['Id'];
     this.setData({
       formData
     })
-    console.log("formData",)
+    console.log("formData")
   },
 
   formSubmit(e) {
@@ -168,7 +166,7 @@ Page({
     console.log(formData)
     wx.showModal({
       title: '提示',
-      content: '是否添加学生?',
+      content: type == 'edit' ? '确认修改学生信息？' : '是否添加学生?',
       success: (res) => {
         if (res.confirm) {
 
@@ -232,12 +230,12 @@ Page({
     })
   },
   onUploadAvata(e) {
-    console.log(e)
     let { formData } = this.data
+    console.log(formData)
     this.setData({
       formData: {
         ...formData,
-        Avatar:  e.detail.value
+        Avatar: e.detail.value
       }
     })
   },

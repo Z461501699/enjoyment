@@ -14,7 +14,16 @@ Component({
   data: {
     fileList: [],
   },
-  attached() {
+  ready() {
+    console.log(this.data.value)
+    let { value } = this.data
+    if (value) {
+      this.setData({
+        fileList: [{
+          url: value
+        }]
+      })
+    }
   },
   /**
    * 组件的方法列表
@@ -38,10 +47,10 @@ Component({
             this.triggerEvent('upload', { value: data.Result })
           });
         }
-      }).catch(err=>{
-        console.log('err',err)
+      }).catch(err => {
+        console.log('err', err)
         wx.showToast({
-          icon:'none',
+          icon: 'none',
           title: err.Message,
         })
       })
