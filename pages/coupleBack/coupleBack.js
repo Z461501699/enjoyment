@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+  
     imagesList: [],
     fileList: [],
     schoolList: [],
@@ -109,6 +110,27 @@ Page({
       fileList
     })
   },
+  onUploadAvata(e) {
+    console.log('e',e)
+    const fileList = e.detail.fileList
+    const {postData} = this.data
+    if(fileList.length){
+      this.setData({
+        'postData.img1': fileList[0].value|| '',
+        'postData.img2': fileList[1]&& fileList[1].value|| '',
+        'postData.img3':  fileList[2]&&fileList[2].value|| '',
+      })
+    };
+  
+    let { formData } = this.data
+    console.log('postData', postData)
+    this.setData({
+      formData: {
+        ...formData,
+        Avatar: e.detail.value
+      }
+    })
+  },
   // 上传图片
   upload(listName) {
     const that = this
@@ -155,9 +177,9 @@ Page({
       success: (res) => {
         if (res.confirm) {
           let { postData, imagesList } = this.data
-          imagesList.map((item, index) => {
-            postData[`img${index + 1}`] = item
-          })
+          // imagesList.map((item, index) => {
+          //   postData[`img${index + 1}`] = item
+          // })
           if (postData['feedbackType'] == 0) {
             postData['schoolId'] = ''
           }

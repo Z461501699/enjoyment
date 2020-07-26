@@ -9,12 +9,15 @@
 <couple-back title='反馈内容'>
 	<couple-back-textarea bind:change='textareaHandle' />
 </couple-back>
-<couple-back title='反馈图片'>
+<!-- <couple-back title='反馈图片'>
 	<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />
-</couple-back>
+</couple-back> -->
 <!-- <view class="file-box">
 	<van-uploader bind:delete="handleDelImage" file-list="{{ fileList }}" max-count="3" multiple accept="image" bind:after-read="getImages" />
 </view> -->
+		<couple-back title="反馈图片">
+			<couple-back-uploadFile count="3"  value="{{formData['Avatar']}}" bindupload="onUploadAvata"></couple-back-uploadFile>
+		</couple-back>
 <view class="bottom">
 	<button class="btn-submit" bind:tap="handleSubmit">提交反馈</button>
 </view>

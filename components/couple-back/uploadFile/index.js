@@ -5,7 +5,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    value: String
+    value: String,
+    count:{
+      type: Number,
+      value:1
+    }
   },
 
   /**
@@ -39,12 +43,12 @@ Component({
       }).then(res => {
         if (res.success) {
           let data = JSON.parse(res.data)
-          console.log(data)
-          fileList.push({ url: file.path, ...file });
+          console.log('data', data)
+          fileList.push({ url: file.path, ...file,value:data.Result });
           this.setData({
             fileList
           }, () => {
-            this.triggerEvent('upload', { value: data.Result })
+            this.triggerEvent('upload', {fileList, value: data.Result })
           });
         }
       }).catch(err => {
@@ -65,7 +69,7 @@ Component({
       this.setData({
         fileList
       }, () => {
-        this.triggerEvent('upload', { file: { path: '' } })
+        this.triggerEvent('upload', {fileList, file: { path: '' } })
       })
     }
   }

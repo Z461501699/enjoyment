@@ -3,7 +3,9 @@
     "couple-back": "/components/couple-back/index/index",
     "couple-back-picker": "/components/couple-back/picker/index",
     "couple-back-custom-picker": "/components/couple-back/custom-picker/custom-picker",
-    "couple-back-textarea": "/components/couple-back/textarea/index"
+    "couple-back-textarea": "/components/couple-back/textarea/index",
+    "couple-back-uploadFile": "/components/couple-back/uploadFile/index"
+
   },
   "navigationBarTitleText": "反馈"
 }
