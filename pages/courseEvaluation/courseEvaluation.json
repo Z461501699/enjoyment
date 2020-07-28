@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "couple-back": "/components/couple-back/index/index",
-    "couple-back-textarea": "/components/couple-back/textarea/index"
+    "couple-back-textarea": "/components/couple-back/textarea/index",
+    "couple-back-uploadFile": "/components/couple-back/uploadFile/index"
+
   },
   "navigationBarTitleText": "课程评价"
 }

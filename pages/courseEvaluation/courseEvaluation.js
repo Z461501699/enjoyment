@@ -113,6 +113,27 @@ Page({
 
 
   },
+  onUploadAvata(e) {
+    console.log('e',e)
+    const fileList = e.detail.fileList
+    const {postData} = this.data
+    if(fileList.length){
+      this.setData({
+        'postData.img1': fileList[0].value|| '',
+        'postData.img2': fileList[1]&& fileList[1].value|| '',
+        'postData.img3':  fileList[2]&&fileList[2].value|| '',
+      })
+    };
+  
+    let { formData } = this.data
+    console.log('postData', postData)
+    this.setData({
+      formData: {
+        ...formData,
+        Avatar: e.detail.value
+      }
+    })
+  },
   // 提交表单
   handleSubmit(e) {
     let { postData, imagesList } = this.data

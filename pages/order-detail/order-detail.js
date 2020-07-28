@@ -53,7 +53,7 @@ Page({
       params: {},
       loadingMessage: '加载中',
     }).then(res => {
-      console.log(res.data)
+      console.log('getBPayState', res.data)
       this.setData({
         payState: res.data
       })
@@ -89,7 +89,9 @@ Page({
       content: '是否提交订单?',
       success: (res) => {
         if (res.confirm) {
+          console.log('this',this.data)
           if (this.data.payState) {
+
             this.submit(e)
           } else {
               
