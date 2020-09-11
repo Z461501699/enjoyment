@@ -8,7 +8,8 @@
 // 生产状态
 export const ProductStatus = false;
 // 测试环境
-const HostTest = 'http://114.67.205.242:8083';
+// const HostTest = 'http://114.67.205.242:8083';
+const HostTest = 'https://api.qdxiangke.com';
 // 生产环境
 const HostProduct = '';
 // 域名
