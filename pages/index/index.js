@@ -38,13 +38,12 @@ Page({
       url: e.currentTarget.dataset.path,
     })
   },
-  onLoad: function () {
-    App.userInfoReadyCallback = res => {
-      console.log(res)
+  onShow: function () {
+    // App.userInfoReadyCallback = res => {
       this.getRecommendedSubjectList();
       this.getRecommendedSchoolList();
       this.getAdList()
-    }
+    // }
   },
   getAdList() {
     App.request.start({
@@ -97,6 +96,8 @@ Page({
           subjectList
         })
       }
+    }).catch(err => {
+      console.log(err)
     })
   },
   /**

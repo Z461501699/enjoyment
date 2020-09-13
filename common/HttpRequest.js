@@ -81,6 +81,9 @@ export default class HTTPRequest {
                                 icon: "none",
                                 title: result.message
                             })
+                            wx.switchTab({
+                                url: '/pages/personal/personal',
+                            })
                         }
                     }
 
@@ -90,6 +93,9 @@ export default class HTTPRequest {
                     if (loadingMessage) {
                         wx.hideLoading();
                     }
+                    wx.switchTab({
+                        url: '/pages/personal/personal',
+                    })
                     reject(error)
                 }
 
