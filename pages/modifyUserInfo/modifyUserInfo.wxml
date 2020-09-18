@@ -7,9 +7,9 @@
 <input-box title="电话">
 	<input-item value="{{formData['phone']}}" bindinput="handleGetPhoneNum" placeholder="请输入电话" />
 </input-box>
-<input-box title="邮箱地址">
+<!-- <input-box title="邮箱地址">
 	<input-item value="{{formData['email']}}" bindinput="handleGetEmail" placeholder="请输入邮箱地址" />
-</input-box>
+</input-box> -->
 <input-box title="当前住址">
 	<input-item value="{{formData['address']}}" bindinput="handleGetAddress" placeholder="请输入当前住址" />
 </input-box>

@@ -168,13 +168,13 @@ Page({
       })
       return
     }
-    if (!isEmail(formData.email)) {
-      wx.showToast({
-        title: '请输入正确的邮箱地址',
-        icon: 'none'
-      })
-      return
-    }
+    // if (!isEmail(formData.email)) {
+    //   wx.showToast({
+    //     title: '请输入正确的邮箱地址',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
     this.updateMemberInfo(formData)
   }
 })
