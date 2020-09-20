@@ -81,9 +81,9 @@ export default class HTTPRequest {
                                 icon: "none",
                                 title: result.message
                             })
-                            wx.switchTab({
-                                url: '/pages/personal/personal',
-                            })
+                            // wx.switchTab({
+                            //     url: '/pages/personal/personal',
+                            // })
                         }
                     }
 
