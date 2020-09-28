@@ -14,8 +14,21 @@ Page({
       ParentId: '',
       Content: ''
     },
-    GradeList: [
+    GradeList: [{
+        label: '小小班',
+        value: '小小班'
+      },
       {
+        label: '小班',
+        value: '小班'
+      }, {
+        label: '中班',
+        value: '中班'
+      },
+      {
+        label: '大班',
+        value: '大班'
+      }, {
         label: '一年级',
         value: '一年级'
       }, {
@@ -33,35 +46,37 @@ Page({
       }, {
         label: '六年级',
         value: '六年级'
+      },
+      {
+        label: '其他',
+        value: '其他'
       }
     ],
-    SchoolClassList: [
-      {
-        label: '一班',
-        value: '一班'
-      }, {
-        label: '二班',
-        value: '二班'
-      }, {
-        label: '三班',
-        value: '三班'
-      }, {
-        label: '四班',
-        value: '四班'
-      }, {
-        label: '五班',
-        value: '五班'
-      }, {
-        label: '六班',
-        value: '六班'
-      }, {
-        label: '七班',
-        value: '七班'
-      }, {
-        label: '八班',
-        value: '八班'
-      },
-    ],
+    SchoolClassList: [{
+      label: '一班',
+      value: '一班'
+    }, {
+      label: '二班',
+      value: '二班'
+    }, {
+      label: '三班',
+      value: '三班'
+    }, {
+      label: '四班',
+      value: '四班'
+    }, {
+      label: '五班',
+      value: '五班'
+    }, {
+      label: '六班',
+      value: '六班'
+    }, {
+      label: '七班',
+      value: '七班'
+    }, {
+      label: '八班',
+      value: '八班'
+    }, ],
     sexList: [{
       label: '男',
       value: '1'
@@ -119,7 +134,9 @@ Page({
   },
   onIpt(e) {
     console.log(e)
-    let { formData } = this.data,
+    let {
+      formData
+    } = this.data,
       value = e.detail.value,
       label = e.currentTarget.dataset.formlabel
     this.setData({
@@ -131,7 +148,9 @@ Page({
   },
 
   add() {
-    let { formData } = this.data,
+    let {
+      formData
+    } = this.data,
       ParentId = App.globalData.getUserId()
     this.setData({
       formData: {
@@ -142,7 +161,10 @@ Page({
   },
   edit() {
     let page = getCurrentPages().slice(-2)[0];
-    let selectItem = page.data.selectItem, { formData } = this.data;
+    let selectItem = page.data.selectItem,
+      {
+        formData
+      } = this.data;
     formData['ParentId'] = App.globalData.getUserId()
     formData['Name'] = selectItem['Name'];
     formData['Sex'] = selectItem['Sex'];
@@ -160,7 +182,10 @@ Page({
   },
 
   formSubmit(e) {
-    let { formData, type } = this.data, apiKey = ''
+    let {
+      formData,
+      type
+    } = this.data, apiKey = ''
     console.log(App.globalData.getToken())
     if (this.verifyData(formData)) return
     console.log(formData)
@@ -201,7 +226,9 @@ Page({
   },
   onChangeSex(e) {
     console.log(e)
-    let { formData } = this.data
+    let {
+      formData
+    } = this.data
     this.setData({
       formData: {
         ...formData,
@@ -211,7 +238,9 @@ Page({
   },
   onChangeSchoolClass(e) {
     console.log(e)
-    let { formData } = this.data
+    let {
+      formData
+    } = this.data
     this.setData({
       formData: {
         ...formData,
@@ -221,7 +250,9 @@ Page({
   },
   onChangeGrade(e) {
     console.log(e)
-    let { formData } = this.data
+    let {
+      formData
+    } = this.data
     this.setData({
       formData: {
         ...formData,
@@ -230,7 +261,9 @@ Page({
     })
   },
   onUploadAvata(e) {
-    let { formData } = this.data
+    let {
+      formData
+    } = this.data
     console.log(formData)
     this.setData({
       formData: {
