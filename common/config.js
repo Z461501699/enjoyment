@@ -58,6 +58,7 @@ export const Apis = {
     Payment: { type: 'GET', path: '/api/Order/Payment' },// 获取付款课程信息
     GetOrderInfo: { type: 'GET', path: '/api/Order/GetOrderInfo' },// 获取付款课程信息
     GetBPayState: { type: 'GET', path: '/api/Member/GetBPayState' },// ********
+    CloseOrder:{type: 'GET', path: '/api/Order/CloseOrder'} // 取消支付订单
 };
 
 // keys

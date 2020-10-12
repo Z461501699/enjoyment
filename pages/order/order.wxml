@@ -6,7 +6,7 @@
 </van-tabs>
 <view style='margin-top:64px' wx:if="{{orderList && orderList.length}}">
 		<block wx:for="{{orderList}}" wx:key="*this">
-				<order-item options="{{item}}" bind:study="toStudy" />
+				<order-item options="{{item}}" bind:study="toStudy" bind:cancel='toCancel'/>
 		</block>
 		<view class="load-all">没有更多课程了</view>
 </view>

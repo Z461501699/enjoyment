@@ -23,7 +23,9 @@ Component({
   methods: {
     bandleStudy() {
       this.triggerEvent('study', this.data.options)
-
+    },
+    cancelStudy() {
+      this.triggerEvent('cancel', this.data.options)
     },
   }
 })

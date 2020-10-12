@@ -2,6 +2,7 @@
 
 @import '/style/global.wxss';
 
+
 .container {
   height: 230rpx;
   padding: 20rpx;
@@ -52,6 +53,12 @@
 
 .container .info .buy .buy-btn {
   background-color: var(--theme-color);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10rpx 20rpx;
+}
+.container .info .buy .cancel {
+  background-color: red;
   color: #fff;
   border-radius: 10px;
   padding: 10rpx 20rpx;

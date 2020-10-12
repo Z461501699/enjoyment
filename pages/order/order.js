@@ -12,7 +12,7 @@ Page({
       PageIndex: 1,
       PageSize: 10,
       MemberId: '',
-      OrderStatus: ""
+      OrderStatus: ''
     },
     isLoadAll: false
   },
@@ -24,6 +24,27 @@ Page({
         url: `/pages/pay-money/pay-money?id=${detail.OrderId}`,
 
       });
+
+    }
+  },
+  // 取消订单
+  toCancel({
+    detail
+  }) {
+    if (detail.OrderStatus === 1) {
+      App.request.start({
+          apiKey: 'CloseOrder',
+          params: {
+            orderId: detail.OrderId,
+          }
+        })
+        .then(() => {
+          this.setData({
+            orderList: []
+          })
+          this.getOrderList()
+        })
+      console.log('cancel', detail)
 
     }
   },
@@ -41,6 +62,7 @@ Page({
     }).then(({
       data
     }) => {
+
       if (data && data.length) {
         data.forEach(item => {
           item.SubjectImg = App.Host + item.SubjectImg
@@ -61,7 +83,7 @@ Page({
   },
   // 切换tabs
   onChange(event) {
-    console.log('event',event)
+    console.log('event', event)
     this.setData({
       active: event.detail.name,
       'orderParams.OrderStatus': event.detail.name === 'all' ? '' : event.detail.name,
@@ -74,13 +96,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('options',options)
+    console.log('options', options)
     const {
       active,
     } = this.data
     this.setData({
       active: options.type,
-      'orderParams.OrderStatus': options.type !== 'undefined' ? options.type:'',
+      'orderParams.OrderStatus': options.type !== 'undefined' ? options.type : '',
       'orderParams.memberId': App.globalData.getUserId(),
     }, () => {
       this.getOrderList()
@@ -129,7 +151,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-   
+
   },
 
   /**
